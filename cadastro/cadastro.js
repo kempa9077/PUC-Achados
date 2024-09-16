@@ -57,7 +57,7 @@ function requisitar(metodo, dados) {
             }
         };
 
-        let url = '../php/cadastro.php';
+        let url = 'cadastro.php';
 
         // Adiciona o corpo da requisição se for POST
         if (metodo === 'POST') {
