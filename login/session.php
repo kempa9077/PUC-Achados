@@ -1,6 +1,4 @@
 <?php
-include 'funcoes_banco.php';
-
 function criarSessao($usuario) {
     session_start();                     // Inicia a sessão
     $_SESSION['usuario'] = $usuario;    // Armazena os dados do usuário na sessão
@@ -24,7 +22,7 @@ function encerrarSessao() {
     session_destroy();
 
     // Redirecionar para a página de login
-    header("Location: ..//html/login.html");
+    header("Location: login.html");
     exit();
 }
 

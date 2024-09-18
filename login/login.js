@@ -5,7 +5,7 @@ document.getElementById("enviar").addEventListener("click", function() {
     console.log("Email: " + email);
     console.log("Senha: " + senha); 
 
-    fetch('../php/login.php', {
+    fetch('login.php', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/x-www-form-urlencoded'
@@ -16,9 +16,9 @@ document.getElementById("enviar").addEventListener("click", function() {
     .then(data => {
         console.log(data); // era pra eu ver oque está retornando do PHP
         if (data === 'success') {
-            window.location.href = '../php/teste_sessao.php';
+            window.location.href = '../lv1/teste_sessao.php';
         } else {
-            alert('Login falhou. Pq vc é burro e quebrou algo');
+            alert('Algo ta quebrado');
         }
     })
     .catch(error => console.error('Erro:', error));
