@@ -1,6 +1,6 @@
 // Função para buscar e exibir todas as pessoas da tabela
 function carregarPessoas() {
-    fetch('../php/gerenciar_pessoa.php?acao=buscar')
+    fetch('gerenciar_pessoa.php?acao=buscar')
         .then(response => response.json())
         .then(data => {
             const tabela = document.getElementById('corpoTabela');
@@ -33,7 +33,7 @@ function atualizarPessoa(cpf) {
     const registro_puc = document.getElementById(`registro_${cpf}`).value;
     const acesso_nivel = document.getElementById(`acesso_${cpf}`).value;
 
-    fetch('../php/gerenciar_pessoa.php?acao=atualizar', {
+    fetch('gerenciar_pessoa.php?acao=atualizar', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/x-www-form-urlencoded',
@@ -50,7 +50,7 @@ function atualizarPessoa(cpf) {
 // Função para deletar uma pessoa
 function deletarPessoa(cpf) {
     if (confirm("Tem certeza que deseja deletar essa pessoa?")) {
-        fetch('../php/gerenciar_pessoa.php?acao=deletar', {
+        fetch('gerenciar_pessoa.php?acao=deletar', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/x-www-form-urlencoded',

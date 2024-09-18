@@ -1,5 +1,5 @@
 <?php
-require_once("funcoes_banco.php");
+require_once("..//funcoes_banco.php");
 
 // Função para retornar dados como JSON
 function json_return($var) {
