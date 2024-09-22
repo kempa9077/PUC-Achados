@@ -1,23 +1,36 @@
 <?php
 require_once("../funcoes_banco.php");
 
-// Supondo que você armazena o CPF do usuário na sessão
-$cpf_usuario = $_SESSION['usuario']['cpf']; // Ajuste conforme o armazenamento na sessão
 
-$nome_item = $_POST['nome_item'];
-$tipo_item = $_POST['tipo_item'];
-$bloco_encontro = $_POST['bloco_encontro'];
-$sala_encontro = $_POST['sala_encontro'];
-$data_perda = $_POST['data_perda'];
-$descricao = $_POST['descricao'];
+// precisa puxar pelo js ou fazer o $status = $_POST['status'];
+// ta inspirado no inset do cadastro, mas sla
+function inserirProcotocolo(){
+    $tabela = "protocolo";
+    $colunas = "status,data_abertura,data_perda,pessoa_abertura,local_bloco,objeto,descricao";
+    $valores = "'".$post['status']."','".$post['data_abertura']."',
+                '".$post['data_perda']."','".$post['pessoa_abertura'].",
+                '".$post['local_bloco']."','".$post['objeto']."','".$post['descricao']."'";
 
-// Preparar SQL para inserir o protocolo
-$sql = "INSERT INTO protocolo (cpf_usuario, nome_item, tipo_item, bloco_encontro, sala_encontro, data_perda, descricao) VALUES ('$cpf_usuario', '$nome_item', '$tipo_item', '$bloco_encontro', '$sala_encontro', '$data_perda', '$descricao')";
-$result = atualizar_dado($sql);
+    $result = inserir_dado($tabela,$colunas,$valores);
+    
+    if ($result === "Registro inserido com sucesso") {
+        echo "Protocolo registrado com sucesso!";
+    } else {
+        echo "Erro ao registrar protocolo: $result";
+    }
+}
+// pode ta errado como sempre
+if (isset($_GET['acao'])) {
+    $acao = $_GET['acao'];
 
-if ($result === "Registro inserido com sucesso") {
-    echo "Protocolo registrado com sucesso!";
+    switch ($acao) {
+        case 'buscar':
+            inserirProcotocolo();
+            break;
+        default:
+            echo "Ação inválida.";
+    }
 } else {
-    echo "Erro ao registrar protocolo: $result";
+    echo "Nenhuma ação especificada.";
 }
 ?>
