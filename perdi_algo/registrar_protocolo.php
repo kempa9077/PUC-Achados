@@ -19,8 +19,9 @@ function inserirObjeto(){
 
 // precisa puxar pelo js ou fazer o $status = $_POST['status'];
 // ta inspirado no inset do cadastro, mas sla
-function inserirProcotocolo(inserirObjeto()){
-    $objeto = LAST_INSERT_ID;
+function inserirProcotocolo(){
+    $objeto = inserirObjeto();
+    /*
     $status = $_POST['0'];
     $data_abertura = $_POST['NOW()'];
     $tabela = "proto    colo";
@@ -34,7 +35,7 @@ function inserirProcotocolo(inserirObjeto()){
         echo "Protocolo registrado com sucesso!";
     } else {
         echo "Erro ao registrar protocolo: $result";
-    }
+    }*/
 }
 // pode ta errado como sempre
 if (isset($_GET['acao'])) {

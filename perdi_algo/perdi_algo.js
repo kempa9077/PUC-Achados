@@ -67,6 +67,10 @@ function caixaBlocos() {
     salaSelect.disabled = isChecked;
 }
 
+// 1º - Criar o listener do SELECT on change do Bloco (categoria)
+// 2º - Na chamada, pegar o value do option selecionado e passar por parametro para  a função carregar salas
+// 3º - Ajustar e dar debug console para verificar o retorno do data filtrado
+
 // Função para habilitar/desabilitar campo de data
 function caixaData() {
     const isChecked = document.getElementById('checkbox_data').checked;

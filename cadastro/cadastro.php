@@ -23,6 +23,7 @@ if (isset($_GET['metodo'])) {
 
 // Verifica se a requisição é POST
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    
     // Recebe o que está vindo por INPUT
     $json = file_get_contents('php://input');
     // Decodifica o JSON em um array associativo
