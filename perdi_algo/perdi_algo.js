@@ -40,7 +40,7 @@ function carregarBlocos() {
 }
 
 function carregarSalas(id_bloco) {
-    fetch('carregar_blocos.php')
+    fetch(`carregar_salas.php?id_bloco=${id_bloco}`)
         .then(response => response.json())
         .then(data => {
             const salaEncontro = document.getElementById('sala_encontro');
@@ -58,7 +58,7 @@ function carregarSalas(id_bloco) {
 
 
 // Função para habilitar/desabilitar campos de bloco e sala
-function toggleBlocoFields() {
+function caixaBlocos() {
     const isChecked = document.getElementById('checkbox_bloco').checked;
     const blocoSelect = document.getElementById('bloco_encontro');
     const salaSelect = document.getElementById('sala_encontro');
@@ -68,7 +68,7 @@ function toggleBlocoFields() {
 }
 
 // Função para habilitar/desabilitar campo de data
-function toggleDateField() {
+function caixaData() {
     const isChecked = document.getElementById('checkbox_data').checked;
     document.getElementById('date').disabled = isChecked;
 }
@@ -97,7 +97,7 @@ document.getElementById('enviar_objeto').addEventListener('click', function() {
         document.getElementById('tipo_item').selectedIndex = 0;
         document.getElementById('bloco_encontro').selectedIndex = 0;
         document.getElementById('sala_encontro').selectedIndex = 0;
-        document.getElementById('date').value = '';
+        document.getElementById('date_encontrado').value = '';
         document.getElementById('descricao').value = '';
     });
 });
