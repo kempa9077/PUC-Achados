@@ -45,11 +45,9 @@
                 <a id="pagina_protocolos_sem_cadastro" class="menu-btn">Meus Protocolos</a>
             </div>
             <div class="divnav">  
-                    <!-- Adicionar href -->
                 <a href="" id="pagina_estoque_sem_cadastro">
                     <img src="..\img\icon-estoque.png" alt="Estoque Icon">
                 </a>
-                    <!-- Adicionar href -->
                 <a href="" id="pagina_estoque_sem_cadastro" class="menu-btn">Objetos em Estoque</a>
             </div>
         </div>
@@ -76,16 +74,9 @@
                         <th>DATA FECHAMENTO</th>
                     </tr>
                 </thead>
-                <tbody>
-                    <tr descricao-do-item="Moletom Nike branco com mangas pretas">
-                        <td>919192</td>
-                        <td>Moletom Nike</td>
-                        <td>Roupas</td>
-                        <td>Em estoque</td>
-                        <td>15/09/2024</td>
-                        <td>18/09/2024</td>
-                        <td>-</td>
-                    </tr>
+                <tbody id="protocolos-tbody">
+                    <!-- Os dados dos protocolos serão inseridos aqui via PHP -->
+                    <?php include('pagFun_protocolo.php'); ?>
                 </tbody>
             </table>
         </div>
