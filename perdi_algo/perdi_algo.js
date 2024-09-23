@@ -8,11 +8,12 @@ function carregarCategorias() {
     fetch('carregar_categorias.php')
         .then(response => response.json())
         .then(data => {
+            console.log(data);
             const tipoItem = document.getElementById('tipo_item');
             data.forEach(categoria => {
                 const option = document.createElement('option');
                 option.value = categoria.id; // Ajuste conforme a chave primária
-                option.textContent = categoria.nome; // Ajuste conforme o nome da categoria
+                option.textContent = categoria.categoria; // Ajuste conforme o nome da categoria
                 tipoItem.appendChild(option);
             });
         });
@@ -23,15 +24,38 @@ function carregarBlocos() {
     fetch('carregar_blocos.php')
         .then(response => response.json())
         .then(data => {
+            const arrBlocos = [];
+            data.forEach(local => {
+                arrBlocos[local.bloco] = local.bloco;
+            });
+
             const blocoEncontro = document.getElementById('bloco_encontro');
-            data.forEach(bloco => {
+            arrBlocos.forEach(bloco => {
                 const option = document.createElement('option');
-                option.value = bloco.id_bloco; // Ajuste conforme a chave primária
-                option.textContent = bloco.id_bloco; // Ajuste conforme o nome do bloco
+                option.value = bloco; // Ajuste conforme a chave primária
+                option.textContent = bloco; // Ajuste conforme o nome do bloco
                 blocoEncontro.appendChild(option);
             });
         });
 }
+
+function carregarSalas(id_bloco) {
+    fetch('carregar_blocos.php')
+        .then(response => response.json())
+        .then(data => {
+            const salaEncontro = document.getElementById('sala_encontro');
+            data.forEach(bloco => {
+                const option = document.createElement('option');
+                if(id_bloco === data.bloco){
+                    option.value = data.id_local; // Ajuste conforme a chave primária
+                    option.textContent = data.sala; // Ajuste conforme o nome do bloco
+                    salaEncontro.appendChild(option);
+                }
+            });
+        });
+}
+
+
 
 // Função para habilitar/desabilitar campos de bloco e sala
 function toggleBlocoFields() {
