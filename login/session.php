@@ -17,10 +17,8 @@ function encerrarSessao() {
             $params["secure"], $params["httponly"]
         );
     }
-
     // Destruir a sessão
     session_destroy();
-
     // Redirecionar para a página de login
     header("Location: login.html");
     exit();
