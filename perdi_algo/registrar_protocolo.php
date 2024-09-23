@@ -8,7 +8,7 @@ function inserirProcotocolo(){
     $tabela = "protocolo";
     $colunas = "status,data_abertura,data_perda,pessoa_abertura,local_perda,objeto,descricao";
     $valores = "'".$post['status']."','".$post['data_abertura']."',
-                '".$post['data_perda']."','".$post['pessoa_abertura'].",
+                '".$post['data_perda']."','".$post['usuario']['cpf'].",
                 '".$post['local_perda']."','".$post['objeto']."','".$post['descricao']."'";
 
     $result = inserir_dado($tabela,$colunas,$valores);
