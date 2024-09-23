@@ -4,25 +4,29 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="login.css">
+  <title>Login</title>
 </head>
 <body>
     <div id="login-container">  
-        <h3>Fazer login</h3>
-        <h4>Digite seu e-mail e senha</h4>
 
-        <div class="form-row">
-            <input id="email_id" type="email" placeholder="E-mail" name="email" required>
-        </div>  
+        <a id="voltar-home">&times;</a>
 
-        <div class="form-row">
-            <input id="senha_id" type="password" placeholder="Senha" name="senha" required>
-        </div>
+        <a title="Voltar à Home" href="../"><img src="../img/logo-texto-preto.png" alt="Logo PUC" id="logo-login"></a>
 
-        <!-- Botão de login que acionará o login.js -->
-        <button id="enviar" class="btn btn-primary">Entrar</button>&nbsp
-        <button id="adicionar" class="btn btn-info">Cadastrar-se</button>
+        <h3 class="login-h3">Fazer login</h3>
+        <h5 class="login-h5">Digite seu e-mail e senha</h5>
 
-        <h6>@ByteBusters</h6>
+        <form name="form1" method="post">
+            <input class="input-login" id="email_id" type="email" placeholder="E-mail" name="txtLogin" maxlength="100" required>
+            <input class="input-login" id="senha_id" type="password" placeholder="Senha" name="txtPassword" maxlength="20" required>
+
+            <div id="buttons">
+                <a id="criar-button" href="../cadastro/Cadastro.html">Criar conta</a>
+                <input type="submit" id="enviar" value="Entrar">
+            </div>
+        </form>
+
+        <p id="bytebusters_copy"><a href="../">&copy;Bytebusters</a></p>
     </div>
 </body>
 <!-- Importando o script de login -->
