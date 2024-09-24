@@ -5,35 +5,22 @@ document.addEventListener('DOMContentLoaded', function() {
 
 // Função para carregar categorias do banco de dados
 function carregarCategorias() {
-    fetch('carregar_categorias.php')
+    fetch('../perdi_algo/carregar_categorias.php')
         .then(response => response.json())
         .then(data => {
             console.log(data);
             const tipoItem = document.getElementById('tipo_item');
             data.forEach(categoria => {
                 const option = document.createElement('option');
-                option.value = categoria.id; // Ajuste conforme a chave primária
+                option.value = categoria.id_tipo; // Ajuste conforme a chave primária
                 option.textContent = categoria.categoria; // Ajuste conforme o nome da categoria
                 tipoItem.appendChild(option);
             });
         });
 }
-
-// 1º - Criar o listener do SELECT on change do Bloco (categoria)
-// 2º - Na chamada, pegar o value do option selecionado e passar por parametro para  a função carregar salas
-// 3º - Ajustar e dar debug console para verificar o retorno do data filtrado
-
-// 1º - Criar o listener do SELECT on change do Bloco
-document.getElementById('bloco_encontro').addEventListener('change', function() {
-    const blocoSelecionado = this.value;
-    
-    console.log('Bloco selecionado:', blocoSelecionado); // Debug para verificar o valor
-    carregarSalas(blocoSelecionado); // 2º - Chama a função carregarSalas com o bloco selecionado
-});
-
 // Função para carregar blocos do banco de dados
 function carregarBlocos() {
-    fetch('carregar_blocos.php')
+    fetch('../perdi_algo/carregar_blocos.php')
         .then(response => response.json())
         .then(data => {
             const arrBlocos = [];
@@ -56,7 +43,7 @@ function carregarBlocos() {
 
 // Função para carregar salas filtrando secretarias
 function carregarSalas(id_bloco) {
-    fetch(`carregar_salas.php?id_bloco=${id_bloco}`)
+    fetch(`../perdi_algo/carregar_salas.php?id_bloco=${id_bloco}`)
         .then(response => response.json())
         .then(data => {
             const salaEncontro = document.getElementById('sala_encontro');
@@ -82,11 +69,10 @@ document.getElementById('bloco_encontro').addEventListener('change', function() 
     carregarSalas(id_bloco); // Carrega as salas do bloco selecionado
 });
 
-
 // Função para habilitar/desabilitar campo de data
 function caixaData() {
     const isChecked = document.getElementById('checkbox_data').checked;
-    document.getElementById('date').disabled = isChecked;
+    document.getElementById('date_encontrado').disabled = isChecked;
 }
 
 // Função para habilitar/desabilitar campos de bloco e sala
@@ -99,35 +85,34 @@ function caixaBlocos() {
     salaSelect.disabled = isChecked;
 }
 
+// Listener para carregar salas quando o bloco é selecionado
+document.getElementById('bloco_encontro').addEventListener('change', function() {
+    const blocoSelecionado = this.value;
+    carregarSalas(blocoSelecionado);
+});
 
-// Função para enviar o protocolo
-document.getElementById('enviar_objeto').addEventListener('click', function() {
-    const nomeItem = document.getElementById('nome_item').value;
-    const tipoItem = document.getElementById('tipo_item').value; // A categoria, não o id
-    const blocoEncontro = document.getElementById('bloco_encontro').value;
-    const salaEncontro = document.getElementById('sala_encontro').value;
-    const dataPerda = document.getElementById('date_encontrado').value;
-    const descricao = document.getElementById('descricao').value;
+document.getElementById('botao_registrar').addEventListener('click', function() {
+    const nome_item = document.getElementById('nome_item').value;
+    const tipo_item = document.getElementById('tipo_item').value;
+    const sala_encontro = document.getElementById('sala_encontro').value;
 
-    const formData = `nome_item=${encodeURIComponent(nomeItem)}&tipo_item=${encodeURIComponent(tipoItem)}&bloco_encontro=${encodeURIComponent(blocoEncontro)}&sala_encontro=${encodeURIComponent(salaEncontro)}&data_perda=${encodeURIComponent(dataPerda)}&descricao=${encodeURIComponent(descricao)}`;
-
-    fetch('registrar_protocolo.php', {
+    // Faz a requisição para registrar o objeto
+    fetch('registrar_objeto.php', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/x-www-form-urlencoded'
         },
-        body: formData
+        body: `nome_item=${nome_item}&tipo_item=${tipo_item}&sala_encontro=${sala_encontro}`
     })
     .then(response => response.json())
     .then(data => {
-        if (data.sucesso) {
-            alert(data.sucesso);
-            // Limpar campos após envio
-        } else if (data.erro) {
-            alert(data.erro);
+        if (data.resultado) {
+            alert('Objeto registrado com sucesso! ID: ' + data.resultado);
+        } else {
+            alert('Erro ao registrar objeto: ' + data.erro);
         }
     })
     .catch(error => {
-        console.error('Erro ao processar a requisição:', error);
+        console.error('Erro:', error);
     });
 });
