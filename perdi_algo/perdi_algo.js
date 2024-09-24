@@ -48,34 +48,39 @@ function carregarBlocos() {
                 option.textContent = bloco; // Ajuste conforme o nome do bloco
                 blocoEncontro.appendChild(option);
             });
+
+            // 1. Automaticamente carrega as salas do bloco 1 ao iniciar a página
+            carregarSalas(1);
         });
 }
 
-// Função para carregar salas do banco de dados com base no bloco selecionado
+// Função para carregar salas filtrando secretarias
 function carregarSalas(id_bloco) {
-    // Limpa as opções anteriores de sala
-    const salaEncontro = document.getElementById('sala_encontro');
-    salaEncontro.innerHTML = ''; // Limpa as opções anteriores
-
-    // Faz o fetch passando o id_bloco como parâmetro
     fetch(`carregar_salas.php?id_bloco=${id_bloco}`)
         .then(response => response.json())
         .then(data => {
-            console.log('Salas retornadas:', data); // 3º - Debug para verificar o retorno do data
+            const salaEncontro = document.getElementById('sala_encontro');
+            salaEncontro.innerHTML = ''; // Limpa as opções anteriores
 
-            // Itera sobre as salas retornadas e cria os <option>
-            data.forEach(sala => {
-                const option = document.createElement('option');
-                option.value = sala.id_local; // Ajuste conforme a chave primária
-                option.textContent = sala.sala; // Ajuste conforme o nome da sala
-                salaEncontro.appendChild(option);
+            data.forEach(local => {
+                if (local.tipo !== 'secretaria') { // 2. Filtra secretarias
+                    const option = document.createElement('option');
+                    option.value = local.id_local; // Ajuste conforme a chave primária
+                    option.textContent = local.sala; // Nome da sala
+                    salaEncontro.appendChild(option);
+                }
             });
         })
         .catch(error => {
-            console.error('Erro ao carregar as salas:', error); // Debug para erros
+            console.error('Erro ao carregar as salas:', error);
         });
 }
 
+// Isso deve fazer as salas serem carregas assim que entramos na pagina, eu acho 
+document.getElementById('bloco_encontro').addEventListener('change', function() {
+    const id_bloco = this.value;
+    carregarSalas(id_bloco); // Carrega as salas do bloco selecionado
+});
 
 
 // Função para habilitar/desabilitar campo de data
