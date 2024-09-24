@@ -15,7 +15,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     // Chama a função para inserir dados
     $resultado = inserir_dado($tabela, $colunas, $valores);
-
+    
     // Retorna um resultado (opcional)
     echo json_encode(['resultado' => $resultado]);
 } else {

@@ -5,60 +5,43 @@ ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
-function obterIdTipo($categoria) {
-    // Sanitize the input to prevent SQL injection
-    $categoria = mysqli_real_escape_string(conectar(), $categoria);
-    
-    // Cria a consulta SQL
-    $sql = "SELECT id_tipo FROM tipos WHERE categoria = '$categoria' LIMIT 1"; // Ajuste 'tipos' para o nome correto da sua tabela
-
-    // Chama a função de consultar dados
-    $resultado = consultar_dado($sql);
-
-    // Verifica se encontrou algum resultado
-    if (count($resultado) > 0) {
-        return $resultado[0]['id_tipo']; // Retorna o id_tipo encontrado
-    } else {
-        return false; // Retorna falso se não encontrar
-    }
-}
-
 function inserirObjeto() {
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-        $categoria = $_POST['tipo_item'];
+        // Captura os dados do formulário
         $nome_item = $_POST['nome_item'];
+        $categoria_item = $_POST['tipo_item'];
+        $encontrado = 0; // Valor fixo como 0
+    
+        // Prepare os dados para inserção
+        $tabela = "objeto"; // Nome da tabela
+        $colunas = "nome, categoria_objeto, encontrado"; // Colunas
+        $valores = "'$nome_item', '$categoria_item', $encontrado"; // Valores
+    
+        // Chama a função para inserir dados
+        $resultado = inserir_dado($tabela, $colunas, $valores);
 
-        // Obter o id_tipo com base na categoria
-        $id_tipo = obterIdTipo($categoria);
-        if (!$id_tipo) {
-            echo json_encode(["erro" => "Tipo de item não encontrado."]);
-            return false;
-        }
-
-        // Inserir o objeto no banco de dados
-        $tabela = "objeto";
-        $colunas = "categoria_objeto, encontrado, nome";
-        $valores = "'$id_tipo', '0', '$nome_item'";
-        $result = inserir_dado($tabela, $colunas, $valores);
-
-        if (is_numeric($result)) {
-            return $result;
+        if (is_numeric($resultado)) {
+            // Retorna o ID do objeto inserido como JSON
+            echo json_encode(['resultado' => $resultado]);
+            return $resultado;
         } else {
-            echo json_encode(["erro" => "Erro ao registrar Objeto: $result"]);
-            return false;
+            // Retorna uma mensagem de erro como JSON
+            echo json_encode(["erro" => "Erro ao registrar Objeto: $resultado"]);
         }
+    } else {
+        // Retorna uma mensagem de erro se o método não for POST
+        echo json_encode(['erro' => 'Método não permitido']);
     }
 }
 
 
 //$post['usuario']['123']
     
-// precisa puxar pelo js ou fazer o $status = $_POST['status'];
-// ta inspirado no inset do cadastro, mas sla
+
 function inserirProcotocolo() {
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         // Verifique se todos os campos necessários estão presentes
-        if (!isset($_POST['nome_item'], $_POST['tipo_item'], $_POST['bloco_encontro'], $_POST['sala_encontro'], $_POST['data_perda'], $_POST['descricao'])) {
+        if (!isset($_POST['nome_item'], $_POST['tipo_item'], $_POST['bloco_encontro'], $_POST['sala_perda'], $_POST['data_perda'], $_POST['descricao'])) {
             echo json_encode(["erro" => "Todos os campos são obrigatórios."]);
             return;
         }
@@ -68,16 +51,17 @@ function inserirProcotocolo() {
         if ($objeto_id) {
             // Pegando dados do protocolo
             $status = '0';
+            $cpf_usuario = '123';
+            // $cpf_usuario = $_POST['123']; // Substitua por ['usuario']['cpf'] quando tiver em sessão.
             $data_abertura = date('Y-m-d H:i:s');
-            $data_perda = isset($_POST['data_perda']) ? $_POST['data_perda'] : NULL;
+            $data_perda = $_POST['data_perda'];
             $descricao = $_POST['descricao'];
-            $cpf_usuario = '123'; // Substitua por ['usuario']['123'] quando tiver em sessão.
-            $local_perda = $_POST['bloco_encontro'] . "_" . $_POST['sala_encontro']; // Exemplo de combinação de bloco e sala
+            $local_perda = $_POST['sala_perda'];
 
             // Monta a query para inserir o protocolo
             $tabela = "protocolo";
             $colunas = "status, data_abertura, data_perda, pessoa_abertura, local_perda, objeto, descricao";
-            $valores = "'$status', '$data_abertura', " . ($data_perda ? "'$data_perda'" : "NULL") . ", '$cpf_usuario', '$local_perda', '$objeto_id', '$descricao'";
+            $valores = "'$status', '$data_abertura','$data_perda', '$cpf_usuario', '$local_perda', '$objeto_id', '$descricao'";
             
             $result = inserir_dado($tabela, $colunas, $valores);
 
@@ -104,10 +88,9 @@ if (isset($_GET['acao'])) {
             inserirProcotocolo();
             break;
         default:
-            echo "Ação inválida.";
+            echo json_encode(["erro" => "Ação inválida."]);
     }
 } else {
-    echo "Nenhuma ação especificada.";
+    echo json_encode(["erro" => "Nenhuma ação especificada."]);
 }
-
 ?>
