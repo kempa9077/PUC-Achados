@@ -19,6 +19,18 @@ function carregarCategorias() {
         });
 }
 
+// 1º - Criar o listener do SELECT on change do Bloco (categoria)
+// 2º - Na chamada, pegar o value do option selecionado e passar por parametro para  a função carregar salas
+// 3º - Ajustar e dar debug console para verificar o retorno do data filtrado
+
+// 1º - Criar o listener do SELECT on change do Bloco
+document.getElementById('bloco_encontro').addEventListener('change', function() {
+    const blocoSelecionado = this.value;
+    
+    console.log('Bloco selecionado:', blocoSelecionado); // Debug para verificar o valor
+    carregarSalas(blocoSelecionado); // 2º - Chama a função carregarSalas com o bloco selecionado
+});
+
 // Função para carregar blocos do banco de dados
 function carregarBlocos() {
     fetch('carregar_blocos.php')
@@ -39,23 +51,38 @@ function carregarBlocos() {
         });
 }
 
+// Função para carregar salas do banco de dados com base no bloco selecionado
 function carregarSalas(id_bloco) {
+    // Limpa as opções anteriores de sala
+    const salaEncontro = document.getElementById('sala_encontro');
+    salaEncontro.innerHTML = ''; // Limpa as opções anteriores
+
+    // Faz o fetch passando o id_bloco como parâmetro
     fetch(`carregar_salas.php?id_bloco=${id_bloco}`)
         .then(response => response.json())
         .then(data => {
-            const salaEncontro = document.getElementById('sala_encontro');
-            data.forEach(bloco => {
+            console.log('Salas retornadas:', data); // 3º - Debug para verificar o retorno do data
+
+            // Itera sobre as salas retornadas e cria os <option>
+            data.forEach(sala => {
                 const option = document.createElement('option');
-                if(id_bloco === data.bloco){
-                    option.value = data.id_local; // Ajuste conforme a chave primária
-                    option.textContent = data.sala; // Ajuste conforme o nome do bloco
-                    salaEncontro.appendChild(option);
-                }
+                option.value = sala.id_local; // Ajuste conforme a chave primária
+                option.textContent = sala.sala; // Ajuste conforme o nome da sala
+                salaEncontro.appendChild(option);
             });
+        })
+        .catch(error => {
+            console.error('Erro ao carregar as salas:', error); // Debug para erros
         });
 }
 
 
+
+// Função para habilitar/desabilitar campo de data
+function caixaData() {
+    const isChecked = document.getElementById('checkbox_data').checked;
+    document.getElementById('date').disabled = isChecked;
+}
 
 // Função para habilitar/desabilitar campos de bloco e sala
 function caixaBlocos() {
@@ -67,15 +94,6 @@ function caixaBlocos() {
     salaSelect.disabled = isChecked;
 }
 
-// 1º - Criar o listener do SELECT on change do Bloco (categoria)
-// 2º - Na chamada, pegar o value do option selecionado e passar por parametro para  a função carregar salas
-// 3º - Ajustar e dar debug console para verificar o retorno do data filtrado
-
-// Função para habilitar/desabilitar campo de data
-function caixaData() {
-    const isChecked = document.getElementById('checkbox_data').checked;
-    document.getElementById('date').disabled = isChecked;
-}
 
 // Função para enviar o protocolo
 document.getElementById('enviar_objeto').addEventListener('click', function() {
