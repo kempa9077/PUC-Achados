@@ -101,6 +101,7 @@ body {
     cursor: pointer;
     transition: box-shadow 0.15s, border-style 0.15s, border-color 0.15s, border-width 0.15s;
 }
+
 #criar-button:hover {
     user-select: none;
     box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
