@@ -5,8 +5,8 @@ require_once("../funcoes_banco.php");
 if (isset($_GET['id_bloco'])) {
     $id_bloco = $_GET['id_bloco'];
     
-    // Consulta SQL para obter as salas relacionadas ao bloco selecionado
-    $sql = "SELECT * FROM local WHERE bloco = '$id_bloco'";
+    // Consulta SQL para obter as salas relacionadas ao bloco selecionado, excluindo secretarias
+    $sql = "SELECT * FROM local WHERE bloco = '$id_bloco' AND sala NOT LIKE '%secretaria%'";
     $result = consultar_dado($sql);
     
     // Retorna os dados como JSON
