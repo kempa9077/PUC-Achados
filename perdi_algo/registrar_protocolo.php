@@ -48,11 +48,11 @@ function inserirProcotocolo() {
 
         $objeto_id = inserirObjeto(); // Primeiro, insere o objeto e obtém o ID
 
-        if ($objeto_id) {
+
             // Pegando dados do protocolo
-            $status = '0';
-            $cpf_usuario = '123';
-            // $cpf_usuario = $_POST['123']; // Substitua por ['usuario']['cpf'] quando tiver em sessão.
+            $status = 0;
+            //$cpf_usuario = '123';
+            $cpf_usuario = $_SESSION['usuario']['cpf'];// Substitua por ['usuario']['cpf'] quando tiver em sessão.
             $data_abertura = date('Y-m-d H:i:s');
             $data_perda = $_POST['data_perda'];
             $descricao = $_POST['descricao'];
@@ -60,7 +60,7 @@ function inserirProcotocolo() {
 
             // Monta a query para inserir o protocolo
             $tabela = "protocolo";
-            $colunas = "status, data_abertura, data_perda, pessoa_abertura, local_perda, objeto, descricao";
+            $colunas = "situacao, data_abertura, data_perda, pessoa_abertura, local_perda, objeto, descricao";
             $valores = "'$status', '$data_abertura','$data_perda', '$cpf_usuario', '$local_perda', '$objeto_id', '$descricao'";
             
             $result = inserir_dado($tabela, $colunas, $valores);
@@ -73,15 +73,12 @@ function inserirProcotocolo() {
         } else {
             echo json_encode(["erro" => "Erro ao registrar o objeto"]);
         }
-    } else {
-        echo json_encode(["erro" => "Método de requisição inválido."]);
-    }
-}
+    } 
 
 
 // pode ta errado como sempre
-if (isset($_GET['acao'])) {
-    $acao = $_GET['acao'];
+if (isset($_POST['acao'])) {
+    $acao = $_POST['acao'];
 
     switch ($acao) {
         case 'buscar':
@@ -93,4 +90,3 @@ if (isset($_GET['acao'])) {
 } else {
     echo json_encode(["erro" => "Nenhuma ação especificada."]);
 }
-?>

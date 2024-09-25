@@ -1,6 +1,5 @@
 <?php
 include '../funcoes_banco.php';
-session_start();
 include '../header.php';
 print_r($_SESSION);
 ?>

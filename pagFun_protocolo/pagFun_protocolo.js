@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
     function carregarProtocolos() {
         // Fazendo a requisição AJAX para buscar os protocolos
-        fetch('pagFun_protocolo.php?acao=buscar')
+        fetch('imprimir_protocolo.php?acao=buscar')
             .then(response => response.json())
             .then(data => {
                 if (Array.isArray(data)) {

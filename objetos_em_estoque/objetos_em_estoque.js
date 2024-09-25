@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", function() {
-    fetch('objetos_em_estoque.php')
+    fetch('imprimir_estoque.php')
         .then(response => response.json())
         .then(data => {
             const tbody = document.getElementById('objeto-tbody');
