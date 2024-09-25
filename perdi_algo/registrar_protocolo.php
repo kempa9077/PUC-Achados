@@ -15,7 +15,7 @@ function inserirObjeto() {
         // Prepare os dados para inserção
         $tabela = "objeto"; // Nome da tabela
         $colunas = "nome, categoria_objeto, encontrado"; // Colunas
-        $valores = "'$nome_item', '$categoria_item', $encontrado"; // Valores
+        $valores = "'$nome_item', '$categoria_item', '$encontrado'"; // Valores
     
         // Chama a função para inserir dados
         $resultado = inserir_dado($tabela, $colunas, $valores);

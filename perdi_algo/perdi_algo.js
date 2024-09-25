@@ -12,7 +12,7 @@ function carregarCategorias() {
             const tipoItem = document.getElementById('tipo_item');
             data.forEach(categoria => {
                 const option = document.createElement('option');
-                option.value = categoria.id; // Ajuste conforme a chave primária
+                option.value = categoria.id_tipo; // Ajuste conforme a chave primária
                 option.textContent = categoria.categoria; // Ajuste conforme o nome da categoria
                 tipoItem.appendChild(option);
             });
@@ -117,7 +117,7 @@ document.getElementById('enviar_objeto').addEventListener('click', function() {
         dataPerda, 
         descricao
     });
-    
+
     const formData = `nome_item=${encodeURIComponent(nomeItem)}&tipo_item=${encodeURIComponent(tipoItem)}&bloco_encontro=${encodeURIComponent(blocoEncontro)}&sala_perda=${encodeURIComponent(sala_perda)}&data_perda=${encodeURIComponent(dataPerda)}&descricao=${encodeURIComponent(descricao)}`;
 
     fetch('registrar_protocolo.php?acao=buscar', {
