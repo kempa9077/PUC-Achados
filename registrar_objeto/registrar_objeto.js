@@ -1,8 +1,34 @@
 document.addEventListener('DOMContentLoaded', function() {
     carregarCategorias();
     carregarBlocos();
-});
+    
+    // Listener para o botão registrar, agora dentro do DOMContentLoaded
+    document.getElementById('botao_registrar').addEventListener('click', function() {
+        const nome_item = document.getElementById('nome_item').value;
+        const tipo_item = document.getElementById('tipo_item').value;
+        const sala_encontro = document.getElementById('sala_encontro').value;
 
+        // Faz a requisição para registrar o objeto
+        fetch('registrar_objeto.php', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded'
+            },
+            body: `nome_item=${nome_item}&tipo_item=${tipo_item}&sala_encontro=${sala_encontro}`
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.resultado) {
+                alert('Objeto registrado com sucesso! ID: ' + data.resultado);
+            } else {
+                alert('Erro ao registrar objeto: ' + data.erro);
+            }
+        })
+        .catch(error => {
+            console.error('Erro:', error);
+        });
+    });
+});
 
 function carregarCategorias() {
     fetch('../perdi_algo/carregar_categorias.php')
@@ -35,7 +61,8 @@ function carregarBlocos() {
                 option.textContent = bloco; // Ajuste conforme o nome do bloco
                 blocoEncontro.appendChild(option);
             });
-            // isso ou o negocio depois de carregarSalar faz as salas do bloco 1 carregar quando entra na 
+            
+            // Carrega as salas do primeiro bloco ao iniciar a página
             carregarSalas(1);
         });
 }
@@ -45,7 +72,7 @@ function carregarSalas(id_bloco) {
         .then(response => response.json())
         .then(data => {
             const salaEncontro = document.getElementById('sala_encontro');
-            salaEncontro.innerHTML = ''; // Limpa o campo quando att
+            salaEncontro.innerHTML = ''; // Limpa o campo quando atualizar
 
             data.forEach(local => {
                 if (local.tipo !== 'secretaria') { // filtra secretarias
@@ -61,15 +88,15 @@ function carregarSalas(id_bloco) {
         });
 }
 
-// Isso deve fazer as salas serem carregas assim que entramos na pagina, eu acho 
+// Listener para carregar salas quando o bloco é selecionado
 document.getElementById('bloco_encontro').addEventListener('change', function() {
     const id_bloco = this.value;
     carregarSalas(id_bloco); // Carrega as salas do bloco selecionado
 });
-/*
-isso um dia vai ser incrementado? Não ta na Sprint 1
 
+/* Código comentado de funcionalidades futuras */
 // Função para habilitar/desabilitar campo de data
+/*
 function caixaData() {
     const isChecked = document.getElementById('checkbox_data').checked;
     document.getElementById('date_encontrado').disabled = isChecked;
@@ -91,28 +118,3 @@ document.getElementById('bloco_encontro').addEventListener('change', function() 
     carregarSalas(blocoSelecionado);
 });
 */
-document.getElementById('botao_registrar').addEventListener('click', function() {
-    const nome_item = document.getElementById('nome_item').value;
-    const tipo_item = document.getElementById('tipo_item').value;
-    const sala_encontro = document.getElementById('sala_encontro').value;
-
-    // Faz a requisição para registrar o objeto, minha duvida é pq tava funcionando e parou
-    fetch('registrar_objeto.php', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/x-www-form-urlencoded'
-        },
-        body: `nome_item=${nome_item}&tipo_item=${tipo_item}&sala_encontro=${sala_encontro}`
-    })
-    .then(response => response.json())
-    .then(data => {
-        if (data.resultado) {
-            alert('Objeto registrado com sucesso! ID: ' + data.resultado);
-        } else {
-            alert('Erro ao registrar objeto: ' + data.erro);
-        }
-    })
-    .catch(error => {
-        console.error('Erro:', error);
-    });
-});

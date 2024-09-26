@@ -98,3 +98,6 @@ function requisitar(metodo, dados) {
             });
     });
 }
+document.getElementById('adicionar').addEventListener('click', function() {
+    window.location.href="../login/login.html" // ARRUMAR ESSE REDIRECIONAMENTO PRA PAGINA CORRETA, TA INDO PRA DE TESTE DE SESSAO
+})  
