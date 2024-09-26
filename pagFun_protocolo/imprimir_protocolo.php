@@ -1,5 +1,5 @@
-<?php // arrumar PHP ERRADO
-require_once("../funcoes_banco.php");  // Função de conexão com o banco de dados
+<?php 
+require_once("../funcoes_banco.php");  
 
 function buscar_protocolos() {
     $sql = "SELECT 

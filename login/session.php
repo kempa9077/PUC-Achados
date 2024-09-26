@@ -24,7 +24,7 @@ function encerrarSessao() {
     exit();
 }
 
-// Verifica se o botão "Sair" foi clicado
+// Verifica se o botão sair do teste teste_sessao foi apertado
 if (isset($_POST['acao']) && $_POST['acao'] === 'sair') {
     encerrarSessao();
 }

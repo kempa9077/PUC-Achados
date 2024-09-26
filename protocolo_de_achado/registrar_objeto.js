@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', function() {
     carregarBlocos();
 });
 
-// Função para carregar categorias do banco de dados
+
 function carregarCategorias() {
     fetch('../perdi_algo/carregar_categorias.php')
         .then(response => response.json())
@@ -12,13 +12,13 @@ function carregarCategorias() {
             const tipoItem = document.getElementById('tipo_item');
             data.forEach(categoria => {
                 const option = document.createElement('option');
-                option.value = categoria.id_tipo; // Ajuste conforme a chave primária
-                option.textContent = categoria.categoria; // Ajuste conforme o nome da categoria
+                option.value = categoria.id_tipo; 
+                option.textContent = categoria.categoria; 
                 tipoItem.appendChild(option);
             });
         });
 }
-// Função para carregar blocos do banco de dados
+
 function carregarBlocos() {
     fetch('../perdi_algo/carregar_blocos.php')
         .then(response => response.json())
@@ -35,25 +35,23 @@ function carregarBlocos() {
                 option.textContent = bloco; // Ajuste conforme o nome do bloco
                 blocoEncontro.appendChild(option);
             });
-
-            // 1. Automaticamente carrega as salas do bloco 1 ao iniciar a página
+            // isso ou o negocio depois de carregarSalar faz as salas do bloco 1 carregar quando entra na 
             carregarSalas(1);
         });
 }
 
-// Função para carregar salas filtrando secretarias
 function carregarSalas(id_bloco) {
     fetch(`../perdi_algo/carregar_salas.php?id_bloco=${id_bloco}`)
         .then(response => response.json())
         .then(data => {
             const salaEncontro = document.getElementById('sala_encontro');
-            salaEncontro.innerHTML = ''; // Limpa as opções anteriores
+            salaEncontro.innerHTML = ''; // Limpa o campo quando att
 
             data.forEach(local => {
-                if (local.tipo !== 'secretaria') { // 2. Filtra secretarias
+                if (local.tipo !== 'secretaria') { // filtra secretarias
                     const option = document.createElement('option');
-                    option.value = local.id_local; // Ajuste conforme a chave primária
-                    option.textContent = local.sala; // Nome da sala
+                    option.value = local.id_local; 
+                    option.textContent = local.sala; 
                     salaEncontro.appendChild(option);
                 }
             });
@@ -68,6 +66,8 @@ document.getElementById('bloco_encontro').addEventListener('change', function() 
     const id_bloco = this.value;
     carregarSalas(id_bloco); // Carrega as salas do bloco selecionado
 });
+/*
+isso um dia vai ser incrementado? Não ta na Sprint 1
 
 // Função para habilitar/desabilitar campo de data
 function caixaData() {
@@ -90,13 +90,13 @@ document.getElementById('bloco_encontro').addEventListener('change', function() 
     const blocoSelecionado = this.value;
     carregarSalas(blocoSelecionado);
 });
-
+*/
 document.getElementById('botao_registrar').addEventListener('click', function() {
     const nome_item = document.getElementById('nome_item').value;
     const tipo_item = document.getElementById('tipo_item').value;
     const sala_encontro = document.getElementById('sala_encontro').value;
 
-    // Faz a requisição para registrar o objeto
+    // Faz a requisição para registrar o objeto, minha duvida é pq tava funcionando e parou
     fetch('registrar_objeto.php', {
         method: 'POST',
         headers: {

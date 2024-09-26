@@ -1,7 +1,7 @@
 <?php
 include '../funcoes_banco.php';
 include '../header.php';
-print_r($_SESSION);
+var_dump($_SESSION);
 ?>
 
 

@@ -1,4 +1,3 @@
-//ARRUMAR JAVA SCRIPT
 document.addEventListener("DOMContentLoaded", function() {
     const tbody = document.getElementById("protocolos-tbody");
 

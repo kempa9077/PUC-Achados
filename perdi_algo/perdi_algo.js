@@ -100,7 +100,7 @@ function caixaBlocos() {
 }
 */
 
-// Função para enviar o protocolo
+// Função para enviar o protocolo, pode ta certo, pode estar errado
 document.getElementById('enviar_objeto').addEventListener('click', function() {
     const nomeItem = document.getElementById('nome_item').value;
     const tipoItem = document.getElementById('tipo_item').value;

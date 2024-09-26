@@ -1,12 +1,12 @@
 <?php
 require_once("../funcoes_banco.php");
+date_default_timezone_set('America/Sao_Paulo');
 
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
 function inserirObjeto() {
-    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         // Captura os dados do formulário
         $nome_item = $_POST['nome_item'];
         $categoria_item = $_POST['tipo_item'];
@@ -28,11 +28,9 @@ function inserirObjeto() {
             // Retorna uma mensagem de erro como JSON
             echo json_encode(["erro" => "Erro ao registrar Objeto: $resultado"]);
         }
-    } else {
-        // Retorna uma mensagem de erro se o método não for POST
-        echo json_encode(['erro' => 'Método não permitido']);
+
     }
-}
+
 
 
 //$post['usuario']['123']
@@ -40,43 +38,42 @@ function inserirObjeto() {
 
 function inserirProcotocolo() {
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-        // Verifique se todos os campos necessários estão presentes
+        // Verifica que ta tudo certo e avisa se n tiver no console, oque não acontece enquantão talvez esteja passando
         if (!isset($_POST['nome_item'], $_POST['tipo_item'], $_POST['bloco_encontro'], $_POST['sala_perda'], $_POST['data_perda'], $_POST['descricao'])) {
             echo json_encode(["erro" => "Todos os campos são obrigatórios."]);
             return;
         }
 
-        $objeto_id = inserirObjeto(); // Primeiro, insere o objeto e obtém o ID
+        $objeto_id = inserirObjeto(); // insere o objeto no banco e retorna pega o ID do mesmo
 
+        // dados pro protocolo
+        $status = 0; // 0 quer dizer fechado
+        $data_abertura = date('Y-m-d H:i:s'); // ta certo?
+        $data_perda = $_POST['data_perda']; // n sei se ta certo
+        $cpf_usuario = $_SESSION['usuario']['cpf'];// ta teoria maxima do universo ta certo
+        $local_perda = $_POST['sala_perda']; // de acordo com console.log ta certo
+        $descricao = $_POST['descricao']; // so deus sabe
 
-            // Pegando dados do protocolo
-            $status = 0;
-            //$cpf_usuario = '123';
-            $cpf_usuario = $_SESSION['usuario']['cpf'];// Substitua por ['usuario']['cpf'] quando tiver em sessão.
-            $data_abertura = date('Y-m-d H:i:s');
-            $data_perda = $_POST['data_perda'];
-            $descricao = $_POST['descricao'];
-            $local_perda = $_POST['sala_perda'];
-
-            // Monta a query para inserir o protocolo
-            $tabela = "protocolo";
-            $colunas = "situacao, data_abertura, data_perda, pessoa_abertura, local_perda, objeto, descricao";
-            $valores = "'$status', '$data_abertura','$data_perda', '$cpf_usuario', '$local_perda', '$objeto_id', '$descricao'";
+        //  sera que há algum erro aqui?
+        $tabela = "protocolo";
+        $colunas = "situacao, data_abertura, data_perda, pessoa_abertura, local_perda, objeto, descricao";
+        $valores = "'$status', '$data_abertura','$data_perda', '$cpf_usuario', '$local_perda', '$objeto_id', '$descricao'";
             
-            $result = inserir_dado($tabela, $colunas, $valores);
+        $result = inserir_dado($tabela, $colunas, $valores);
 
-            if (is_numeric($result)) {
-                echo json_encode(["sucesso" => "Protocolo registrado com sucesso!", "protocolo_id" => $result]);
-            } else {
-                echo json_encode(["erro" => "Erro ao registrar o protocolo: $result"]);
-            }
+        // tentativas de descobrir o pq n esta registando nada
+        if (is_numeric($result)) {
+            echo json_encode(["sucesso" => "Protocolo registrado com sucesso!", "protocolo_id" => $result]);
+        } else {
+            echo json_encode(["erro" => "Erro ao registrar o protocolo: $result"]);
+        }
         } else {
             echo json_encode(["erro" => "Erro ao registrar o objeto"]);
         }
     } 
 
 
-// pode ta errado como sempre
+// pode ta errado como sempre, mas isso deve fazer tudo funcionar
 if (isset($_POST['acao'])) {
     $acao = $_POST['acao'];
 
