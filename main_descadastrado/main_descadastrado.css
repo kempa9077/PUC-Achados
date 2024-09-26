@@ -154,3 +154,21 @@ body {
     top: -150px;
     right: 0;
 }
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: lato;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 720px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    
+}

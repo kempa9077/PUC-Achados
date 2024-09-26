@@ -1,5 +1,5 @@
 <?php
-require_once("funcoes_banco.php");
+require_once("..//funcoes_banco.php");
 
 // Função para retornar dados como JSON
 function json_return($var) {
@@ -23,6 +23,7 @@ if (isset($_GET['metodo'])) {
 
 // Verifica se a requisição é POST
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    
     // Recebe o que está vindo por INPUT
     $json = file_get_contents('php://input');
     // Decodifica o JSON em um array associativo
@@ -32,13 +33,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if ($post['solicitacao'] == "adicionar") {
         $tabela = "pessoa";
         $colunas = "cpf,email,senha,nome,matricula";
-        $valores = "'".$post['cpf']."', '".$post['email']."', '".$post['senha']."', '".$post['nome']."', '".$post['matricula']."'";
+        
+        // Hash da senha usando password_hash()
+        $senha_hash = password_hash($post['senha'], PASSWORD_DEFAULT);
+        
+        $valores = "'".$post['cpf']."', '".$post['email']."', '".$senha_hash."', '".$post['nome']."', '".$post['matricula']."'";
         $id = inserir_dado($tabela, $colunas, $valores);
         json_return(["id" => $id]);
     } else {
         json_return(["erro" => "Ação desconhecida"]);
     }
-	
 }
-
 ?>

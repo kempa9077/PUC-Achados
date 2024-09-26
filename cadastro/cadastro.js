@@ -6,10 +6,16 @@ document.getElementById('adicionar').addEventListener('click', function() {
     var cpf = document.getElementById("cpf_id").value;
     var matricula = document.getElementById("matricula_id").value;
     var senha = document.getElementById("senha_id").value;
+    var confirmsenha = document.getElementById("confirm").value;
     
     // Validação básica do lado do cliente
     if (!email || !senha) {
         alert('Por favor, preencha todos os campos.');
+        return;
+    }
+
+    if (senha != confirmsenha) {
+        alert('As Senhas não são iguais. Tente Novamente.');
         return;
     }
 

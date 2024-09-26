@@ -25,59 +25,39 @@
         <div class="gray-box">
             <div class="beige-bar"></div>
             <div class="gray-box-text">PERDI ALGO</div>
-            <!-- Retângulo branco à esquerda -->
             <div class="redbox-under"></div>
             <div class="redbox-under-text">PREENCHA O FORMULÁRIO ABAIXO</div>
             <div class="flex-container">
                 <div class="nome-do-item">
                     <label for="nome_item">Nome do item:</label>
-                    <textarea id="nome_item" name="nome_item" rows="1" cols="33">"Crachá PUC"</textarea>
+                    <textarea id="nome_item" name="nome_item" rows="1" cols="33"></textarea>
                 </div>
                 <div class="tipo-do-item">
-                    <label for="nome_item">Categoria do Item:</label>
-                    <form>
-                        <select name="tipo_item" id="tipo_item">
-                            <option value="">Selecione uma Categoria</option>
-                            <option value="eletronico">Eletrônico</option>
-                            <option value="roupa">Roupa</option>
-                        </select>
-                    </form>
+                    <label for="tipo_item">Categoria do Item:</label>
+                    <select name="tipo_item" id="tipo_item"></select>
                 </div>
                 <div class="bloco-de-encontro">
-                    <label for="nome_item">Bloco Encontrado:</label>
-                    <form>
-                        <select name="bloco_encontro" id="bloco_encontro">
-                            <option value="">Selecione o Bloco</option>
-                            <option value="1">Bloco 1</option>
-                            <option value="2">Bloco 2</option>
-                            <option value="3">Bloco 3</option>
-                        </select>
-                    </form>
+                    <label for="bloco_encontro">Bloco que Perdeu:</label>
+                    <select name="bloco_encontro" id="bloco_encontro"></select>
                 </div>
                 <div class="sala-de-encontro">
-                    <label for="sala_encontro">Sala Encontrada:</label>
-                    <textarea id="sala_encontro" name="sala_encontro" rows="1" cols="33">"Sala 101"</textarea>
+                    <label for="sala_perda">Sala que Perdeu:</label>
+                    <select name="sala_perda" id="sala_perda"></select>
                 </div>
                 <div class="data-de-entrada">
-                    <label for="nome_item">Data de Encontro:</label>
-                    <input id="date" type="date" value="dd-mm-yyyy" />
+                    <label for="date">Data de Perda:</label>
+                    <input id="data_perda" type="date" />
                 </div>
             </div>
             
-            <!-- Área de descrição agora separada dos outros campos -->
             <div class="descricao-item">
                 <label for="descricao">Descrição do item:</label>
                 <textarea id="descricao" name="descricao" rows="4" placeholder="Descreva o item perdido aqui..."></textarea>
             </div>
             
-            <!-- Botão de envio no canto inferior esquerdo -->
             <button id="enviar_objeto" class="enviar-btn">Enviar</button>
-            
-                
-            </div>
-            
         </div>
     </main>
 </body>
-<script src="../js/main_descadastrado.js"></script>
+<script src="perdi_algo.js"></script>
 </html>

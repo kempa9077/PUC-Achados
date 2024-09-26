@@ -1,67 +1,146 @@
 body {
     background-color: #7a1f1f;
-    font-family: Arial, sans-serif;
+    font-family: 'lato', sans-serif;
+    display: flex;
+    justify-content: center;
+}
+
+#logo-login {
+    height: 66.45px;
+}
+#logo-login:focus {
+    outline: none;
+}
+
+#voltar-home {
+    text-decoration: none;
+    font-size: 40px;
+    color: #283228;
+    display: flex;
+    justify-content: end;
+    cursor: pointer;
+    margin: 20px 0 10px 0;
+    height: 40px;
+}
+#voltar-home:focus {
+    outline: none;
 }
 
 #login-container {
-    background-color: rgba(211, 220, 215, 0.9);
-    border-radius: 10px;
-    padding: 20px;
-    width: 300px;
-    margin: 100px auto;
-    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
-}
-
-h3, h4 {
+    background-color: rgba(255, 255, 255, 0.75);
+    width: 380px;
+    height: 640px;
+    border-radius: 15px;
     text-align: center;
-    color: #333;
-    margin-bottom: 10px;
+    padding: 0 40px;
+    position: absolute;
+    top: 50%;
+    transform: translate(0, -50%);
 }
 
-.form-row {
-    margin-bottom: 15px;
+.login-h3 {
+    font-size: 18px;
+    color: #283228;
+    margin: 25px 0 0 0;
+}
+
+.login-h5 {
+    color: rgba(30, 30, 30, 0.5);
+    font-size: 15px;
+    margin: 0 0 40px 0;
+}
+
+.input-login {
+    user-select: none;
+    border-radius: 30px;
+    border: 0px solid;
+    color: #283228;
+    background-color: rgb(255, 255, 255);
+    height: 40px;
+    width: 90%;
+    margin: 0 0 20px 0;
+    padding: 0 20px;
+    transition: box-shadow 0.15s, background-color 0.15s;   
+}
+.input-login:hover {
+    user-select: none;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
+}
+.input-login:active {
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
+}
+.input-login:focus{
+    outline: none;
+}
+
+#buttons a {
+    text-decoration: none;
+}
+
+#buttons {
+    width: 100%;
     display: flex;
-    flex-direction: column;
+    justify-content: space-between;
+    margin-top: 30px;
 }
 
-.form-row input[type="email"],
-.form-row input[type="password"] {
-    padding: 10px;
-    border-radius: 50px;
-    width: 100%;
-    box-sizing: border-box;
-    border-color: rgba(211, 220, 215, 0.9);
-
+#criar-button a {
+    text-decoration: none;
 }
 
-.form-row input[type="email"]::placeholder,
-.form-row input[type="password"]::placeholder {
-    color: #888;
-}
-
-button.btn {
-    background-color: #7a1f1f;
-    color: white;
+#criar-button{
+    user-select: none;
+    width: 130px;
+    font-weight: bold;
+    background-color: white;
     border: none;
-    border-radius: 5px;
-    padding: 10px;
-    cursor: pointer;
-    width: 100%;
-    margin-top: 10px;
-}
-
-button.btn.criar {
-    background-color: #ffffff;
-    margin-bottom: 10px;
     color: rgba(0, 0, 0, 0.7);
+    font-size: 18px;
+    padding: 6px 0;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: box-shadow 0.15s, border-style 0.15s, border-color 0.15s, border-width 0.15s;
 }
 
-button.btn:hover {
+#criar-button:hover {
+    user-select: none;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
+}
+#criar-button:active {
+    user-select: none;
+    background-color: rgba(169, 185, 178, 1);
+    color: #283228;
+    box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.0);
+}
+
+#enviar {
+    user-select: none;
+    width: 130px;
+    font-weight: bold;
+    background-color: #882627;
+    border: none;
+    color: white;
+    font-size: 18px;
+    padding: 6px;
+    border-radius: 5px;
+    cursor: pointer;
+
+    transition: opacity 0.15s, box-shadow 0.15s;
+}
+#enviar:hover {
+    opacity: 0.9;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
+}
+#enviar:active {
+    box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.2);
     opacity: 0.8;
 }
 
-h6 {
-    text-align: center;
-    color: #666;
-    margin-top: 80px;
+#bytebusters_copy {
+    margin-top: 140px;
+}
+#bytebusters_copy a{
+    text-decoration: none;
+    color: #283228;
+    font-size: 12px;
 }

@@ -1,5 +1,5 @@
 <?php
-include 'funcoes_banco.php'; // Inclui o arquivo de funções de banco de dados
+require_once("../funcoes_banco.php"); // Inclui o arquivo de funções de banco de dados
 
 // Função para buscar todas as pessoas
 function buscarPessoas() {

@@ -6,35 +6,42 @@
   <link rel="stylesheet" href="cadastro.css">
 </head>
 <body>
-    <div id="cadastro-container">
-        <h3>Fazer Cadastro</h3>
-        <h4>Realize seu Cadastro</h4>
+    <main>
+        <section class="box">
+            <a id="voltar-home">&times;</a>
 
-        <div class="form-row">
-            <input id="nome_id" type="text" placeholder="Nome" name="nome" required>
-        </div>
-        <div class="form-row">
-            <input id="cpf_id" type="text" placeholder="CPF" name="cpf" required>
-        </div>
-        <div class="form-row">
-            <input id="matricula_id" type="text" placeholder="matricula" name="matricula" required>
-        </div>
-        <div class="form-row">
-            <input id="email_id" type="email" placeholder="E-mail" name="email" required>
-        </div>
+            <a title="Voltar à Home" href="../"><img src="../img/logo-texto-preto.png" alt="Logo PUC" id="logo-login"></a>
 
-        <div class="form-row">
-            <input id="senha_id" type="password" placeholder="Senha" name="senha" required>
-        </div>
-        <div class="form-row">
-            <input id="confirm" type="password" placeholder="Confirme sua Senha" name="confirm" required>
-        </div>
+                    <div class="alinharelementosescrita">
+                        <p id="elemento1">Fazer Cadastro</p>
+                        <p id="elemento2">Digite seus dados e crie uma senha</p>
+                    </div>
 
-		<button id="adicionar" class="btn btn-info"> ESSE BOTÂO TA FUNCIONANDO </button>
-        <button class="btn entrar" type="submit">Entrar</button>
+                    <form id="form1" name="form1" method="post" action="cadastro_php.php" onsubmit="return verificar()">
+                        <div class="espacodentrobox">
+                            <input type="text" name="txtNome" value="" maxlength="100" id="nome_id" placeholder="Nome" class="campocheio" required>
 
-        <h6>@ByteBusters</h6>
-    </div>
+                            <input type="email" name="email" id="email_id" value="" placeholder="E-mail" maxlength="100" class="campocheio" required>
+
+                            <input type="text" placeholder="CPF" id="cpf_id" name="txtCPF" value="" maxlength="14" class="campomedio" required>
+
+                            <input type="text" placeholder="Matrícula" id="matricula_id" name="txtMatricula" value="" class="campomedio" required>
+
+                            <input type="password" name="txtSenha" value="" id="senha_id" placeholder="Senha" class="campocheio" maxlength="20" required>
+
+                            <input type="password" name="txtConfirmar" value="" id="confirm" placeholder="Confirmar Senha" class="campocheio" maxlength="20" required>
+
+                        </div>
+
+                        <div id="buttons">
+                            <a href="../" id="voltar-button">Voltar</a>
+                            <input type="submit" value="Criar conta" id="adicionar">
+                        </div>
+                    </form>
+
+                    <p id="bytebusters_copy"><a href="../">&copy;Bytebusters</a></p>
+        </section>
+    </main>
 </body>
 <script src="cadastro.js"></script>
 </html>

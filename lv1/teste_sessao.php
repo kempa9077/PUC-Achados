@@ -1,14 +1,9 @@
 <?php
 include '../funcoes_banco.php';
-session_start();
-print_r($_SESSION);
-
-// Verifica se o usuário está logado
-if (!isset($_SESSION['usuario'])) {
-    // Se não estiver logado, redireciona para a página de login
-    header("Location: ..//login/login.html");
-    exit();}
+include '../header.php';
+var_dump($_SESSION);
 ?>
+
 
 <h1>Bem-vindo, <?php echo $_SESSION['usuario']['email']; ?>!</h1>
 
