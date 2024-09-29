@@ -1,6 +1,5 @@
 <?php
 include '../header.php';
-print_r($_SESSION);
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">

@@ -1,3 +1,6 @@
+<?php
+include '../header.php';
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -78,8 +81,6 @@
             </div>
             <div class="bloco-de-encontro">
                 <label for="bloco_encontro">Bloco Encontrado:</label>
-                <input type="checkbox" id="checkbox_bloco" onchange="caixaBlocos()">
-                <label for="checkbox_bloco">Não sei o bloco</label>
                 <select name="bloco_encontro" id="bloco_encontro"></select>
             </div>
             <div class="sala-de-encontro">
@@ -89,8 +90,6 @@
             <div class="data-de-entrada">
                 <label for="date">Data de Perda:</label>
                 <input id="date_encontrado" type="date" />
-                <input type="checkbox" id="checkbox_data" onchange="caixaData()">
-                <label for="checkbox_data">Data desconhecida</label>
             </div>
             <button id="botao_registrar">Registrar Objeto</button>
 
