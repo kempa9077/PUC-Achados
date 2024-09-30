@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const sala_encontro = document.getElementById('sala_encontro').value;
 
         // Faz a requisição para registrar o objeto
-        fetch('registrar_objeto.php', {
+        fetch('efetua_registro.php', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/x-www-form-urlencoded'
@@ -31,7 +31,7 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 function carregarCategorias() {
-    fetch('../perdi_algo/carregar_categorias.php')
+    fetch('../protocolo_perda/carregar_categorias.php')
         .then(response => response.json())
         .then(data => {
             console.log(data);
@@ -46,7 +46,7 @@ function carregarCategorias() {
 }
 
 function carregarBlocos() {
-    fetch('../perdi_algo/carregar_blocos.php')
+    fetch('../protocolo_perda/carregar_blocos.php')
         .then(response => response.json())
         .then(data => {
             const arrBlocos = [];
@@ -68,7 +68,7 @@ function carregarBlocos() {
 }
 
 function carregarSalas(id_bloco) {
-    fetch(`../perdi_algo/carregar_salas.php?id_bloco=${id_bloco}`)
+    fetch(`../protocolo_perda/carregar_salas.php?id_bloco=${id_bloco}`)
         .then(response => response.json())
         .then(data => {
             const salaEncontro = document.getElementById('sala_encontro');

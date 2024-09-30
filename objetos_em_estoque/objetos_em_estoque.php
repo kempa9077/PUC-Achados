@@ -53,10 +53,10 @@ include '../header.php';
             </div>
             
             <div class="divnav">                
-                <a href="objetos_em_estoque.html" id="pagina_home_sem_cadastro">
+                <a href="objetos_em_estoque.php" id="pagina_home_sem_cadastro">
                     <img src="..\img\icon-estoque.png" alt="icon-home">
                 </a>
-                <a href="objetos_em_estoque.html" id="pagina_home_sem_cadastro" class="menu-btn">Objetos em Estoque</a>
+                <a href="objetos_em_estoque.php" id="pagina_home_sem_cadastro" class="menu-btn">Objetos em Estoque</a>
             </div>
                 
         </div>
