@@ -23,3 +23,8 @@ document.getElementById("enviar").addEventListener("click", function() {
     })
     .catch(error => console.error('Erro:', error));
 });
+
+function voltarPagina() {
+    window.history.back();
+}
+

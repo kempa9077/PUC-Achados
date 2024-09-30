@@ -44,7 +44,11 @@ document.getElementById('adicionar').addEventListener('click', function() {
         });
 });
 
+//Voltar Pagina.
 
+function voltarPagina() {
+    window.history.back();
+}
 
 /**
  * Realiza uma requisição HTTP ao back-end.
