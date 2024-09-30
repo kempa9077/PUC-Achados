@@ -7,7 +7,7 @@ include '../header.php';
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Página de Exemplo</title>
-    <link rel="stylesheet" href="perdi_algo.css">
+    <link rel="stylesheet" href="protocolo_perda.css">
 </head>
 <body>
     <header class="top-bar">
@@ -62,5 +62,5 @@ include '../header.php';
         </div>
     </main>
 </body>
-<script src="perdi_algo.js"></script>
+<script src="protocolo_perda.js"></script>
 </html>

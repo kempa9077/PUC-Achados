@@ -16,7 +16,7 @@ document.getElementById("enviar").addEventListener("click", function() {
     .then(data => {
         console.log(data); // era pra eu ver oque está retornando do PHP
         if (data === 'success') {
-            window.location.href = '../main_cadastrado/main_cadastrado.html'; // ARRUMAR ESSE REDIRECIONAMENTO PRA PAGINA CORRETA, TA INDO PRA DE TESTE DE SESSAO
+            window.location.href = '../home_logado/home_logado.html'; // ARRUMAR ESSE REDIRECIONAMENTO PRA PAGINA CORRETA, TA INDO PRA DE TESTE DE SESSAO
         } else {
             alert('Algo ta quebrado');
         }
