@@ -1,4 +1,5 @@
 <?php
+include '../header.php';
 require_once("../funcoes_banco.php");
 date_default_timezone_set('America/Sao_Paulo');
 
@@ -22,7 +23,7 @@ if (isset($_POST['acao'])) {
     echo json_encode(["erro" => "Nenhuma ação especificada."]);
 }
 
-
+// http://localhost/PUC-Achados/protocolo_perda/registrar_protocolo.php?teste=1
 function inserirFakeObjeto() {
     // Captura os dados do formulário
     $nome_item = 'TESTE';
@@ -55,9 +56,9 @@ function inserirFakeProcotocolo() {
     $tabela = "protocolo";
     $colunas = "situacao, data_abertura, data_perda, pessoa_abertura, local_perda, objeto, descricao";
     $valores = "'$status', '$data_abertura','$data_perda', '$cpf_usuario', '$local_perda', '$objeto_id', '$descricao'";
-    var_dump($tabela);
-    var_dump($colunas);
-    var_dump($valores);     
+    // var_dump($tabela);
+    // var_dump($colunas);
+    // var_dump($valores);     
     $result = inserir_dado($tabela, $colunas, $valores);
 
         // tentativas de descobrir o pq n esta registando nada
@@ -66,32 +67,7 @@ function inserirFakeProcotocolo() {
 
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+// ------------------------------------------------------------------------------------------------------------------------------
 
 
 function inserirObjeto() {
@@ -111,10 +87,9 @@ function inserirObjeto() {
 }
 
     
-
+// algum destes dados estão errados
 function inserirProcotocolo() {
     $objeto_id = inserirObjeto(); // insere o objeto no banco e retorna pega o ID do mesmo
-
         // dados pro protocolo
     $status = 0; // 0 quer dizer fechado
     $data_abertura = date('Y-m-d H:i:s'); // ta certo?
