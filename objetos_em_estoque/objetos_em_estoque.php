@@ -64,31 +64,51 @@ include '../header.php';
 
     <main class="content-area">
 
-        <div class="div-titulo">
-            <div class="area-logo-titulo">
-                <img src="..\img\icon-estoque.png" alt="">
-            </div>
-            &nbsp; OBJETOS EM ESTOQUE
-        </div>
+<div class="div-titulo">
+    <div class="area-logo-titulo">
+        <img src="..\img\icon-estoque.png" alt="">
+    </div>
+    &nbsp; OBJETOS EM ESTOQUE
+</div>
 
-        <div class="objeto-table">
-            <table>
-                <thead>
-                    <tr>
-                        <th>ID OBJETO</th>
-                        <th>NOME</th>
-                        <th>SECRETARIA</th>
-                        <th>SITUAÇÃO</th>
-                        <th>CATEGORIA DO OBJETO</th>
-                    </tr>
-                </thead>
-                <tbody id="objeto-tbody">
-                    <!-- Os dados serão inseridos aqui via JavaScript -->
-                </tbody>
-            </table>
-        </div>
+<div class="objeto-table">
+    <h3>ITENS ENCONTRADOS</h3>
+    <table>
+        <thead>
+            <tr>
+                <th>ID OBJETO</th>
+                <th>NOME</th>
+                <th>LOCAL</th>
+                <th>SITUAÇÃO</th>
+                <th>CATEGORIA DO OBJETO</th>
+            </tr>
+        </thead>
+        <tbody id="objeto-tbody-secretaria">
+            <!-- Dados das Secretarias serão inseridos aqui via JavaScript -->
+        </tbody>
+    </table>
+</div>
 
-        
+<div class="objeto-table">
+    <h3>ITENS PERDIDOS/h3>
+    <table>
+        <thead>
+            <tr>
+                <th>ID OBJETO</th>
+                <th>NOME</th>
+                <th>LOCAL</th>
+                <th>SITUAÇÃO</th>
+                <th>CATEGORIA DO OBJETO</th>
+            </tr>
+        </thead>
+        <tbody id="objeto-tbody-outros">
+            <!-- Dados dos demais itens serão inseridos aqui via JavaScript -->
+        </tbody>
+        <br>
+    </table>
+</div>
+
+</main>
 
     </main>
 

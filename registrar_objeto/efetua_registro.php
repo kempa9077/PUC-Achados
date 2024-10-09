@@ -6,7 +6,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $nome_item = $_POST['nome_item'];
     $categoria_item = $_POST['tipo_item'];
     $id_local = $_POST['sala_encontro']; // No banco diz secretaria, mas mudar agora da medo de quebrar algo
-    $encontrado = 0; // 0 = n encontrado ou n entregue
+    $encontrado = 1; // 0 = perdido 1 = Em estoque 2 = Devolvido
 
     $tabela = "objeto"; 
     $colunas = "nome, categoria_objeto, secretaria, encontrado"; 
