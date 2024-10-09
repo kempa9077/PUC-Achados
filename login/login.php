@@ -16,11 +16,12 @@ if (!empty($result)) {
     if (password_verify($senha, $hash)) {
         // Cria uma sessão para o usuário logado
         criarSessao($result[0]);
+        //header('location: login.css');
         echo 'success'; 
     } else {
         echo 'fail';  // Senha incorreta
     }
 } else {
-    echo 'fail';  // Usuário não encontrado
+    echo ('Credenciais invalidas');
 }
 ?>
