@@ -18,11 +18,12 @@ document.addEventListener("DOMContentLoaded", function() {
                         tr.innerHTML = `
                             <td>${protocolo.idprotocolo}</td>
                             <td>${protocolo.nome_objeto}</td>
-                            <td>${protocolo.categoria || '-'}</td>
+                            <td>${protocolo.nome_categoria || '-'}</td>
                             <td>${protocolo.situacao == 1 ? 'Fechado' : 'Aberto'}</td>
                             <td>${protocolo.data_perda}</td>
                             <td>${protocolo.data_abertura}</td>
                             <td>${protocolo.data_fechamento || '-'}</td>
+                            
                         `;
 
                         // Adiciona a linha na tabela

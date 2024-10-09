@@ -22,8 +22,9 @@ document.addEventListener("DOMContentLoaded", function() {
                 tr.appendChild(secretariaCell);
 
                 const situacaoCell = document.createElement('td');
-                situacaoCell.textContent = objeto.encontrado === 1 ? 'Encontrado' : 'Perdido';
+                situacaoCell.textContent = objeto.encontrado == 1 ? 'Encontrado' : 'Perdido';
                 tr.appendChild(situacaoCell);
+            
 
                 const categoriaCell = document.createElement('td');
                 categoriaCell.textContent = objeto.categoria;

@@ -78,8 +78,8 @@ include '../header.php';
                     </tr>
                 </thead>
                 <tbody id="protocolos-tbody">
-                    <!-- Os dados dos protocolos serão inseridos aqui via PHP -->
-                    <?php include('imprimir_protocolo.php'); ?>
+                    <!-- Os dados dos protocolos serão inseridos aqui via JS -->
+                    
                 </tbody>
             </table>
         </div>
