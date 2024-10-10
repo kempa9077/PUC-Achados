@@ -40,6 +40,16 @@ document.addEventListener("DOMContentLoaded", function() {
                 categoriaCell.textContent = objeto.categoria;
                 tr.appendChild(categoriaCell);
 
+                // Cria o botão "Encontrado"
+                const encontradoButton = document.createElement('button');
+                encontradoButton.textContent = 'Encontrado';
+                encontradoButton.addEventListener('click', function() {
+                    if (confirm('Você tem certeza que deseja marcar este objeto como encontrado?')) {
+                        marcarComoEncontrado(objeto.id_objeto);
+                    }
+                });
+                tr.appendChild(encontradoButton);
+
                 // Adiciona a linha à tabela correta
                 if (objeto.is_secretaria == 1) {
                     tbodySecretaria.appendChild(tr);
@@ -53,7 +63,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
 // Função para marcar o objeto como encontrado
 function marcarComoEncontrado(id_objeto) {
-    fetch('atualizar_objeto.php', {
+    fetch('objeto_encontrado.php', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -70,4 +80,3 @@ function marcarComoEncontrado(id_objeto) {
     })
     .catch(error => console.error('Erro ao atualizar o objeto:', error));
 }
-

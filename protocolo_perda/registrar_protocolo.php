@@ -1,7 +1,6 @@
 <?php
 include '../header.php';
 require_once("../funcoes_banco.php");
-date_default_timezone_set('America/Sao_Paulo');
 
 
 if(isset($_GET['teste'])){
