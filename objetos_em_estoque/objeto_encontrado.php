@@ -3,8 +3,8 @@ include '../funcoes_banco.php';
 include '../header.php';
 
 
-$cpf_funcionario = $_SESSION['usuario']['cpf']; // Obtém o ID do objeto da requisição POST  
-$id_objeto = $_POST['id_objeto']; // Obtém o ID do objeto da requisição POST 
+$cpf_funcionario = $_SESSION['usuario']['cpf'];
+$id_objeto = $_POST['id_objeto']; 
 
 $condicao = "objeto.id_objeto =".$id_objeto;
 $novo_local =$_POST['novo_local'];
@@ -15,7 +15,7 @@ $atualizacao = atualizar_dado('objeto', $atributo, $condicao);
 
 // registra a log 
 $data_hora = date('Y-m-d H:i:s');
-// Prepare os valores para a inserção no log_encontro
+// valores para a inserção no log_encontro
 $colunas = 'id_objeto, funcionario, data,valor_antigo,valor_novo';
 $valores = "$id_objeto, '$cpf_funcionario', '$data_hora',0,1";
 $resultado_log = inserir_dado('log_encontro', $colunas, $valores);
