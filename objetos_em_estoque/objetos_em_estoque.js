@@ -26,7 +26,6 @@ document.addEventListener("DOMContentLoaded", function() {
                 tr.appendChild(secretariaCell);
 
                 const situacaoCell = document.createElement('td');
-                // Verifica as situações possíveis: 0 (Perdido), 1 (Em Estoque) e 2 (Devolvido)
                 if (objeto.encontrado == 2) {
                     situacaoCell.textContent = 'Devolvido';
                 } else if (objeto.encontrado == 1) {
@@ -40,15 +39,25 @@ document.addEventListener("DOMContentLoaded", function() {
                 categoriaCell.textContent = objeto.categoria;
                 tr.appendChild(categoriaCell);
 
-                // Cria o botão "Encontrado"
-                const encontradoButton = document.createElement('button');
-                encontradoButton.textContent = 'Encontrado';
-                encontradoButton.addEventListener('click', function() {
-                    if (confirm('Você tem certeza que deseja marcar este objeto como encontrado?')) {
-                        marcarComoEncontrado(objeto.id_objeto);
-                    }
-                });
-                tr.appendChild(encontradoButton);
+                // Se o objeto não foi encontrado (encontrado == 0), adiciona o botão "Encontrado"
+                if (objeto.encontrado == 0) {
+                    const botaoCell = document.createElement('td');
+                    const botaoEncontrado = document.createElement('button');
+                    botaoEncontrado.textContent = 'Encontrado';
+
+                    // Adiciona a função de clique no botão
+                    botaoEncontrado.onclick = function() {
+                        const bloco = prompt('Informe seu Bloco:');
+                        if (bloco) {
+                            if (confirm('Tem certeza que deseja marcar este objeto como encontrado?')) {
+                                marcarComoEncontrado(objeto.id_objeto, bloco);
+                            }
+                        }
+                    };
+
+                    botaoCell.appendChild(botaoEncontrado);
+                    tr.appendChild(botaoCell);
+                }
 
                 // Adiciona a linha à tabela correta
                 if (objeto.is_secretaria == 1) {
@@ -61,18 +70,17 @@ document.addEventListener("DOMContentLoaded", function() {
         .catch(error => console.error('Erro ao buscar dados:', error));
 });
 
-// Função para marcar o objeto como encontrado
-function marcarComoEncontrado(id_objeto) {
+// Função para marcar o objeto como encontrado e enviar o novo local (bloco)
+function marcarComoEncontrado(id_objeto, novo_local) {
     fetch('objeto_encontrado.php', {
         method: 'POST',
         headers: {
-            'Content-Type': 'application/json'
+            'Content-Type': 'application/x-www-form-urlencoded'
         },
-        body: JSON.stringify({ id_objeto: id_objeto })
+        body: `id_objeto=${id_objeto}&novo_local=${novo_local}`
     })
     .then(response => {
         if (response.ok) {
-            // Atualiza a tabela após a mudança
             location.reload(); // Recarrega a página para mostrar a tabela atualizada
         } else {
             alert('Erro ao marcar o objeto como encontrado.');
