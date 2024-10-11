@@ -4,10 +4,12 @@ document.addEventListener("DOMContentLoaded", function() {
         .then(data => {
             const tbodySecretaria = document.getElementById('objeto-tbody-secretaria');
             const tbodyOutros = document.getElementById('objeto-tbody-outros');
+            const tbodyDevolvidos = document.getElementById('objeto-tbody-devolvidos'); // Tabela de itens devolvidos
 
             // Limpa os corpos das tabelas
             tbodySecretaria.innerHTML = '';
             tbodyOutros.innerHTML = '';
+            tbodyDevolvidos.innerHTML = ''; // Limpa a tabela de itens devolvidos
 
             data.forEach(objeto => {
                 const tr = document.createElement('tr');
@@ -24,7 +26,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 const secretariaCell = document.createElement('td');
                 secretariaCell.textContent = objeto.secretaria;
                 tr.appendChild(secretariaCell);
-
+                
                 const situacaoCell = document.createElement('td');
                 if (objeto.encontrado == 2) {
                     situacaoCell.textContent = 'Devolvido';
@@ -39,9 +41,10 @@ document.addEventListener("DOMContentLoaded", function() {
                 categoriaCell.textContent = objeto.categoria;
                 tr.appendChild(categoriaCell);
 
+                const actionCell = document.createElement('td');
+
                 // Se o objeto não foi encontrado (encontrado == 0), adiciona o botão "Encontrado"
                 if (objeto.encontrado == 0) {
-                    const botaoCell = document.createElement('td');
                     const botaoEncontrado = document.createElement('button');
                     botaoEncontrado.textContent = 'Encontrado';
 
@@ -55,12 +58,33 @@ document.addEventListener("DOMContentLoaded", function() {
                         }
                     };
 
-                    botaoCell.appendChild(botaoEncontrado);
-                    tr.appendChild(botaoCell);
+                    actionCell.appendChild(botaoEncontrado);
                 }
 
+                // Se o objeto foi encontrado (encontrado == 1), adiciona o botão "Devolver"
+                if (objeto.encontrado == 1) {
+                    const botaoDevolver = document.createElement('button');
+                    botaoDevolver.textContent = 'Devolver';
+
+                    // Adiciona a função de clique no botão
+                    botaoDevolver.onclick = function() {
+                        const cpfRetirante = prompt('Informe o CPF da Pessoa Retirante:');
+                        if (cpfRetirante) {
+                            if (confirm('Tem certeza que deseja confirmar a devolução?')) {
+                                marcarComoDevolvido(objeto.id_objeto, cpfRetirante);
+                            }
+                        }
+                    };
+
+                    actionCell.appendChild(botaoDevolver);
+                }
+
+                tr.appendChild(actionCell);
+
                 // Adiciona a linha à tabela correta
-                if (objeto.is_secretaria == 1) {
+                if (objeto.encontrado == 2) {
+                    tbodyDevolvidos.appendChild(tr); // Adiciona os itens devolvidos à tabela de devolvidos
+                } else if (objeto.is_secretaria == 1) {
                     tbodySecretaria.appendChild(tr);
                 } else {
                     tbodyOutros.appendChild(tr);
@@ -81,10 +105,35 @@ function marcarComoEncontrado(id_objeto, novo_local) {
     })
     .then(response => {
         if (response.ok) {
+            alert('Operação realizada com sucesso.');
+            // -- POR ALGUM MOTIVO N ESTA RECARREGANDO A PAGINA
             location.reload(); // Recarrega a página para mostrar a tabela atualizada
         } else {
             alert('Erro ao marcar o objeto como encontrado.');
         }
     })
     .catch(error => console.error('Erro ao atualizar o objeto:', error));
+}
+
+// Função para marcar o objeto como devolvido e verificar o CPF do retirante
+function marcarComoDevolvido(id_objeto, cpfRetirante) {
+    fetch('objeto_devolvido.php', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/x-www-form-urlencoded'
+        },
+        body: `id_objeto=${id_objeto}&pessoa_retirante=${cpfRetirante}`
+    })
+    .then(response => response.json())
+    .then(result => {
+        if (result.success) {
+            alert('Devolução realizada com sucesso.');
+            location.reload(); // Recarrega a página para mostrar a tabela atualizada
+        } else if (result.error == 'usuario_nao_encontrado') {
+            alert('Usuário não cadastrado.');
+        } else {
+            alert('Erro ao registrar a devolução.');
+        }
+    })
+    .catch(error => console.error('Erro ao registrar a devolução:', error));
 }

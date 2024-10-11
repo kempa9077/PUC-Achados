@@ -74,11 +74,11 @@ function inserirObjeto() {
     $nome_item      = $_POST['nome_item'];
     $categoria_item = $_POST['tipo_item'];
     $encontrado = 0; // Valor fixo como 0
-
+    $local_perda = $_POST['sala_perda'];
     // Prepare os dados para inserção
     $tabela = "objeto"; // Nome da tabela
-    $colunas = "nome, categoria_objeto, encontrado"; // Colunas
-    $valores = "'$nome_item', '$categoria_item', '$encontrado'"; // Valores
+    $colunas = "secretaria,nome, categoria_objeto, encontrado"; // Colunas
+    $valores = "'$local_perda','$nome_item', '$categoria_item', '$encontrado'"; // Valores
 
     // Chama a função para inserir dados
     $resultado = inserir_dado($tabela, $colunas, $valores);
@@ -100,12 +100,12 @@ function inserirProcotocolo() {
         //  sera que há algum erro aqui?
     $tabela = "protocolo";
     $colunas = "situacao, data_abertura, data_perda, pessoa_abertura, local_perda, objeto, descricao";
-        $valores = "'$status', '$data_abertura','$data_perda', '$cpf_usuario', '$local_perda', '$objeto_id', '$descricao'";
+    $valores = "'$status', '$data_abertura','$data_perda', '$cpf_usuario', '$local_perda', '$objeto_id', '$descricao'";
             
-        $result = inserir_dado($tabela, $colunas, $valores);
+    $result = inserir_dado($tabela, $colunas, $valores);
 
-        // tentativas de descobrir o pq n esta registando nada
-        return $result;
+    // tentativas de descobrir o pq n esta registando nada
+    return $result;
 
 }
 

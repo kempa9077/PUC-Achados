@@ -90,7 +90,7 @@ include '../header.php';
 </div>
 
 <div class="objeto-table">
-    <h3>ITENS PERDIDOS/h3>
+    <h3>ITENS PERDIDOS</h3>
     <table>
         <thead>
             <tr>
@@ -107,6 +107,25 @@ include '../header.php';
         <br>
     </table>
 </div>
+
+<div class="objeto-table">
+    <h3>ITENS DEVOLVIDOS</h3>
+    <table>
+        <thead>
+            <tr>
+                <th>ID OBJETO</th>
+                <th>NOME</th>
+                <th>LOCAL</th>
+                <th>SITUAÇÃO</th>
+                <th>CATEGORIA DO OBJETO</th>
+            </tr>
+        </thead>
+        <tbody id="objeto-tbody-devolvidos">
+            <!-- Dados dos itens devolvidos serão inseridos aqui via JavaScript -->
+        </tbody>
+    </table>
+</div>
+
 
 </main>
 
