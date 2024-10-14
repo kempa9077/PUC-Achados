@@ -20,7 +20,7 @@ document.addEventListener("DOMContentLoaded", () => {
         .then(data => {
             console.log(data); // era pra eu ver oque está retornando do PHP
             if (data === 'success') {
-                window.location.href = '../objetos_em_estoque/objetos_em_estoque.php'; // ARRUMAR ESSE REDIRECIONAMENTO PRA PAGINA CORRETA, TA INDO PRA DE TESTE DE SESSAO
+                window.location.href = '../home_logado/home_logado.html'; // ARRUMAR ESSE REDIRECIONAMENTO PRA PAGINA CORRETA, TA INDO PRA DE TESTE DE SESSAO
             } else {
                 alert('Credenciais Invalidas');
             }
