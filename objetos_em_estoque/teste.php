@@ -5,8 +5,8 @@ include '../header.php';
 header('Content-Type: application/json');
 
 $cpf_funcionario = $_SESSION['usuario']['cpf'];
-$cpf_retirante = $_POST['pessoa_retirante'];
-$id_objeto = $_POST['id_objeto']; 
+$cpf_retirante = 12345678913;
+$id_objeto = 166;
 
 // Verifica se o retirante está cadastrado
 $sql = "SELECT * FROM pessoa WHERE cpf = '$cpf_retirante'";
@@ -25,7 +25,8 @@ var_dump($protocolo_aberto);
 if (!empty($protocolo_aberto)) {
     // Protocolo aberto encontrado, atualiza com os dados de fechamento
     $data_fechamento = date('Y-m-d H:i:s');
-    $id_protocolo = $protocolo_aberto[0]['idprotocolo']; // Obtém o ID do protocolo aberto
+    $id_protocolo = $protocolo_aberto[0]['idprotocolo'];
+    var_dump($id_protocolo); // Obtém o ID do protocolo aberto
     
     $atributos_protocolo = "data_fechamento = '$data_fechamento', pessoa_fechado = '$cpf_funcionario', situacao = 1";
     $condicao_protocolo = "idprotocolo = $id_protocolo"; // campo no banco é idprotocolo sem o _
