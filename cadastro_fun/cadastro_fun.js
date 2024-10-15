@@ -82,6 +82,3 @@ function requisitar(metodo, dados) {
             });
     });
 }
-document.getElementById('adicionar').addEventListener('click', function() {
-    alert('Funcionario Cadastrado com sucesso(Na teoria - linha 106 do js pra arrumar esse alert)'); // arrumar isso 
-})  
