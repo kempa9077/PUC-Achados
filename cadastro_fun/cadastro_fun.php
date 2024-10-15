@@ -1,4 +1,5 @@
 <?php
+$acesso = 2; // 2 somente adm
 include '../header.php';
 ?>
 <!DOCTYPE html>

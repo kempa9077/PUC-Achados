@@ -1,4 +1,5 @@
 <?php
+$acesso = 1; // todos os funcionarios
 include '../header.php';
 ?>
 <!DOCTYPE html>

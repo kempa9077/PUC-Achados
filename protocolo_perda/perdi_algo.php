@@ -1,4 +1,5 @@
 <?php
+$acesso = 0; //qualquer um logado
 include '../header.php';
 ?>
 <!DOCTYPE html>
