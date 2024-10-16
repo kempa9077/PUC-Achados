@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", function() {
     fetch('imprimir_estoque.php')
         .then(response => response.json())
         .then(data => {
-            const tbodySecretaria = document.getElementById('objeto-tbody-secretaria');
+            const tbodySecretaria = document.getElementById('objeto-tbody-secretaria'); // coisas com nome secretaria vem do id_local que antes era secretaria o nome
             const tbodyOutros = document.getElementById('objeto-tbody-outros');
             const tbodyDevolvidos = document.getElementById('objeto-tbody-devolvidos'); // Tabela de itens devolvidos
 
