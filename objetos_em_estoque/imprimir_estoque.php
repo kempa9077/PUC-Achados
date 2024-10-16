@@ -1,7 +1,7 @@
 <?php
 include '../funcoes_banco.php';
 
-$sql = "SELECT o.id_objeto, o.nome, l.sala as secretaria, o.encontrado, c.categoria, 
+$sql = "SELECT o.id_objeto, o.nome, l.sala as secretaria, o.encontrado, c.categoria, o.data_registro, 
         CASE 
             WHEN l.sala LIKE '%Secretaria%' THEN 1 
             ELSE 0 
@@ -15,5 +15,5 @@ $objetos = consultar_dado($sql);
 
 header('Content-Type: application/json');
 echo json_encode($objetos);
-// var_dump($objetos); // pra ver isso tem que ir no proprio imprimir_estoque.php
+
 ?>

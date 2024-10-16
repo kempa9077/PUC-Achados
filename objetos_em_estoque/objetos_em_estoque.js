@@ -37,6 +37,10 @@ document.addEventListener("DOMContentLoaded", function() {
                 }
                 tr.appendChild(situacaoCell);
 
+                const dataRegistroCell = document.createElement('td');
+                dataRegistroCell.textContent = objeto.data_registro;
+                tr.appendChild(dataRegistroCell);
+
                 const categoriaCell = document.createElement('td');
                 categoriaCell.textContent = objeto.categoria;
                 tr.appendChild(categoriaCell);

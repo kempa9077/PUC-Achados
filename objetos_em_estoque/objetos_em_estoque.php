@@ -81,9 +81,11 @@ include '../header.php';
                 <th>NOME</th>
                 <th>LOCAL</th>
                 <th>SITUAÇÃO</th>
+                <th>DATA DE REGISTRO</th>
                 <th>CATEGORIA DO OBJETO</th>
             </tr>
         </thead>
+
         <tbody id="objeto-tbody-secretaria">
             <!-- Dados das Secretarias serão inseridos aqui via JavaScript -->
         </tbody>
@@ -99,7 +101,9 @@ include '../header.php';
                 <th>NOME</th>
                 <th>LOCAL</th>
                 <th>SITUAÇÃO</th>
+                <th>DATA DE REGISTRO</th>
                 <th>CATEGORIA DO OBJETO</th>
+
             </tr>
         </thead>
         <tbody id="objeto-tbody-outros">
@@ -118,7 +122,9 @@ include '../header.php';
                 <th>NOME</th>
                 <th>LOCAL</th>
                 <th>SITUAÇÃO</th>
+                <th>DATA DE REGISTRO</th>
                 <th>CATEGORIA DO OBJETO</th>
+
             </tr>
         </thead>
         <tbody id="objeto-tbody-devolvidos">
