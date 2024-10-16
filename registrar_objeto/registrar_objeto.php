@@ -88,10 +88,6 @@ include '../header.php';
                 <label for="sala_encontro">Sala Encontrada:</label>
                 <select name="sala_encontro" id="sala_encontro"></select>
             </div>
-            <div class="data-de-entrada">
-                <label for="date">Data de Perda:</label>
-                <input id="date_encontrado" type="date" />
-            </div>
             <button id="botao_registrar">Registrar Objeto</button>
 
         

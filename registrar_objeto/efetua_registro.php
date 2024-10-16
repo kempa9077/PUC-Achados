@@ -9,7 +9,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $encontrado = 1; // 0 = perdido 1 = Em estoque 2 = Devolvido
 
     $tabela = "objeto"; 
-    $colunas = "nome, categoria_objeto, secretaria, encontrado"; 
+    $colunas = "nome, categoria_objeto, id_local, encontrado"; 
     $valores = "'$nome_item', '$categoria_item', '$id_local', $encontrado"; 
 
     $resultado = inserir_dado($tabela, $colunas, $valores);

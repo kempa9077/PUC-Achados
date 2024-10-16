@@ -32,7 +32,7 @@ function atualizarPessoa(cpf) {
     const acesso_nivel = document.getElementById(`acesso_${cpf}`).value;
 
     // impede de colocar um nivel de acesso invalido
-    if (acesso_nivel < 0 || acesso_nivel > 2) {
+    if (acesso_nivel != 1 && acesso_nivel != 2) {
         alert("Nivel de acesso Invalido");
         return; // Interrompe a execução se o valor for inválido
     }

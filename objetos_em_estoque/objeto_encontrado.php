@@ -10,7 +10,7 @@ $condicao = "objeto.id_objeto =".$id_objeto;
 $novo_local =$_POST['novo_local'];
 
 // Atualiza o campo encontrado de 0 para 1 e o novo local
-$atributo = "encontrado = 1,secretaria ='$novo_local'";
+$atributo = "encontrado = 1,id_local ='$novo_local'";
 $atualizacao = atualizar_dado('objeto', $atributo, $condicao);
 
 // registra a log 

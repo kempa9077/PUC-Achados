@@ -7,7 +7,7 @@ $sql = "SELECT o.id_objeto, o.nome, l.sala as secretaria, o.encontrado, c.catego
             ELSE 0 
         END as is_secretaria
         FROM objeto o 
-        JOIN local l ON o.secretaria = l.id_local 
+        JOIN local l ON o.id_local = l.id_local 
         JOIN categoria_objeto c ON o.categoria_objeto = c.id_tipo";
 
 
