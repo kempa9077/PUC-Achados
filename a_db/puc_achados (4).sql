@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 16/10/2024 às 12:58
+-- Tempo de geração: 16/10/2024 às 14:06
 -- Versão do servidor: 10.4.32-MariaDB
 -- Versão do PHP: 8.2.12
 
@@ -128,7 +128,10 @@ INSERT INTO `log_pessoa` (`id_log`, `cpf_modificador`, `cpf_alterado`, `data`, `
 (2, '12345678910', '12345678911', '2024-10-15 12:04:52', 'testeFun@gmail.com', 'testeFun@gmail.com', NULL, NULL, 'FuncionaPFAAAAAAAAAAAAAAAAA', 'FuncionaPFAAAAAAAAAAAAAAAAA', 1, 1),
 (3, '12345678910', '12345678911', '2024-10-15 12:04:54', 'testeFun@gmail.com', 'testeFun@gmail.com', NULL, NULL, 'FuncionaPFAAAAAAAAAAAAAAAAA', 'FuncionaPFAAAAAAAAAAAAAAAAA', 1, 1),
 (4, '12345678910', '12345678911', '2024-10-15 12:05:44', 'testeFun@gmail.com', 'testeFun@gmail.com', NULL, NULL, 'FuncionaPFAAAAAAAAAAAAAAAAA', 'FuncionaPFAAAAAAAAAAAAAAAAA', 1, 3),
-(5, '12345678910', '12345678911', '2024-10-15 12:08:50', 'testeFun@gmail.com', 'testeFun@gmail.com', NULL, NULL, 'FuncionaPFAAAAAAAAAAAAAAAAA', 'FuncionaPFAAAAAAAAAAAAAAAAA', 3, 1);
+(5, '12345678910', '12345678911', '2024-10-15 12:08:50', 'testeFun@gmail.com', 'testeFun@gmail.com', NULL, NULL, 'FuncionaPFAAAAAAAAAAAAAAAAA', 'FuncionaPFAAAAAAAAAAAAAAAAA', 3, 1),
+(6, '12345678910', '321', '2024-10-16 08:51:50', 'fun', 'fun', NULL, NULL, 'fun_nome', 'fun_nome', 1, 0),
+(7, '12345678910', '321', '2024-10-16 09:02:38', 'fun', 'fun', NULL, NULL, 'fun_nome', 'fun_nome', 1, 2),
+(8, '12345678910', '321', '2024-10-16 09:02:44', 'fun', 'fun', NULL, NULL, 'fun_nome', 'fun_nome', 2, 1);
 
 -- --------------------------------------------------------
 
@@ -138,7 +141,7 @@ INSERT INTO `log_pessoa` (`id_log`, `cpf_modificador`, `cpf_alterado`, `data`, `
 
 CREATE TABLE `objeto` (
   `id_objeto` int(11) NOT NULL,
-  `secretaria` int(11) DEFAULT NULL,
+  `id_local` int(11) DEFAULT NULL,
   `categoria_objeto` int(11) NOT NULL,
   `encontrado` int(11) NOT NULL,
   `nome` varchar(45) DEFAULT NULL,
@@ -149,7 +152,7 @@ CREATE TABLE `objeto` (
 -- Despejando dados para a tabela `objeto`
 --
 
-INSERT INTO `objeto` (`id_objeto`, `secretaria`, `categoria_objeto`, `encontrado`, `nome`, `data_registro`) VALUES
+INSERT INTO `objeto` (`id_objeto`, `id_local`, `categoria_objeto`, `encontrado`, `nome`, `data_registro`) VALUES
 (1, 5, 1, 2, 'Notebook', '2024-10-09 14:25:52'),
 (2, 4, 2, 1, 'Carteira', '2024-10-09 14:25:52'),
 (3, 3, 2, 1, 'Mochila', '2024-10-09 14:25:52'),
@@ -161,7 +164,9 @@ INSERT INTO `objeto` (`id_objeto`, `secretaria`, `categoria_objeto`, `encontrado
 (163, 1, 1, 2, 'TesteEstoque2', '2024-10-11 17:58:24'),
 (164, 2, 2, 2, 'Anel Solitario', '2024-10-11 19:53:40'),
 (165, 3, 1, 2, 'TesteDevolutiva', '2024-10-14 12:06:34'),
-(166, 11, 1, 0, 'TesteDevolutiva2', '2024-10-14 12:14:30');
+(166, 11, 1, 0, 'TesteDevolutiva2', '2024-10-14 12:14:30'),
+(167, 6, 1, 1, 'teste data registro', '2024-10-16 08:16:21'),
+(168, 6, 1, 1, 'Tete 8001²', '2024-10-16 08:17:44');
 
 -- --------------------------------------------------------
 
@@ -189,7 +194,7 @@ INSERT INTO `pessoa` (`cpf`, `email`, `senha`, `nome`, `matricula`, `registro_pu
 ('12345678913', '2@gmail.com', '$2y$10$S7J2/pIF4BNITNvLH8q5vO8a9b5YHG5IeH0KD1qBhJ8g.zpwVEyAW', 'tete1234', '', NULL, 0),
 ('12345678915', 'tester@gmail.com', '$2y$10$YZ7sENRgwDeiMO//ZZ0KAuJo7TvSBgKyqsYW.kO0jhc4Dp3pPtTei', 'Tester', '', NULL, 0),
 ('12345678921', 'a@gmail.com', '$2y$10$Vt1HeSc20DJ1I2WbfGIKU.Cg0UJ2NXj/qsNtTAY.RQSBAJ6gInK7S', 'saaaaaaaa', '', NULL, 0),
-('321', 'fun', '$2b$12$G/RXIjXkgI38FLUU3zL/s.yIY2ArbbI/LNo4rp7ubfh.ANy9X.2OS', 'fun_nome', NULL, NULL, 1),
+('321', 'fun', '$2b$12$G/RXIjXkgI38FLUU3zL/s.yIY2ArbbI/LNo4rp7ubfh.ANy9X.2OS', 'fun_nome', NULL, 'null', 1),
 ('456', 'alu', '$2b$12$s13iS28In4KivWDhvM2EhOAFjUQ5C/c2lmbI2DwWhmbpvpNVKrUM6', 'alu_nome', NULL, NULL, 0);
 
 -- --------------------------------------------------------
@@ -296,7 +301,7 @@ ALTER TABLE `log_pessoa`
 --
 ALTER TABLE `objeto`
   ADD PRIMARY KEY (`id_objeto`),
-  ADD KEY `fk_objeto_local1_idx` (`secretaria`),
+  ADD KEY `fk_objeto_local1_idx` (`id_local`),
   ADD KEY `fk_objeto_tipo_item1_idx` (`categoria_objeto`);
 
 --
@@ -352,13 +357,13 @@ ALTER TABLE `log_encontro`
 -- AUTO_INCREMENT de tabela `log_pessoa`
 --
 ALTER TABLE `log_pessoa`
-  MODIFY `id_log` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id_log` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT de tabela `objeto`
 --
 ALTER TABLE `objeto`
-  MODIFY `id_objeto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=167;
+  MODIFY `id_objeto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=169;
 
 --
 -- AUTO_INCREMENT de tabela `protocolo`
@@ -394,7 +399,7 @@ ALTER TABLE `log_pessoa`
 -- Restrições para tabelas `objeto`
 --
 ALTER TABLE `objeto`
-  ADD CONSTRAINT `fk_objeto_local1` FOREIGN KEY (`secretaria`) REFERENCES `local` (`id_local`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `fk_objeto_local1` FOREIGN KEY (`id_local`) REFERENCES `local` (`id_local`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   ADD CONSTRAINT `fk_objeto_tipo_item1` FOREIGN KEY (`categoria_objeto`) REFERENCES `categoria_objeto` (`id_tipo`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
