@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 09/10/2024 às 21:46
+-- Tempo de geração: 16/10/2024 às 12:58
 -- Versão do servidor: 10.4.32-MariaDB
 -- Versão do PHP: 8.2.12
 
@@ -57,6 +57,7 @@ CREATE TABLE `local` (
 --
 
 INSERT INTO `local` (`id_local`, `bloco`, `sala`) VALUES
+(0, 0, '-'),
 (1, 1, 'Secretaria Bloco 1'),
 (2, 2, 'Secretaria Bloco 2'),
 (3, 3, 'Secretaria Bloco 3'),
@@ -80,10 +81,54 @@ INSERT INTO `local` (`id_local`, `bloco`, `sala`) VALUES
 --
 
 CREATE TABLE `log_encontro` (
-  `id_objeto` int(11) NOT NULL,
-  `funcionario` varchar(11) NOT NULL,
-  `data` datetime NOT NULL
+  `id_log` int(11) NOT NULL,
+  `id_objeto` int(11) DEFAULT NULL,
+  `funcionario` varchar(11) DEFAULT NULL,
+  `data` datetime DEFAULT NULL,
+  `valor_antigo` int(11) DEFAULT NULL,
+  `valor_novo` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+
+--
+-- Despejando dados para a tabela `log_encontro`
+--
+
+INSERT INTO `log_encontro` (`id_log`, `id_objeto`, `funcionario`, `data`, `valor_antigo`, `valor_novo`) VALUES
+(1, 3, '12345678910', '2024-10-14 14:30:11', 0, 1),
+(2, 165, '12345678910', '2024-10-14 14:30:38', 0, 1),
+(3, 165, '12345678910', '2024-10-14 14:30:49', 1, 2);
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura para tabela `log_pessoa`
+--
+
+CREATE TABLE `log_pessoa` (
+  `id_log` int(11) NOT NULL,
+  `cpf_modificador` varchar(11) NOT NULL,
+  `cpf_alterado` varchar(11) NOT NULL,
+  `data` datetime NOT NULL,
+  `email_velho` varchar(100) DEFAULT NULL,
+  `email_novo` varchar(100) DEFAULT NULL,
+  `senha_velho` varchar(255) DEFAULT NULL,
+  `senha_novo` varchar(255) DEFAULT NULL,
+  `nome_velho` varchar(100) DEFAULT NULL,
+  `nome_novo` varchar(100) DEFAULT NULL,
+  `acesso_nivel_velho` int(11) DEFAULT NULL,
+  `acesso_nivel_novo` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+
+--
+-- Despejando dados para a tabela `log_pessoa`
+--
+
+INSERT INTO `log_pessoa` (`id_log`, `cpf_modificador`, `cpf_alterado`, `data`, `email_velho`, `email_novo`, `senha_velho`, `senha_novo`, `nome_velho`, `nome_novo`, `acesso_nivel_velho`, `acesso_nivel_novo`) VALUES
+(1, '12345678910', '12345678911', '2024-10-15 12:04:43', 'testeFun@gmail.com', 'testeFun@gmail.com', NULL, NULL, 'FuncionaPFAAAAAAAAAAAAAAAAA', 'FuncionaPFAAAAAAAAAAAAAAAAA', 2, 1),
+(2, '12345678910', '12345678911', '2024-10-15 12:04:52', 'testeFun@gmail.com', 'testeFun@gmail.com', NULL, NULL, 'FuncionaPFAAAAAAAAAAAAAAAAA', 'FuncionaPFAAAAAAAAAAAAAAAAA', 1, 1),
+(3, '12345678910', '12345678911', '2024-10-15 12:04:54', 'testeFun@gmail.com', 'testeFun@gmail.com', NULL, NULL, 'FuncionaPFAAAAAAAAAAAAAAAAA', 'FuncionaPFAAAAAAAAAAAAAAAAA', 1, 1),
+(4, '12345678910', '12345678911', '2024-10-15 12:05:44', 'testeFun@gmail.com', 'testeFun@gmail.com', NULL, NULL, 'FuncionaPFAAAAAAAAAAAAAAAAA', 'FuncionaPFAAAAAAAAAAAAAAAAA', 1, 3),
+(5, '12345678910', '12345678911', '2024-10-15 12:08:50', 'testeFun@gmail.com', 'testeFun@gmail.com', NULL, NULL, 'FuncionaPFAAAAAAAAAAAAAAAAA', 'FuncionaPFAAAAAAAAAAAAAAAAA', 3, 1);
 
 -- --------------------------------------------------------
 
@@ -105,14 +150,18 @@ CREATE TABLE `objeto` (
 --
 
 INSERT INTO `objeto` (`id_objeto`, `secretaria`, `categoria_objeto`, `encontrado`, `nome`, `data_registro`) VALUES
-(1, 5, 1, 1, 'Notebook', '2024-10-09 14:25:52'),
-(2, 4, 2, 2, 'Carteira', '2024-10-09 14:25:52'),
-(3, 6, 2, 0, 'Mochila', '2024-10-09 14:25:52'),
-(137, 13, 2, 0, 'Teste_97@', '2024-10-09 14:25:52'),
-(158, NULL, 2, 0, 'Teste 8001', '2024-10-09 14:25:52'),
-(159, 13, 2, 0, 'Teste com data', '2024-10-09 14:27:11'),
-(160, 13, 2, 0, 'Teste com data', '2024-10-09 14:27:33'),
-(161, NULL, 1, 0, 'Teste novo', '2024-10-09 14:28:17');
+(1, 5, 1, 2, 'Notebook', '2024-10-09 14:25:52'),
+(2, 4, 2, 1, 'Carteira', '2024-10-09 14:25:52'),
+(3, 3, 2, 1, 'Mochila', '2024-10-09 14:25:52'),
+(137, 12, 2, 0, 'Teste_97@', '2024-10-09 14:25:52'),
+(158, 9, 2, 0, 'Teste 8001', '2024-10-09 14:25:52'),
+(160, 1, 2, 2, 'Teste com data', '2024-10-09 14:27:33'),
+(161, 1, 1, 2, 'Teste novo', '2024-10-09 14:28:17'),
+(162, 3, 2, 2, 'TesteEstoque', '2024-10-11 17:22:02'),
+(163, 1, 1, 2, 'TesteEstoque2', '2024-10-11 17:58:24'),
+(164, 2, 2, 2, 'Anel Solitario', '2024-10-11 19:53:40'),
+(165, 3, 1, 2, 'TesteDevolutiva', '2024-10-14 12:06:34'),
+(166, 11, 1, 0, 'TesteDevolutiva2', '2024-10-14 12:14:30');
 
 -- --------------------------------------------------------
 
@@ -135,7 +184,8 @@ CREATE TABLE `pessoa` (
 --
 
 INSERT INTO `pessoa` (`cpf`, `email`, `senha`, `nome`, `matricula`, `registro_puc`, `acesso_nivel`) VALUES
-('12345678910', 'adm@adm.com', '$2b$12$nQ9IDi2hvsZIPc8XnFfjXeoVnDkAATGw7Yh35xQ52zesIbOZQI4em', 'adm_nome', NULL, NULL, 2),
+('12345678910', 'adm@adm.com', '$2b$12$nQ9IDi2hvsZIPc8XnFfjXeoVnDkAATGw7Yh35xQ52zesIbOZQI4em', 'adm_nome', NULL, 'jan15ah', 2),
+('12345678911', 'testeFun@gmail.com', '$2y$10$bPMH8MLaHir0hyxPzUZYJ./5KowsiFvCnH9WCtIj/Y0l.moqBVeWC', 'FuncionaPFAAAAAAAAAAAAAAAAA', '', '134542bm929', 1),
 ('12345678913', '2@gmail.com', '$2y$10$S7J2/pIF4BNITNvLH8q5vO8a9b5YHG5IeH0KD1qBhJ8g.zpwVEyAW', 'tete1234', '', NULL, 0),
 ('12345678915', 'tester@gmail.com', '$2y$10$YZ7sENRgwDeiMO//ZZ0KAuJo7TvSBgKyqsYW.kO0jhc4Dp3pPtTei', 'Tester', '', NULL, 0),
 ('12345678921', 'a@gmail.com', '$2y$10$Vt1HeSc20DJ1I2WbfGIKU.Cg0UJ2NXj/qsNtTAY.RQSBAJ6gInK7S', 'saaaaaaaa', '', NULL, 0),
@@ -173,7 +223,12 @@ INSERT INTO `protocolo` (`idprotocolo`, `situacao`, `data_abertura`, `data_fecha
 (24, 0, '2024-10-25 10:10:56', NULL, '2024-10-20 10:10:56', '12345678910', NULL, 10, 1, 'Deus e bom'),
 (25, 0, '2024-10-25 10:10:56', NULL, '2024-10-20 10:10:56', '12345678910', NULL, 10, 1, 'Deus e bom e o davi é burro'),
 (27, 0, '2024-10-09 14:13:54', NULL, '2024-10-07 00:00:00', '12345678910', NULL, 14, 158, 'Se for isso socorro Deus'),
-(28, 0, '2024-10-09 14:28:17', NULL, '2024-10-15 00:00:00', '12345678910', NULL, 6, 161, 'Calopsita');
+(28, 0, '2024-10-09 14:28:17', NULL, '2024-10-15 00:00:00', '12345678910', NULL, 6, 161, 'Calopsita'),
+(29, 1, '2024-10-11 17:22:02', '2024-10-14 14:14:54', '2024-10-09 00:00:00', '12345678910', '12345678910', 8, 162, 'não tem graça'),
+(30, 0, '2024-10-11 17:58:24', NULL, '2024-10-09 00:00:00', '12345678910', NULL, 6, 163, 'não tem graça'),
+(31, 0, '2024-10-11 19:53:40', NULL, '2024-10-10 00:00:00', '12345678910', NULL, 13, 164, 'ouro 18kilaters'),
+(32, 1, '2024-10-14 12:06:34', '2024-10-14 12:11:39', '2024-10-13 00:00:00', '12345678910', '12345678910', 6, 165, 'TesteDevolutina de quando eu clicar em devolver isso deve ser fechado'),
+(33, 1, '2024-10-14 12:14:30', '2024-10-14 14:12:37', '2024-10-13 00:00:00', '12345678910', '12345678910', 11, 166, 'TesteDevolutina de quando eu clicar em devolver isso deve ser fechado Segunda vez');
 
 -- --------------------------------------------------------
 
@@ -188,6 +243,21 @@ CREATE TABLE `retirada` (
   `funcionario` char(11) NOT NULL,
   `data` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+
+--
+-- Despejando dados para a tabela `retirada`
+--
+
+INSERT INTO `retirada` (`id_retirada`, `id_objeto`, `pessoa_retirante`, `funcionario`, `data`) VALUES
+(2, 3, '12345678913', '12345678910', '2024-10-11 10:57:33'),
+(3, 1, '12345678913', '12345678910', '2024-10-11 11:13:02'),
+(4, 160, '12345678913', '12345678910', '2024-10-11 17:32:46'),
+(5, 161, '12345678913', '12345678910', '2024-10-11 17:36:00'),
+(6, 164, '12345678913', '12345678910', '2024-10-11 19:54:34'),
+(7, 165, '12345678913', '12345678910', '2024-10-14 12:11:39'),
+(8, 166, '12345678913', '12345678910', '2024-10-14 14:12:37'),
+(9, 162, '12345678913', '12345678910', '2024-10-14 14:14:54'),
+(10, 165, '12345678913', '12345678910', '2024-10-14 14:30:49');
 
 --
 -- Índices para tabelas despejadas
@@ -209,8 +279,17 @@ ALTER TABLE `local`
 -- Índices de tabela `log_encontro`
 --
 ALTER TABLE `log_encontro`
-  ADD PRIMARY KEY (`id_objeto`),
+  ADD PRIMARY KEY (`id_log`),
+  ADD KEY `id_objeto` (`id_objeto`),
   ADD KEY `funcionario` (`funcionario`);
+
+--
+-- Índices de tabela `log_pessoa`
+--
+ALTER TABLE `log_pessoa`
+  ADD PRIMARY KEY (`id_log`),
+  ADD KEY `cpf_modificador` (`cpf_modificador`),
+  ADD KEY `cpf_alterado` (`cpf_alterado`);
 
 --
 -- Índices de tabela `objeto`
@@ -261,25 +340,37 @@ ALTER TABLE `categoria_objeto`
 -- AUTO_INCREMENT de tabela `local`
 --
 ALTER TABLE `local`
-  MODIFY `id_local` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id_local` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+
+--
+-- AUTO_INCREMENT de tabela `log_encontro`
+--
+ALTER TABLE `log_encontro`
+  MODIFY `id_log` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT de tabela `log_pessoa`
+--
+ALTER TABLE `log_pessoa`
+  MODIFY `id_log` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT de tabela `objeto`
 --
 ALTER TABLE `objeto`
-  MODIFY `id_objeto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=162;
+  MODIFY `id_objeto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=167;
 
 --
 -- AUTO_INCREMENT de tabela `protocolo`
 --
 ALTER TABLE `protocolo`
-  MODIFY `idprotocolo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
+  MODIFY `idprotocolo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
 
 --
 -- AUTO_INCREMENT de tabela `retirada`
 --
 ALTER TABLE `retirada`
-  MODIFY `id_retirada` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_retirada` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- Restrições para tabelas despejadas
@@ -289,8 +380,15 @@ ALTER TABLE `retirada`
 -- Restrições para tabelas `log_encontro`
 --
 ALTER TABLE `log_encontro`
-  ADD CONSTRAINT `log_encontro_ibfk_1` FOREIGN KEY (`id_objeto`) REFERENCES `objeto` (`id_objeto`),
-  ADD CONSTRAINT `log_encontro_ibfk_2` FOREIGN KEY (`funcionario`) REFERENCES `pessoa` (`cpf`);
+  ADD CONSTRAINT `log_encontro_ibfk_1` FOREIGN KEY (`id_objeto`) REFERENCES `objeto` (`id_objeto`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `log_encontro_ibfk_2` FOREIGN KEY (`funcionario`) REFERENCES `pessoa` (`cpf`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Restrições para tabelas `log_pessoa`
+--
+ALTER TABLE `log_pessoa`
+  ADD CONSTRAINT `log_pessoa_ibfk_1` FOREIGN KEY (`cpf_modificador`) REFERENCES `pessoa` (`cpf`),
+  ADD CONSTRAINT `log_pessoa_ibfk_2` FOREIGN KEY (`cpf_alterado`) REFERENCES `pessoa` (`cpf`);
 
 --
 -- Restrições para tabelas `objeto`
