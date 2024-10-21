@@ -40,19 +40,19 @@ include '../header.php';
                 <a id="pagina_home_sem_cadastro">
                     <img src="..\img\icon-home.png" alt="Home Icon">
                 </a>
-                <a id="pagina_home_sem_cadastro" class="menu-btn">Home</a>
+                <a id="pagina_home_sem_cadastro" class="menu-btn" href="../home_logado/home_logado.html">Home</a>
             </div>
             <div class="divnav">                
                 <a id="pagina_protocolos_sem_cadastro">
                     <img src="..\img\icon-protocolos.png" alt="Protocolos Icon">
                 </a>
-                <a id="pagina_protocolos_sem_cadastro" class="menu-btn">Meus Protocolos</a>
+                <a id="pagina_protocolos_sem_cadastro" class="menu-btn" href="../meus_protocolos/meus_protocolos.php" >Meus Protocolos</a>
             </div>
             <div class="divnav">  
                 <a href="" id="pagina_estoque_sem_cadastro">
                     <img src="..\img\icon-estoque.png" alt="Estoque Icon">
                 </a>
-                <a href="" id="pagina_estoque_sem_cadastro" class="menu-btn">Objetos em Estoque</a>
+                <a href="" id="pagina_estoque_sem_cadastro" class="menu-btn" href="../objetos_em_estoque/objetos_em_estoque.php">Objetos em Estoque</a>
             </div>
         </div>
     </nav>
