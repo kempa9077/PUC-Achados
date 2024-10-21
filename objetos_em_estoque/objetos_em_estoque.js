@@ -45,6 +45,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 categoriaCell.textContent = objeto.categoria;
                 tr.appendChild(categoriaCell);
 
+            
                 const actionCell = document.createElement('td');
 
                 // Se o objeto não foi encontrado (encontrado == 0), adiciona o botão "Encontrado"

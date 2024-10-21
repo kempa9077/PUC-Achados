@@ -84,6 +84,7 @@ include '../header.php';
                 <label for="bloco_encontro">Bloco Encontrado:</label>
                 <select name="bloco_encontro" id="bloco_encontro"></select>
             </div>
+
             <button id="botao_registrar">Registrar Objeto</button>
 
         

@@ -103,7 +103,6 @@ include '../header.php';
                 <th>SITUAÇÃO</th>
                 <th>DATA DE REGISTRO</th>
                 <th>CATEGORIA DO OBJETO</th>
-
             </tr>
         </thead>
         <tbody id="objeto-tbody-outros">
@@ -124,7 +123,6 @@ include '../header.php';
                 <th>SITUAÇÃO</th>
                 <th>DATA DE REGISTRO</th>
                 <th>CATEGORIA DO OBJETO</th>
-
             </tr>
         </thead>
         <tbody id="objeto-tbody-devolvidos">

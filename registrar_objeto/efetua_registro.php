@@ -10,7 +10,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     $tabela = "objeto"; 
     $colunas = "nome, categoria_objeto, id_local, encontrado"; // campo data ta sendo preenchido quando há insert de forma automatica
-    $valores = "'$nome_item', '$categoria_item', '$id_local', $encontrado"; 
+    $valores = "'$nome_item', '$categoria_item', '$id_local', '$encontrado'"; 
 
     $resultado = inserir_dado($tabela, $colunas, $valores);
 
