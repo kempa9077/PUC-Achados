@@ -31,7 +31,7 @@ include '../header.php';
                     <img src="..\img\icon-login.png" alt="">
                 </a>
                 <a id="login_sem_cadastro" class="login">
-                    Login
+                <?php echo $_SESSION['usuario']['nome']?>
                 </a>
             </div>
         </nav>

@@ -29,7 +29,7 @@ include '../header.php';
                 <a id="login_sem_cadastro" class="login">
                     <img src="..\img\icon-login.png" alt="Login Icon">
                 </a>
-                <a id="login_sem_cadastro" class="login">Login</a>
+                <a id="login_sem_cadastro" class="login"><?php echo $_SESSION['usuario']['nome']?></a>
             </div>
         </nav>
     </header>

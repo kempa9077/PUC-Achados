@@ -30,7 +30,7 @@ include '../header.php';
                 <a href="../login/login.html" id="login_sem_cadastro" class="login">
                     <img src="..\img\icon-login.png" alt="">
                 </a>
-                <a id="login_sem_cadastro" class="login">Login</a>
+                <a id="login_sem_cadastro" class="login"><?php echo $_SESSION['usuario']['nome']?></a>
             </div>
         </nav>
     </header>

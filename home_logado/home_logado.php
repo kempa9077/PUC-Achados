@@ -16,6 +16,7 @@ include '../header.php';
             <h1>PUC ACHADOS</h1>
         </div>
         <div class="right">
+            <Colocar o icone? <?php echo $_SESSION['usuario']['nome']?>></Colocar>
             <button type="submit" id="sair_pag_cadastrada" name="acao" value="sair">Sair</button>
         </div>
     </header>
