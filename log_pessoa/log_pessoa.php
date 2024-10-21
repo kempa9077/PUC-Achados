@@ -43,6 +43,7 @@ include '../header.php';
                         <th>NOME NOVO</th>
                         <th>ACESSO ANTIGO</th>
                         <th>ACESSO NOVO</th>
+                        <th>Abhurvhrkvt</th>
                     </tr>
                 </thead>
                 <tbody id="log-tbody">

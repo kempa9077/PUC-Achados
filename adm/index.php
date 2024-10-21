@@ -1,10 +1,14 @@
+<?php
+$acesso = 2; // adm
+include '../header.php';
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Página de Exemplo</title>
-    <link rel="stylesheet" href="home_logado.css">
+    <link rel="stylesheet" href="index.css">
 </head>
 <body>
     <header class="top-bar">
@@ -12,13 +16,14 @@
             <h1>PUC ACHADOS</h1>
         </div>
         <div class="right">
-            <button type="submit" id="sair_pag_cadastrada" name="acao" value="sair">Sair</button>
+            <button id="login_sem_cadastro" class="login-btn"><?php echo $_SESSION['usuario']['nome']?></button>
         </div>
     </header>
 
     <nav class="second-bar">
-        <button id="pagina_home" class="nav-btn">Home</button>
-        <button id="meus_protocolos" class="nav-btn center-btn">Meus Protocolos</button>
+        <button id="pagina_home_sem_cadastro" class="nav-btn">Home</button>
+        TESTE ACESSO ADM
+        <button id="meus_protocolos_sem_cadastro" class="nav-btn center-btn">Meus Protocolos</button>
     </nav>
 
     <main class="content-area">
@@ -36,5 +41,5 @@
         </div>
     </main>
 </body>
-<script src="home_logado.js"></script>
+<script src="index.js"></script>
 </html>

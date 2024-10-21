@@ -30,7 +30,7 @@ include '../header.php';
                 <a href="../login/login.html" id="login_sem_cadastro" class="login">
                     <img src="..\img\icon-login.png" alt="">
                 </a>
-                <a id="login_sem_cadastro" class="login">Login</a>
+                <a id="login_sem_cadastro" class="login"><?php echo $_SESSION['usuario']['nome']?></a>
             </div>
         </nav>
     </header>
@@ -41,21 +41,21 @@ include '../header.php';
                 <a id="pagina_home_sem_cadastro">
                     <img src="..\img\icon-home.png" alt="icon-home">
                 </a>
-                <a href="../index/index.html" id="pagina_home_sem_cadastro" class="menu-btn">Home</a>
+                <a href="../index/index.html" id="pagina_home_sem_cadastro" class="menu-btn" href="../home_logado/home_logado.html">Home</a>
             </div>
             
             <div class="divnav">                
                 <a id="pagina_home_sem_cadastro">
                     <img src="..\img\icon-protocolos.png" alt="icon-home">
                 </a>
-                <a id="pagina_home_sem_cadastro" class="menu-btn" >Meus Protocolos</a>
+                <a id="pagina_home_sem_cadastro" class="menu-btn" href="../meus_protocolos/meus_protocolos.php">Meus Protocolos</a>
             </div>
             
             <div class="divnav">                
                 <a href="../objetos_em_estoque/objetos_em_estoque.php" id="pagina_home_sem_cadastro">
                     <img src="..\img\icon-estoque.png" alt="icon-home">
                 </a>
-                <a href="../objetos_em_estoque/objetos_em_estoque.php" id="pagina_home_sem_cadastro" class="menu-btn">Objetos em Estoque</a>
+                <a href="../objetos_em_estoque/objetos_em_estoque.php" id="pagina_home_sem_cadastro" class="menu-btn" href="../objetos_em_estoque/objetos_em_estoque.php">Objetos em Estoque</a>
             </div>
                 
         </div>

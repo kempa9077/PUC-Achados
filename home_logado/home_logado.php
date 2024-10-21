@@ -1,0 +1,45 @@
+<?php
+$acesso = 0; // todos podem ver
+include '../header.php';
+?>
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página de Exemplo</title>
+    <link rel="stylesheet" href="home_logado.css">
+</head>
+<body>
+    <header class="top-bar">
+        <div class="left">
+            <h1>PUC ACHADOS</h1>
+        </div>
+        <div class="right">
+            <Colocar o icone? <?php echo $_SESSION['usuario']['nome']?>></Colocar>
+            <button type="submit" id="sair_pag_cadastrada" name="acao" value="sair">Sair</button>
+        </div>
+    </header>
+
+    <nav class="second-bar">
+        <button id="pagina_home" class="nav-btn">Home</button>
+        <button id="meus_protocolos" class="nav-btn center-btn">Meus Protocolos</button>
+    </nav>
+
+    <main class="content-area">
+        <div class="gray-box">
+            <div class="beige-bar"></div>
+            <div class="gray-box-text">HOME</div>
+            <!-- Retângulo branco à esquerda -->
+            <div class="white-box left-box">
+                <button id="perdi_algo" class="nav-btn">Perdi Algo</button>
+            </div>
+            <!-- Retângulo branco à direita -->
+            <div class="white-box right-box">
+                <button id="achei-algo" class="nav-btn">Achei Algo</button>
+            </div>            
+        </div>
+    </main>
+</body>
+<script src="home_logado.js"></script>
+</html>

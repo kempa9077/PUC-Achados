@@ -15,7 +15,7 @@ include '../header.php';
         <nav class="barranav">
             <div class="logo">
                 <a href="">
-                    <img src="..\img\logo_texto_branco.png" alt="Logo PUC Achados">
+                    <img src="../img/logo_texto_branco.png" alt="Logo PUC Achados">
                 </a>
             </div>
         </nav>
