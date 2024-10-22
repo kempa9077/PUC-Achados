@@ -68,7 +68,6 @@ function inserirFakeProcotocolo() {
 
 // ------------------------------------------------------------------------------------------------------------------------------
 
-
 function inserirObjeto() {
     // Captura os dados do formulário
     $nome_item      = $_POST['nome_item'];
@@ -77,7 +76,7 @@ function inserirObjeto() {
     $local_perda = $_POST['sala_perda'];
     // Prepare os dados para inserção
     $tabela = "objeto"; // Nome da tabela
-    $colunas = "secretaria,nome, categoria_objeto, encontrado"; // Colunas
+    $colunas = "id_local,nome, categoria_objeto, encontrado"; // Colunas
     $valores = "'$local_perda','$nome_item', '$categoria_item', '$encontrado'"; // Valores
 
     // Chama a função para inserir dados
@@ -85,8 +84,7 @@ function inserirObjeto() {
     return $resultado;
 }
 
-    
-// algum destes dados estão errados
+
 function inserirProcotocolo() {
     $objeto_id = inserirObjeto(); // insere o objeto no banco e retorna pega o ID do mesmo
         // dados pro protocolo
@@ -104,8 +102,13 @@ function inserirProcotocolo() {
             
     $result = inserir_dado($tabela, $colunas, $valores);
 
-    // tentativas de descobrir o pq n esta registando nada
-    return $result;
-
+    if ($result) {
+        // Se a inserção foi bem-sucedida
+        echo json_encode(['sucesso' => 'Protocolo registrado com sucesso!']);
+    } else {
+        // Se houve falha
+        echo json_encode(['erro' => 'Falha ao registrar o protocolo.']);
+    }
+    
 }
 

@@ -1,7 +1,9 @@
 <?php 
 require_once("../funcoes_banco.php");  
+include('../header.php');
 
 function buscar_protocolos() {
+    $cpf = $_SESSION['usuario']['cpf'];
     $sql = "SELECT 
     protocolo.idprotocolo,
     objeto.nome AS nome_objeto,
@@ -20,7 +22,8 @@ function buscar_protocolos() {
     LEFT JOIN pessoa AS pessoa_fechado ON protocolo.pessoa_fechado = pessoa_fechado.cpf
     JOIN local ON protocolo.local_perda = local.id_local
     JOIN objeto ON protocolo.objeto = objeto.id_objeto
-    JOIN categoria_objeto ON objeto.categoria_objeto = categoria_objeto.id_tipo";
+    JOIN categoria_objeto ON objeto.categoria_objeto = categoria_objeto.id_tipo
+    WHERE protocolo.pessoa_abertura = $cpf";
 
     $result = consultar_dado($sql);
     echo json_encode($result);

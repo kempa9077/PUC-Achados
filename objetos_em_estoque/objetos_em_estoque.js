@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", function() {
     fetch('imprimir_estoque.php')
         .then(response => response.json())
         .then(data => {
-            const tbodySecretaria = document.getElementById('objeto-tbody-secretaria');
+            const tbodySecretaria = document.getElementById('objeto-tbody-secretaria'); // coisas com nome secretaria vem do id_local que antes era secretaria o nome
             const tbodyOutros = document.getElementById('objeto-tbody-outros');
             const tbodyDevolvidos = document.getElementById('objeto-tbody-devolvidos'); // Tabela de itens devolvidos
 
@@ -37,10 +37,15 @@ document.addEventListener("DOMContentLoaded", function() {
                 }
                 tr.appendChild(situacaoCell);
 
+                const dataRegistroCell = document.createElement('td');
+                dataRegistroCell.textContent = objeto.data_registro;
+                tr.appendChild(dataRegistroCell);
+
                 const categoriaCell = document.createElement('td');
                 categoriaCell.textContent = objeto.categoria;
                 tr.appendChild(categoriaCell);
 
+            
                 const actionCell = document.createElement('td');
 
                 // Se o objeto não foi encontrado (encontrado == 0), adiciona o botão "Encontrado"
