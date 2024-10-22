@@ -1,5 +1,5 @@
 <?php
-$acesso = 1; // Qualquer funcionario
+$acesso = 0; // todos os funcionarios
 include '../header.php';
 ?>
 <!DOCTYPE html>
@@ -7,8 +7,8 @@ include '../header.php';
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Objetos em estoque</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Protocolos</title>
+    <link rel="stylesheet" href="meus_protocolos.css">
     <link rel="apple-touch-icon" sizes="180x180" href="../img/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="../img/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="../img/favicon-16x16.png">
@@ -24,15 +24,12 @@ include '../header.php';
                 <a href="">
                     <img src="..\img\logo_texto_branco.png" alt="Logo PUC Achados">
                 </a>
-                
             </div>
             <div class="spaceperfil">
                 <a id="login_sem_cadastro" class="login">
-                    <img src="..\img\icon-login.png" alt="">
+                    <img src="..\img\icon-login.png" alt="Login Icon">
                 </a>
-                <a id="login_sem_cadastro" class="login">
-                <?php echo $_SESSION['usuario']['nome']?>
-                </a>
+                <a id="login_sem_cadastro" class="login"><?php echo $_SESSION['usuario']['nome']?></a>
             </div>
         </nav>
     </header>
@@ -41,99 +38,52 @@ include '../header.php';
         <div class="menu-nav">
             <div class="divnav">                
                 <a id="pagina_home_sem_cadastro">
-                    <img src="..\img\icon-home.png" alt="icon-home">
+                    <img src="..\img\icon-home.png" alt="Home Icon">
                 </a>
                 <a id="pagina_home_sem_cadastro" class="menu-btn" href="../home_logado/home_logado.html">Home</a>
             </div>
-            
             <div class="divnav">                
-                <a id="pagina_home_sem_cadastro">
-                    <img src="..\img\icon-protocolos.png" alt="icon-home">
+                <a id="pagina_protocolos_sem_cadastro">
+                    <img src="..\img\icon-protocolos.png" alt="Protocolos Icon">
                 </a>
-                <a id="pagina_home_sem_cadastro" class="menu-btn" href="../meus_protocolos/meus_protocolos.php">Meus Protocolos</a>
+                <a id="pagina_protocolos_sem_cadastro" class="menu-btn" href="../meus_protocolos/meus_protocolos.php" >Meus Protocolos</a>
             </div>
-            
-            <div class="divnav">                
-                <a href="objetos_em_estoque.php" id="pagina_home_sem_cadastro">
-                    <img src="..\img\icon-estoque.png" alt="icon-home">
+            <div class="divnav">  
+                <a href="" id="pagina_estoque_sem_cadastro">
+                    <img src="..\img\icon-estoque.png" alt="Estoque Icon">
                 </a>
-                <a href="objetos_em_estoque.php" id="pagina_home_sem_cadastro" class="menu-btn" href="../objetos_em_estoque/objetos_em_estoque.php">Objetos em Estoque</a>
+                <a href="" id="pagina_estoque_sem_cadastro" class="menu-btn" href="../objetos_em_estoque/objetos_em_estoque.php">Objetos em Estoque</a>
             </div>
-                
         </div>
     </nav>
 
     <main class="content-area">
+        <div class="div-titulo">
+            <div class="area-logo-titulo">
+                <img src="..\img\icon-protocolos.png" alt="Protocolos Icon">
+            </div>
+            &nbsp; PROTOCOLOS
+        </div>
 
-<div class="div-titulo">
-    <div class="area-logo-titulo">
-        <img src="..\img\icon-estoque.png" alt="">
-    </div>
-    &nbsp; OBJETOS EM ESTOQUE
-</div>
-
-<div class="objeto-table">
-    <h3>ITENS ENCONTRADOS</h3>
-    <table>
-        <thead>
-            <tr>
-                <th>ID OBJETO</th>
-                <th>NOME</th>
-                <th>LOCAL</th>
-                <th>SITUAÇÃO</th>
-                <th>DATA DE REGISTRO</th>
-                <th>CATEGORIA DO OBJETO</th>
-            </tr>
-        </thead>
-
-        <tbody id="objeto-tbody-secretaria">
-            <!-- Dados das Secretarias serão inseridos aqui via JavaScript -->
-        </tbody>
-    </table>
-</div>
-
-<div class="objeto-table">
-    <h3>ITENS PERDIDOS</h3>
-    <table>
-        <thead>
-            <tr>
-                <th>ID OBJETO</th>
-                <th>NOME</th>
-                <th>LOCAL</th>
-                <th>SITUAÇÃO</th>
-                <th>DATA DE REGISTRO</th>
-                <th>CATEGORIA DO OBJETO</th>
-            </tr>
-        </thead>
-        <tbody id="objeto-tbody-outros">
-            <!-- Dados dos demais itens serão inseridos aqui via JavaScript -->
-        </tbody>
-        <br>
-    </table>
-</div>
-
-<div class="objeto-table">
-    <h3>ITENS DEVOLVIDOS</h3>
-    <table>
-        <thead>
-            <tr>
-                <th>ID OBJETO</th>
-                <th>NOME</th>
-                <th>LOCAL</th>
-                <th>SITUAÇÃO</th>
-                <th>DATA DE REGISTRO</th>
-                <th>CATEGORIA DO OBJETO</th>
-            </tr>
-        </thead>
-        <tbody id="objeto-tbody-devolvidos">
-            <!-- Dados dos itens devolvidos serão inseridos aqui via JavaScript -->
-        </tbody>
-    </table>
-</div>
-
-
-</main>
-
+        <div class="protocolo-table">
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID PROTOCOLO</th>
+                        <th>NOME</th>
+                        <th>CATEGORIA</th>
+                        <th>SITUAÇÃO</th>
+                        <th>DATA PERDA</th>
+                        <th>DATA ABERTURA</th>
+                        <th>DATA FECHAMENTO</th>
+                    </tr>
+                </thead>
+                <tbody id="protocolos-tbody">
+                    <!-- Os dados dos protocolos serão inseridos aqui via JS -->
+                    
+                </tbody>
+            </table>
+        </div>
     </main>
 
     <footer>
@@ -210,6 +160,7 @@ include '../header.php';
         </div>
 
     </footer>
+    <script src="meus_protocolos.js"></script>
+
 </body>
-<script src="objetos_em_estoque.js"></script>
 </html>
