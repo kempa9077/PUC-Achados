@@ -16,7 +16,7 @@ include '../header.php';
             <h1>PUC ACHADOS</h1>
         </div>
         <div class="right">
-            <button id="login_sem_cadastro" class="login-btn"><?php echo $_SESSION['usuario']['nome']?></button>
+            <button id="login_sem_cadastro" class="login-btn">Login</button>
         </div>
     </header>
 

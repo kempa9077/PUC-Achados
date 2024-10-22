@@ -20,4 +20,5 @@ $colunas = 'id_objeto, funcionario, data,valor_antigo,valor_novo';
 $valores = "$id_objeto, '$cpf_funcionario', '$data_hora',0,1";
 $resultado_log = inserir_dado('log_encontro', $colunas, $valores);
 
+var_dump($resultado_log) // teste
 ?>

@@ -1,9 +1,14 @@
+// CARREGUEI A PÁGINA HTML
 document.addEventListener("DOMContentLoaded", () => {
-    document.getElementById("form1").addEventListener("submit", function(event) {
-        event.preventDefault(); 
+    // ESTOU AGINDO SOBRE O FORMULÁRIO CHAMANDO ELE PELO ID - IDENTIFICANDO O SUBMIT
+    document.getElementById("form1").addEventListener("submit", function(event) { // antes estava esperando o botão que n fazia nada correto, agora espera o formulario, devria funcuionar
+        event.preventDefault(); // isso deve garantir que o evento defaout deja este
         var email = document.getElementById("email_id").value;
         var senha = document.getElementById("senha_id").value;
-
+    
+        console.log("Email: " + email);
+        console.log("Senha: " + senha); 
+    
         fetch('login.php', {
             method: 'POST',
             headers: {
@@ -13,17 +18,17 @@ document.addEventListener("DOMContentLoaded", () => {
         })
         .then(response => response.text())
         .then(data => {
-            console.log(data); 
-            if (data === 'nivel_0') {
-                window.location.href = '../home_logado/home_logado.php'; // pagina pro user 0
-            } else if (data === 'nivel_1') {
-                window.location.href = '../fun/index.php'; // pagina pro fun 1
-            } else if (data === 'nivel_2') {
-                window.location.href = '../adm/index.php'; // pagina pro adm 2
+            console.log(data); // era pra eu ver oque está retornando do PHP
+            if (data === 'success') {
+                window.location.href = '../home_logado/home_logado.html'; // ARRUMAR ESSE REDIRECIONAMENTO PRA PAGINA CORRETA, TA INDO PRA DE TESTE DE SESSAO
             } else {
-                alert('Credenciais Inválidas');
+                alert('Credenciais Invalidas');
             }
         })
         .catch(error => console.error('Erro:', error));
     });
 });
+
+
+
+

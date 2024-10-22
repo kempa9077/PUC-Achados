@@ -20,6 +20,7 @@ if (empty($result)) {
 // Verifica se há um protocolo aberto (situacao = 0) com o mesmo id_objeto
 $sql_protocolo_aberto = "SELECT * FROM protocolo WHERE objeto = $id_objeto AND situacao = 0";
 $protocolo_aberto = consultar_dado($sql_protocolo_aberto);
+var_dump($protocolo_aberto);
 
 if (!empty($protocolo_aberto)) {
     // Protocolo aberto encontrado, atualiza com os dados de fechamento
@@ -48,6 +49,5 @@ $valores_log = "$id_objeto, '$cpf_funcionario', '$data_hora', 1, 2";
 $resultado_log = inserir_dado('log_encontro', $colunas_log, $valores_log);
 
 echo json_encode(['success' => true]);
-exit;
 
 ?>

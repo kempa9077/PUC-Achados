@@ -2,11 +2,11 @@ document.addEventListener('DOMContentLoaded', function() {
     carregarCategorias();
     carregarBlocos();
     
-    // Listener para o botão registrar
+    // Listener para o botão registrar, agora dentro do DOMContentLoaded
     document.getElementById('botao_registrar').addEventListener('click', function() {
         const nome_item = document.getElementById('nome_item').value;
         const tipo_item = document.getElementById('tipo_item').value;
-        const id_local = document.getElementById('bloco_encontro').value; // Agora id_local é o mesmo que bloco_encontro NA TEORIA
+        const sala_encontro = document.getElementById('sala_encontro').value;
 
         // Faz a requisição para registrar o objeto
         fetch('efetua_registro.php', {
@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', function() {
             headers: {
                 'Content-Type': 'application/x-www-form-urlencoded'
             },
-            body: `nome_item=${nome_item}&tipo_item=${tipo_item}&bloco_encontro=${id_local}` // Passando id_local NA TEORIA
+            body: `nome_item=${nome_item}&tipo_item=${tipo_item}&sala_encontro=${sala_encontro}`
         })
         .then(response => response.json())
         .then(data => {
@@ -57,9 +57,64 @@ function carregarBlocos() {
             const blocoEncontro = document.getElementById('bloco_encontro');
             arrBlocos.forEach(bloco => {
                 const option = document.createElement('option');
-                option.value = bloco; 
-                option.textContent = bloco; 
+                option.value = bloco; // Ajuste conforme a chave primária
+                option.textContent = bloco; // Ajuste conforme o nome do bloco
                 blocoEncontro.appendChild(option);
             });
+            
+            // Carrega as salas do primeiro bloco ao iniciar a página
+            carregarSalas(1);
         });
-};
+}
+
+function carregarSalas(id_bloco) {
+    fetch(`../protocolo_perda/carregar_salas.php?id_bloco=${id_bloco}`)
+        .then(response => response.json())
+        .then(data => {
+            const salaEncontro = document.getElementById('sala_encontro');
+            salaEncontro.innerHTML = ''; // Limpa o campo quando atualizar
+
+            data.forEach(local => {
+                if (local.tipo !== 'secretaria') { // filtra secretarias
+                    const option = document.createElement('option');
+                    option.value = local.id_local; 
+                    option.textContent = local.sala; 
+                    salaEncontro.appendChild(option);
+                }
+            });
+        })
+        .catch(error => {
+            console.error('Erro ao carregar as salas:', error);
+        });
+}
+
+// Listener para carregar salas quando o bloco é selecionado
+document.getElementById('bloco_encontro').addEventListener('change', function() {
+    const id_bloco = this.value;
+    carregarSalas(id_bloco); // Carrega as salas do bloco selecionado
+});
+
+/* Código comentado de funcionalidades futuras */
+// Função para habilitar/desabilitar campo de data
+/*
+function caixaData() {
+    const isChecked = document.getElementById('checkbox_data').checked;
+    document.getElementById('date_encontrado').disabled = isChecked;
+}
+
+// Função para habilitar/desabilitar campos de bloco e sala
+function caixaBlocos() {
+    const isChecked = document.getElementById('checkbox_bloco').checked;
+    const blocoSelect = document.getElementById('bloco_encontro');
+    const salaSelect = document.getElementById('sala_encontro');
+
+    blocoSelect.disabled = isChecked;
+    salaSelect.disabled = isChecked;
+}
+
+// Listener para carregar salas quando o bloco é selecionado
+document.getElementById('bloco_encontro').addEventListener('change', function() {
+    const blocoSelecionado = this.value;
+    carregarSalas(blocoSelecionado);
+});
+*/

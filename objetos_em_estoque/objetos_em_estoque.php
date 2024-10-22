@@ -31,7 +31,7 @@ include '../header.php';
                     <img src="..\img\icon-login.png" alt="">
                 </a>
                 <a id="login_sem_cadastro" class="login">
-                <?php echo $_SESSION['usuario']['nome']?>
+                    Login
                 </a>
             </div>
         </nav>
@@ -43,21 +43,21 @@ include '../header.php';
                 <a id="pagina_home_sem_cadastro">
                     <img src="..\img\icon-home.png" alt="icon-home">
                 </a>
-                <a id="pagina_home_sem_cadastro" class="menu-btn" href="../home_logado/home_logado.html">Home</a>
+                <a id="pagina_home_sem_cadastro" class="menu-btn">Home</a>
             </div>
             
             <div class="divnav">                
                 <a id="pagina_home_sem_cadastro">
                     <img src="..\img\icon-protocolos.png" alt="icon-home">
                 </a>
-                <a id="pagina_home_sem_cadastro" class="menu-btn" href="../meus_protocolos/meus_protocolos.php">Meus Protocolos</a>
+                <a id="pagina_home_sem_cadastro" class="menu-btn" >Meus Protocolos</a>
             </div>
             
             <div class="divnav">                
                 <a href="objetos_em_estoque.php" id="pagina_home_sem_cadastro">
                     <img src="..\img\icon-estoque.png" alt="icon-home">
                 </a>
-                <a href="objetos_em_estoque.php" id="pagina_home_sem_cadastro" class="menu-btn" href="../objetos_em_estoque/objetos_em_estoque.php">Objetos em Estoque</a>
+                <a href="objetos_em_estoque.php" id="pagina_home_sem_cadastro" class="menu-btn">Objetos em Estoque</a>
             </div>
                 
         </div>
@@ -81,11 +81,9 @@ include '../header.php';
                 <th>NOME</th>
                 <th>LOCAL</th>
                 <th>SITUAÇÃO</th>
-                <th>DATA DE REGISTRO</th>
                 <th>CATEGORIA DO OBJETO</th>
             </tr>
         </thead>
-
         <tbody id="objeto-tbody-secretaria">
             <!-- Dados das Secretarias serão inseridos aqui via JavaScript -->
         </tbody>
@@ -101,7 +99,6 @@ include '../header.php';
                 <th>NOME</th>
                 <th>LOCAL</th>
                 <th>SITUAÇÃO</th>
-                <th>DATA DE REGISTRO</th>
                 <th>CATEGORIA DO OBJETO</th>
             </tr>
         </thead>
@@ -121,7 +118,6 @@ include '../header.php';
                 <th>NOME</th>
                 <th>LOCAL</th>
                 <th>SITUAÇÃO</th>
-                <th>DATA DE REGISTRO</th>
                 <th>CATEGORIA DO OBJETO</th>
             </tr>
         </thead>

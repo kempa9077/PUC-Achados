@@ -7,9 +7,9 @@ function buscar_protocolos() {
     objeto.nome AS nome_objeto,
     categoria_objeto.categoria AS nome_categoria,
     protocolo.situacao,
-    DATE_FORMAT(protocolo.data_abertura, '%d/%m/%Y %H:%i') AS data_abertura, -- Incluindo hora e minutos
-    DATE_FORMAT(protocolo.data_perda, '%d/%m/%Y %H:%i') AS data_perda, -- Incluindo hora e minutos
-    IFNULL(DATE_FORMAT(protocolo.data_fechamento, '%d/%m/%Y %H:%i'), '-') AS data_fechamento, -- Incluindo hora e minutos
+    DATE_FORMAT(protocolo.data_abertura, '%d/%m/%Y') AS data_abertura,
+    DATE_FORMAT(protocolo.data_perda, '%d/%m/%Y') AS data_perda,
+    IFNULL(DATE_FORMAT(protocolo.data_fechamento, '%d/%m/%Y'), '-') AS data_fechamento,
     protocolo.descricao,
     pessoa_abertura.nome AS nome_pessoa_abertura,
     pessoa_fechado.nome AS nome_pessoa_fechado,
@@ -21,6 +21,7 @@ function buscar_protocolos() {
     JOIN local ON protocolo.local_perda = local.id_local
     JOIN objeto ON protocolo.objeto = objeto.id_objeto
     JOIN categoria_objeto ON objeto.categoria_objeto = categoria_objeto.id_tipo";
+
 
     $result = consultar_dado($sql);
     echo json_encode($result);

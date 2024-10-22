@@ -1,5 +1,5 @@
 <?php
-include("..//funcoes_banco.php");
+require_once("..//funcoes_banco.php");
 
 // Função para retornar dados como JSON
 function json_return($var) {
@@ -12,6 +12,10 @@ if (isset($_GET['metodo'])) {
     if ($_GET['metodo'] == "listar") {
         // Listagem de usuários da tabela 'pessoa'
         json_return(consultar_dado("SELECT * FROM pessoa"));
+    } elseif ($_GET['metodo'] == "excluir") {
+        $id = $_GET['id'];
+        // Lógica para excluir um usuário seria implementada aqui
+        json_return($id);
     } else {
         json_return(["erro" => "requisição desconhecida"]);
     }
@@ -28,18 +32,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Adição de novo usuário
     if ($post['solicitacao'] == "adicionar") {
         $tabela = "pessoa";
-        $colunas = "cpf,email,senha,nome,matricula,acesso_nivel";
+        $colunas = "cpf,email,senha,nome,matricula";
         
-        $cpf = $post['cpf'];
-        $email = $post['email'];
-        $nome = $post['nome'];
-        $matricula = $post['matricula'];
-        $acesso = 0;
-        $senha = $post['senha'];
         // Hash da senha usando password_hash()
-        $senha_hash = password_hash($senha, PASSWORD_DEFAULT);
+        $senha_hash = password_hash($post['senha'], PASSWORD_DEFAULT);
         
-        $valores = "$cpf,'$email','$senha_hash','$nome','$matricula','$acesso'";
+        $valores = "'".$post['cpf']."', '".$post['email']."', '".$senha_hash."', '".$post['nome']."', '".$post['matricula']."'";
         $id = inserir_dado($tabela, $colunas, $valores);
         json_return(["id" => $id]);
     } else {

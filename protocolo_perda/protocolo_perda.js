@@ -2,16 +2,6 @@ document.addEventListener('DOMContentLoaded', function() {
     carregarCategorias();
     carregarBlocos();
 });
-// limita o calendario para a data do dia atual, NA TEORIA
-document.addEventListener('DOMContentLoaded', function() {
-    const today = new Date().toISOString().split('T')[0]; // Obtém a data atual no formato YYYY-MM-DD como é em bd sql
-    const dataPerdaInput = document.getElementById('data_perda');
-    
-    // Define o valor padrão e o valor máximo como o dia atual
-    dataPerdaInput.value = today;
-    dataPerdaInput.setAttribute('max', today);
-});
-
 
 // Função para carregar categorias do banco de dados
 function carregarCategorias() {
@@ -91,6 +81,24 @@ document.getElementById('bloco_encontro').addEventListener('change', function() 
     const id_bloco = this.value;
     carregarSalas(id_bloco); // Carrega as salas do bloco selecionado
 });
+
+/*
+// Função para habilitar/desabilitar campo de data
+function caixaData() {
+    const isChecked = document.getElementById('checkbox_data').checked;
+    document.getElementById('date').disabled = isChecked;
+}
+/*
+// Função para habilitar/desabilitar campos de bloco e sala
+function caixaBlocos() {
+    const isChecked = document.getElementById('checkbox_bloco').checked;
+    const blocoSelect = document.getElementById('bloco_encontro');
+    const salaSelect = document.getElementById('sala_perda');
+
+    blocoSelect.disabled = isChecked;
+    salaSelect.disabled = isChecked;
+}
+*/
 
 // Função para enviar o protocolo, pode ta certo, pode estar errado
 document.getElementById('enviar_objeto').addEventListener('click', function() {
