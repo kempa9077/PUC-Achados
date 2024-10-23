@@ -101,6 +101,12 @@ document.getElementById('enviar_objeto').addEventListener('click', function() {
     const dataPerda = document.getElementById('data_perda').value;
     const descricao = document.getElementById('descricao').value;
 
+        // Validação básica 
+    if (!nomeItem) {
+        alert('Por favor Informe o nome do item.');
+        return;
+    }
+
     const formData = `acao=buscar&nome_item=${encodeURIComponent(nomeItem)}&tipo_item=${encodeURIComponent(tipoItem)}&bloco_encontro=${encodeURIComponent(blocoEncontro)}&sala_perda=${encodeURIComponent(salaEncontro)}&data_perda=${encodeURIComponent(dataPerda)}&descricao=${encodeURIComponent(descricao)}`;
 
     fetch('registrar_protocolo.php', {
