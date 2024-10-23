@@ -1,10 +1,9 @@
-
 document.getElementById("pagina_home_sem_cadastro").addEventListener("click", function() {
-    window.location.href = "index.html";
+    window.location.href = "index.php";
 });
 
 document.getElementById("meus_protocolos_sem_cadastro").addEventListener("click", function() {
-    window.location.href = "./meus_protocolos/meus_protocolos.php";
+    window.location.href = "../meus_protocolos/meus_protocolos.php";
 });
 
 document.getElementById("perdi_algo").addEventListener("click", function() {
@@ -12,7 +11,7 @@ document.getElementById("perdi_algo").addEventListener("click", function() {
 });
 
 document.getElementById("achei_algo").addEventListener("click", function() {
-    window.location.href = "";
+    window.location.href = "../achei_algo/achei_algo.html";
 });
 
 

@@ -40,7 +40,7 @@ include '../header.php';
                 <a id="pagina_home_sem_cadastro">
                     <img src="..\img\icon-home.png" alt="Home Icon">
                 </a>
-                <a id="pagina_home_sem_cadastro" class="menu-btn" href="../home_logado/home_logado.html">Home</a>
+                <a id="pagina_home_sem_cadastro" class="menu-btn" href="../fun/index.php">Home</a>
             </div>
             <div class="divnav">                
                 <a id="pagina_protocolos_sem_cadastro">
