@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="login.css">
+  <title>Login</title>
+</head>
+<body>
+    <div id="login-container">  
+
+        <a id="voltar-home" onclick="voltarPagina()">&times;</a>
+
+        <a title="Voltar à Home" href="../"><img src="../img/logo-texto-preto.png" alt="Logo PUC" id="logo-login"></a>
+
+        <h3 class="login-h3">Fazer login</h3>
+        <h5 class="login-h5">Digite seu e-mail e senha</h5>
+
+        <form id="form1" method="post">
+            <input class="input-login" id="email_id" type="email" placeholder="E-mail" name="txtLogin" maxlength="100" required>
+            <input class="input-login" id="senha_id" type="password" placeholder="Senha" name="txtPassword" maxlength="20" required>
+
+            <div id="buttons">
+                <a id="criar-button" href="../cadastro/Cadastro.html">Criar conta</a>
+                <input type="submit" id="enviar" value="Entrar">
+            </div>
+        </form>
+
+        <p id="bytebusters_copy"><a href="../">&copy;Bytebusters</a></p>
+    </div>
+</body>
+<!-- Importando o script de login -->
+<script src="login.js"></script>
+</html>
