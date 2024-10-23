@@ -2,7 +2,6 @@
 $acesso = 0; // todos podem ver
 include '../header.php';
 ?>
-
 <!DOCTYPE html>
 <html lang="pt-br">
     <!DOCTYPE html>

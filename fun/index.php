@@ -16,14 +16,18 @@ include '../header.php';
             <h1>PUC ACHADOS</h1>
         </div>
         <div class="right">
-            <button id="login_sem_cadastro" class="login-btn"><?php echo $_SESSION['usuario']['nome']?></button>
+        <?php echo $_SESSION['usuario']['nome']?>
+            <button id="sair" class="login-btn">Sair</button>
+            <form action=" ../login/session.php" method="POST">
+            <button type="submit" name="acao" value="sair">Sair</button>
+            </form>
         </div>
     </header>
 
     <nav class="second-bar">
-        <button id="pagina_home_sem_cadastro" class="nav-btn">Home</button>
-        TESTE ACESSO FUN
-        <button id="meus_protocolos_sem_cadastro" class="nav-btn center-btn">Meus Protocolos</button>
+        <button id="home" class="nav-btn">Home</button>
+        <button id="meus_protocolos" class="nav-btn center-btn">Meus Protocolos</button>
+        <button id="perdi_algo" class="nav-btn">Perdi Algo</button>
     </nav>
 
     <main class="content-area">
@@ -32,13 +36,19 @@ include '../header.php';
             <div class="gray-box-text">HOME</div>
             <!-- Retângulo branco à esquerda -->
             <div class="white-box left-box">
-                <button id="perdi_algo" class="nav-btn">Perdi Algo</button>
+                <button id="registrar-objeto" class="nav-btn">Registrar Objeto</button>
+                <div class="white-box right-box">
+                <button id="ver-protocolos" class="nav-btn">Ver Protocolos</button>
+            </div>   
             </div>
             <!-- Retângulo branco à direita -->
             <div class="white-box right-box">
-                <button id="achei-algo" class="nav-btn">Achei Algo</button>
-            </div>            
+                <button id="ver-estoque" class="nav-btn">Estoque Objeto</button>
+                <div class="white-box right-box">
+            </div>   
+            </div>               
         </div>
+    
     </main>
 </body>
 <script src="index.js"></script>
