@@ -12,11 +12,11 @@ include '../header.php';
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Home</title>
         <link rel="stylesheet" href="home_logado.css">
-        <link rel="apple-touch-icon" sizes="180x180" href="img/apple-touch-icon.png">
-        <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32x32.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="img/favicon-16x16.png">
-        <link rel="manifest" href="img/site.webmanifest">
-        <link rel="mask-icon" href="img/safari-pinned-tab.svg" color="#882727">
+        <link rel="apple-touch-icon" sizes="180x180" href="../img/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="../img/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="../img/favicon-16x16.png">
+        <link rel="manifest" href="../img/site.webmanifest">
+        <link rel="mask-icon" href="../img/safari-pinned-tab.svg" color="#882727">
         <meta name="msapplication-TileColor" content="#882727">
         <meta name="theme-color" content="#882727">
     </head>
@@ -85,40 +85,40 @@ include '../header.php';
                     <li>
                         Davi Martins &ensp;&ensp; &ensp; &ensp;
                         <a href="linkedin.com" target="_blank">
-                            <img src="img/linkedin-icon.png" alt="linkedin" class="img-footer">
+                            <img src="../img/linkedin-icon.png" alt="linkedin" class="img-footer">
                         </a>
                         <a href="github.com" target="_blank">
-                            <img src="img/github-icon.png" alt="github" class="img-footer">
+                            <img src="../img/github-icon.png" alt="github" class="img-footer">
                         </a>
                     </li>
 
                     <li>
                         Joshua Mendes &ensp; &ensp;
                         <a href="linkedin.com" target="_blank">
-                            <img src="img/linkedin-icon.png" alt="linkedin" class="img-footer">
+                            <img src="../img/linkedin-icon.png" alt="linkedin" class="img-footer">
                         </a>
                         <a href="github.com" target="_blank">
-                            <img src="img/github-icon.png" alt="github" class="img-footer">
+                            <img src="../img/github-icon.png" alt="github" class="img-footer">
                         </a>
                     </li>
 
                     <li>
                         Leander Antônio &ensp;&ensp;
                         <a href="linkedin.com" target="_blank">
-                            <img src="img/linkedin-icon.png" alt="linkedin" class="img-footer">
+                            <img src="../img/linkedin-icon.png" alt="linkedin" class="img-footer">
                         </a>
                         <a href="github.com" target="_blank">
-                            <img src="img/github-icon.png" alt="github" class="img-footer">
+                            <img src="../img/github-icon.png" alt="github" class="img-footer">
                         </a>
                     </li>
 
                     <li>
                         Lucas Kempa &ensp;&ensp; &ensp; &ensp;
                         <a href="https://linkedin.com/in/lucas-kempa" target="_blank">
-                            <img src="img/linkedin-icon.png" alt="linkedin" class="img-footer">
+                            <img src="../img/linkedin-icon.png" alt="linkedin" class="img-footer">
                         </a>
                         <a href="https://github.com/kempa9077" target="_blank">
-                            <img src="img/github-icon.png" alt="github" class="img-footer">
+                            <img src="../img/github-icon.png" alt="github" class="img-footer">
                         </a>
                     </li>
                 </ul>
@@ -138,7 +138,7 @@ include '../header.php';
             <div class="dados-footer">
                 <p>Bytebusters</p>
                 <a href="">
-                    <img src="img/bytebusters_logo1 2.png" alt="Bytebusters" class="logo-bytebusters">
+                    <img src="../img/bytebusters_logo1 2.png" alt="Bytebusters" class="logo-bytebusters">
                 </a>
             </div>
 
