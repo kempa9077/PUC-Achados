@@ -1,21 +1,21 @@
 document.getElementById("login_sem_cadastro").addEventListener("click", function() {
-    window.location.href = "login/login.html";
+    window.location.href = "..//login/login.html";
 });
 
 document.getElementById("pagina_home_sem_cadastro").addEventListener("click", function() {
-    window.location.href = "index.html";
+    window.location.href = "main_descadastrado.html";
 });
 
 document.getElementById("meus_protocolos_sem_cadastro").addEventListener("click", function() {
-    window.location.href = "meus_protocolos/meus_protocolos.php";
+    window.location.href = "..//login/login.html";
 });
 
 document.getElementById("perdi_algo").addEventListener("click", function() {
-    window.location.href = "protocolo_perda/perdi_algo.php";
+    window.location.href = "..//login/login.html";
 });
 
 document.getElementById("achei_algo").addEventListener("click", function() {
-    window.location.href = "";
+    window.location.href = "..//login/login.html";
 });
 
 
