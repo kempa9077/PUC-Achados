@@ -15,11 +15,11 @@ document.addEventListener("DOMContentLoaded", () => {
         .then(data => {
             console.log(data); 
             if (data === 'nivel_0') {
-                window.location.href = '../home_logado/home_logado.php'; // pagina pro user 0
+                window.location.href = '../index.php'; // pagina pro user 0
             } else if (data === 'nivel_1') {
-                window.location.href = '../fun/index.php'; // pagina pro fun 1
+                window.location.href = '../index.php'; // pagina pro fun 1
             } else if (data === 'nivel_2') {
-                window.location.href = '../adm/index.php'; // pagina pro adm 2
+                window.location.href = '../index.php'; // pagina pro adm 2
             } else {
                 alert('Credenciais Inválidas');
             }

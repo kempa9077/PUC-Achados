@@ -16,6 +16,13 @@
         <meta name="theme-color" content="#882727">
     </head>
     <body>
+        <?php
+            include('login/session.php');
+            include('header.php');
+
+            error_reporting(E_ALL & ~E_NOTICE);
+            ini_set('display_errors', 0);
+        ?>
         <header class="top-bar">
             <nav class="barranav">
                 <div class="logo">
@@ -25,12 +32,35 @@
                     
                 </div>
                 <div class="spaceperfil">
-                    <a id="login_sem_cadastro" class="login">
-                        <img src="img\icon-login.png" alt="">
-                    </a>
-                    <a id="login_sem_cadastro" class="login">
-                        Login
-                    </a>
+
+                    <?php
+
+                    if(isset($_SESSION) AND $_SESSION):?>
+
+                        <a id="login_sem_cadastro" class="login">
+                            <img src="img\icon-login.png" alt="">
+                        </a>
+                        <a id="login_sem_cadastro" class="login">
+                            <?php echo $_SESSION['usuario']['nome'];
+                            ?>
+                        </a>
+
+                        <a href="session.php?acao=sair" class="logout-btn">Sair</a>
+                        <?php
+
+                        ?>
+                    <?php
+                    else:?>
+
+                        <a id="login_sem_cadastro" class="login" href="login/login.html">
+                            <img src="img\icon-login.png" alt="">
+                        </a>
+                        <a id="login_sem_cadastro" class="login" href="login/login.html">
+                            Login
+                        </a>
+
+                    <?php endif; ?>
+                    
                 </div>
             </nav>
         </header>
@@ -147,5 +177,5 @@
 
     </footer>
 </body>
-<script src="home_logado.js"></script>
+<script src="index.js"></script>
 </html>
