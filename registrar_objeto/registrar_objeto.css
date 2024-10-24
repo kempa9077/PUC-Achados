@@ -18,10 +18,12 @@ body {
 footer {
     background-color: #ECE0E0;
     min-height: 250px;
+    position: absolute;
     bottom: 0;
     width: 100%;
 }
 
+/* nav bar */
 
 .top-bar {
     background-color: #A22E2F;
@@ -55,11 +57,42 @@ footer {
     display: flex;
     justify-content: center;
     align-items: center;
+    color: #ffffff;
+    background-color: rgba(0, 0, 0, 0);
+    border: 0;
+    font-family: lato;
+    font-size: 15px;
+    text-decoration: none;
+}
+
+.login:hover{
+    text-decoration: underline;
+    cursor: pointer;
 }
 
 .login img {
     max-height: 42px;
     margin-bottom: 5px;
+}
+
+.spaceperfil a{
+    font-family: lato;
+    font-size: 18px;
+}
+
+.spaceperfil form button {
+    color: #ffffff;
+    background-color: rgba(0, 0, 0, 0);
+    border: 0;
+    font-family: lato;
+    font-size: 15px;
+
+    margin-left: 7px;
+}
+
+.spaceperfil form button:hover{
+    text-decoration: underline;
+    cursor: pointer;
 }
 
 /* Segunda barra com altura de 45px */
@@ -108,56 +141,117 @@ footer {
     text-decoration: none;
 }
 
-
-
-
 /* Área do conteúdo principal */
 .content-area {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
-
-    margin: auto;
-    margin-top: 186px;
     max-width: 1200px;
     width: 100%;
-
-
-    padding-left: 20px;
-    padding-right: 20px;
+    margin-top: 186px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-
-.div-titulo{
+.div-titulo {
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    margin: auto;
-
     width: 100%;
     height: 50px;
     background-color: #ECE0E0;
     font-family: 'Oswald', sans-serif;
     color: #882627;
     font-size: 1.8em;
+    padding-left: 20px;
 }
 
 .area-logo-titulo {
-    height: 100%;
-    background-color: #882627;
+    height: 50px;
     width: 50px;
-
+    background-color: #882627;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
 .area-logo-titulo img {
-    max-height: 50px;
-    max-width: 50px;
+    max-height: 100%;
 }
 
+.redbox-under-text {
+    background-color: #A22E2F;
+    color: white;
+    padding: 10px 20px;
+    margin: 20px 0;
+    width: 100%;
+    text-align: center;
+    font-size: 1.2em;
+}
+
+/* Flex container para formulário */
+.flex-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 20px;
+    width: 100%;
+}
+
+.nome-do-item, .tipo-do-item, .bloco-de-encontro {
+    width: calc(33% - 20px);
+}
+
+textarea, select {
+    width: 100%;
+    padding: 10px;
+    font-size: 14px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    resize: none;
+}
+
+#botao_registrar {
+    width: 10%;
+    padding: 12px;
+    background-color: #882627;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+#botao_registrar:hover {
+    background-color: #A22E2F;
+}
+
+/* Tabela */
+.objeto-table {
+    width: 100%;
+    margin-top: 20px;
+}
+
+.objeto-table table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 18px;
+}
+
+.objeto-table th, .protocolo-table td {
+    padding: 10px;
+    text-align: left;
+}
+
+.objeto-table th {
+    background-color: #A22E2F;
+    color: white;
+}
+
+.objeto-table tr:hover {
+    background-color: #ddd;
+}
+
+/* footer */
 
 .dados-div {
     display: flex;

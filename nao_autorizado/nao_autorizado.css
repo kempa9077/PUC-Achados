@@ -5,7 +5,7 @@
 }
 
 body {
-    font-family: lato, sans-serif;
+    font-family: lato;
     height: 100vh;
     display: flex;
     flex-direction: column;
@@ -13,7 +13,15 @@ body {
     min-height: 720px;
     overflow-y: scroll;
     overflow-x: hidden;
+    
 }
+footer {
+    background-color: #ECE0E0;
+    min-height: 250px;
+    bottom: 0;
+    width: 100%;
+}
+
 
 .top-bar {
     background-color: #A22E2F;
@@ -92,6 +100,7 @@ body {
 .divnav img {
     max-height: 35px;
     margin-right: 5px;
+
 }
 
 .menu-btn {
@@ -99,24 +108,77 @@ body {
     text-decoration: none;
 }
 
+
+
+
 /* Área do conteúdo principal */
 .content-area {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
+
     margin: auto;
     margin-top: 186px;
     max-width: 1200px;
     width: 100%;
+
+
     padding-left: 20px;
     padding-right: 20px;
 }
 
-.div-titulo {
+
+/* Texto achei Algo */
+.texto_achei {
+    background-color: #f9f9f9;
+    padding: 40px 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    font-family: 'Lato', sans-serif;
+    color: #333;
+    width: 100%; 
+    max-width: 1200px; 
+    margin: 30px auto;
+}
+.texto_achei h2 {
+    font-size: 2em;
+    color: #A22E2F; 
+    margin-bottom: 20px;
+    font-family: 'Oswald', sans-serif;
+}
+
+.texto_achei p {
+    font-size: 1.2em;
+    margin-bottom: 15px;
+    line-height: 1.6;
+}
+
+.texto_achei h4 {
+    margin-top: 20px;
+    font-size: 1.5em;
+    color: #555;
+    font-family: 'Lato', sans-serif;
+}
+
+.texto_achei a {
+    color: #A22E2F;
+    font-weight: bold;
+    text-decoration: underline;
+    transition: color 0.3s ease;
+}
+
+.texto_achei a:hover {
+    color: #882627; 
+}
+
+.div-titulo{
     display: flex;
     justify-content: flex-start;
     align-items: center;
+    margin: auto;
+
     width: 100%;
     height: 50px;
     background-color: #ECE0E0;
@@ -129,6 +191,7 @@ body {
     height: 100%;
     background-color: #882627;
     width: 50px;
+
     display: flex;
     justify-content: center;
     align-items: center;
@@ -139,104 +202,4 @@ body {
     max-width: 50px;
 }
 
-.protocolo-table {
-    width: 100%;
-    margin-top: 20px;
-}
 
-.protocolo-table table {
-    width: 100%;
-    border-collapse: collapse;
-    font-size: 18px;
-}
-
-.protocolo-table th, .protocolo-table td {
-    padding: 10px;
-    text-align: left;
-}
-
-.protocolo-table th {
-    background-color: #A22E2F;
-    color: white;
-}
-
-.protocolo-table tr:hover {
-    background-color: #ddd;
-}
-
-.description {
-    font-size: 16px;
-    background-color: #f9f9f9;
-    padding: 10px;
-    border: 1px solid #ddd;
-    margin-top: 5px;
-    border-radius: 5px;
-}
-
-footer {
-    background-color: #ECE0E0;
-    min-height: 250px;
-    bottom: 0;
-    width: 100%;
-}
-
-.dados-div {
-    display: flex;
-    flex-wrap: wrap;
-    padding: 0 60px;
-    justify-content: space-between;
-}
-
-.dados-footer {
-    color: #000000;
-    font-size: 12px;
-    min-width: 230px;
-    margin: 20px auto 10px auto;
-}
-
-.dados-footer p {
-    font-size: 18px;
-    margin: 20px;
-    text-transform: uppercase;
-}
-
-.dados-footer a {
-    color: black;
-    text-decoration: none;
-    padding: 2px 10px;
-    border-radius: 10px;
-}
-
-.dados-footer ul {
-    list-style-type: none;
-}
-
-.dados-footer li {
-    margin: 10px 20px;
-}
-
-.img-footer {
-    width: 15px;
-    height: 15px;
-}
-
-.logo-bytebusters {
-    border-radius: 10px;
-    width: 140px;
-    height: 140px;
-}
-
-.copy-bytebusters {
-    height: 40px;
-    width: 100%;
-    text-align: center;
-    text-decoration: none;
-    font-size: 12px;
-}
-
-.copy-bytebusters a {
-    margin-top: 20px;
-    color: #000000;
-    text-decoration: none;
-    font-weight: bolder;
-}
