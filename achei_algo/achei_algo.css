@@ -15,12 +15,6 @@ body {
     overflow-x: hidden;
     
 }
-footer {
-    background-color: #ECE0E0;
-    min-height: 250px;
-    bottom: 0;
-    width: 100%;
-}
 
 
 .top-bar {
@@ -208,6 +202,13 @@ footer {
     flex-wrap: wrap;
     padding: 0 60px;
     justify-content: space-between;
+}
+
+footer {
+    background-color: #ECE0E0;
+    min-height: 250px;
+    bottom: 0;
+    width: 100%;
 }
 
 .dados-footer {
