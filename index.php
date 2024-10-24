@@ -1,9 +1,7 @@
 <?php
             include('login/session.php');
-            include('header.php');
-
-            error_reporting(E_ALL & ~E_NOTICE);
-            ini_set('display_errors', 0);
+            session_start();
+            
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -12,7 +10,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Home</title>
+        <title>PUC Achados - Home</title>
         <link rel="stylesheet" href="index.css">
         <link rel="apple-touch-icon" sizes="180x180" href="img/apple-touch-icon.png">
         <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32x32.png">
@@ -26,7 +24,7 @@
         <header class="top-bar">
             <nav class="barranav">
                 <div class="logo">
-                    <a href="">
+                    <a href="index.php">
                         <img src="img\logo_texto_branco.png" alt="Logo PUC Achados">
                     </a>
                     
@@ -43,9 +41,11 @@
                         <a id="login_sem_cadastro" class="login">
                             <?php echo $_SESSION['usuario']['nome'];
                             ?>
-                        </a>
+                        </a> 
+                        <form action="login/session.php" method="POST">
+                            <button type="submit" name="acao" value="sair">Sair</button>
+                        </form>
 
-                        <a href="session.php?acao=sair" class="logout-btn">Sair</a>
                         <?php
 
                         ?>
@@ -68,25 +68,45 @@
         <nav class="second-bar">
             <div class="menu-nav">
                 <div class="divnav">                
-                    <a id="pagina_home_sem_cadastro">
+                    <a href="index.php" id="pagina_home_sem_cadastro">
                         <img src="img\icon-home.png" alt="icon-home">
                     </a>
-                    <a id="pagina_home_sem_cadastro" class="menu-btn">Home</a>
+                    <a href="index.php" id="pagina_home_sem_cadastro" class="menu-btn">Home</a>
                 </div>
+
+                <?php
+                if(isset($_SESSION) AND $_SESSION AND $_SESSION['usuario']['acesso_nivel'] > 0):?>
                 
                 <div class="divnav">                
-                    <a id="pagina_home_sem_cadastro">
+                    <a href="fun_ver_protocolos/fun_ver_protocolos.php" id="pagina_home_sem_cadastro">
                         <img src="img\icon-protocolos.png" alt="icon-home">
                     </a>
-                    <a id="pagina_home_sem_cadastro" class="menu-btn" >Meus Protocolos</a>
+                    <a href="fun_ver_protocolos/fun_ver_protocolos.php" id="pagina_home_sem_cadastro" class="menu-btn" >Protocolos</a>
                 </div>
-                
+
+                <?php
+                else:?>
+
                 <div class="divnav">                
-                    <a href="objetos_em_estoque.php" id="pagina_home_sem_cadastro">
+                    <a href="meus_protocolos/meus_protocolos.php" id="pagina_home_sem_cadastro">
+                        <img src="img\icon-protocolos.png" alt="icon-home">
+                    </a>
+                    <a href="meus_protocolos/meus_protocolos.php" id="pagina_home_sem_cadastro" class="menu-btn" >Meus Protocolos</a>
+                </div>
+
+                <?php endif; ?>
+                
+                <?php
+                if(isset($_SESSION) AND $_SESSION AND $_SESSION['usuario']['acesso_nivel'] > 0):?>
+
+                <div class="divnav">                
+                    <a href="objetos_em_estoque\objetos_em_estoque.php" id="pagina_home_sem_cadastro">
                         <img src="img\icon-estoque.png" alt="icon-home">
                     </a>
-                    <a href="objetos_em_estoque.php" id="pagina_home_sem_cadastro" class="menu-btn">Objetos em Estoque</a>
+                    <a href="objetos_em_estoque\objetos_em_estoque.php" id="pagina_home_sem_cadastro" class="menu-btn">Objetos em Estoque</a>
                 </div>
+
+                <?php endif; ?>
                     
             </div>
         </nav>
@@ -100,6 +120,81 @@
             </div>
             &nbsp; HOME
         </div>
+
+        <div class="menu-principal">
+            <div class="opt-menu-principal">
+                <div class="titulo-opt">
+                    <a href="protocolo_perda\perdi_algo.php">
+                        <img src="img/icon-lupa.png" alt="lupa">
+                        PERDI ALGO
+                    </a>
+                </div>
+                <p>Perdeu algo? Clique aqui para abrir um protocolo de perda de um item</p>
+            </div>
+
+            <?php
+                if(isset($_SESSION) AND $_SESSION AND $_SESSION['usuario']['acesso_nivel'] > 0):?>
+
+            <div class="opt-menu-principal">
+                <div class="titulo-opt">
+                    <a href="registrar_objeto\registrar_objeto.php">
+                        <img src="img/icon-achei-algo.png" alt="lupa">
+                        INICIAR PROTOCOLO DE ACHADO
+                    </a>
+                </div>
+                <p>Achou algo? Clique aqui para saber o quer fazer.</p>
+            </div>
+
+            <?php
+            else:?>
+
+            <div class="opt-menu-principal">
+                <div class="titulo-opt">
+                    <a href="achei_algo\achei_algo.html">
+                        <img src="img/icon-achei-algo.png" alt="lupa">
+                        ACHEI ALGO
+                    </a>
+                </div>
+                <p>Achou algo? Clique aqui para saber o quer fazer.</p>
+            </div>
+
+            <?php endif; ?>
+
+        </div>
+
+        <?php
+            if(isset($_SESSION) AND $_SESSION AND $_SESSION['usuario']['acesso_nivel'] > 0):?>
+        
+        <div class="menu-principal">
+            <div class="opt-menu-principal">
+                <div class="titulo-opt">
+                    <a href="fun_ver_protocolos/fun_ver_protocolos.php">
+                        <img src="img/icon-protocolos.png" alt="lupa">
+                        PROTOCOLOS EM ABERTO
+                    </a>
+                </div>
+                <p>Clique aqui para ver protocolos de perda em aberto.</p>
+            </div>
+
+            <div class="opt-menu-principal">
+                <div class="titulo-opt">
+                    <a href="objetos_em_estoque\objetos_em_estoque.php">
+                        <img src="img/icon-estoque.png" alt="lupa">
+                        VER OBJETOS EM ESTOQUE
+                    </a>
+                </div>
+                <p>Clique aqui para ver objetos achados em estoque.</p>
+            </div>
+
+            <?php
+            else:?>
+
+            <?php endif; ?>
+
+        </div>
+
+
+
     </main>
 
     <footer>
@@ -162,7 +257,7 @@
 
             <div class="dados-footer">
                 <p>Bytebusters</p>
-                <a href="">
+                <a href="index.php">
                     <img src="img/bytebusters_logo1 2.png" alt="Bytebusters" class="logo-bytebusters">
                 </a>
             </div>
@@ -170,7 +265,7 @@
         </div>
 
         <div class="copy-bytebusters">
-            <a href="">
+            <a href="index.php">
                 ©Bytebusters
             </a>
         </div>
