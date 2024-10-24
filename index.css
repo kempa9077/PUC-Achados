@@ -19,11 +19,9 @@ footer {
     background-color: #ECE0E0;
     min-height: 250px;
     bottom: 0;
-    position: absolute;
     width: 100%;
 }
 
-/*nav bar*/
 
 .top-bar {
     background-color: #A22E2F;

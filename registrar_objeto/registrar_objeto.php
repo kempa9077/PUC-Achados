@@ -1,15 +1,14 @@
 <?php
-$acesso = 1;
+$acesso = 1;// qualquer funcionario
 include '../header.php';
 ?>
-
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PUC Achados - Protocolo de Achado</title>
-    <link rel="stylesheet" href="registrar_objeto.css">
+    <title>Protocolo de Achado</title>
+    <link rel="stylesheet" href="style.css">
     <link rel="apple-touch-icon" sizes="180x180" href="../img/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="../img/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="../img/favicon-16x16.png">
@@ -19,95 +18,48 @@ include '../header.php';
     <meta name="theme-color" content="#882727">
 </head>
 <body>
-<header class="top-bar">
-            <nav class="barranav">
-                <div class="logo">
-                    <a href="../index.php">
-                        <img src="..\img\logo_texto_branco.png" alt="Logo PUC Achados">
-                    </a>
-                    
-                </div>
-                <div class="spaceperfil">
-
-                    <?php
-
-                    if(isset($_SESSION) AND $_SESSION):?>
-
-                        <a id="login_sem_cadastro" class="login">
-                            <img src="..\img\icon-login.png" alt="">
-                        </a>
-                        <a id="login_sem_cadastro" class="login">
-                            <?php echo $_SESSION['usuario']['nome'];
-                            ?>
-                        </a> 
-                        <form action="../login/session.php" method="POST">
-                            <button type="submit" name="acao" value="sair">Sair</button>
-                        </form>
-
-                        <?php
-
-                        ?>
-                    <?php
-                    else:?>
-
-                        <a id="login_sem_cadastro" class="login" href="../login/login.html">
-                            <img src="..\img\icon-login.png" alt="">
-                        </a>
-                        <a id="login_sem_cadastro" class="login" href="../login/login.html">
-                            Login
-                        </a>
-
-                    <?php endif; ?>
-                    
-                </div>
-            </nav>
-        </header>
-    
-        <nav class="second-bar">
-            <div class="menu-nav">
-                <div class="divnav">                
-                    <a href="../index.php" id="pagina_home_sem_cadastro">
-                        <img src="..\img\icon-home.png" alt="icon-home">
-                    </a>
-                    <a href="../index.php" id="pagina_home_sem_cadastro" class="menu-btn">Home</a>
-                </div>
-
-                <?php
-                if(isset($_SESSION) AND $_SESSION AND $_SESSION['usuario']['acesso_nivel'] > 0):?>
+    <header class="top-bar">
+        <nav class="barranav">
+            <div class="logo">
+                <a href="">
+                    <img src="..\img\logo_texto_branco.png" alt="Logo PUC Achados">
+                </a>
                 
-                <div class="divnav">                
-                    <a href="../fun_ver_protocolos/fun_ver_protocolos.php" id="pagina_home_sem_cadastro">
-                        <img src="..\img\icon-protocolos.png" alt="icon-home">
-                    </a>
-                    <a href="../fun_ver_protocolos/fun_ver_protocolos.php" id="pagina_home_sem_cadastro" class="menu-btn" >Protocolos</a>
-                </div>
-
-                <?php
-                else:?>
-
-                <div class="divnav">                
-                    <a href="../meus_protocolos/meus_protocolos.php" id="pagina_home_sem_cadastro">
-                        <img src="..\img\icon-protocolos.png" alt="icon-home">
-                    </a>
-                    <a href="../meus_protocolos/meus_protocolos.php" id="pagina_home_sem_cadastro" class="menu-btn" >Meus Protocolos</a>
-                </div>
-
-                <?php endif; ?>
-                
-                <?php
-                if(isset($_SESSION) AND $_SESSION AND $_SESSION['usuario']['acesso_nivel'] > 0):?>
-
-                <div class="divnav">                
-                    <a href="../objetos_em_estoque\objetos_em_estoque.php" id="pagina_home_sem_cadastro">
-                        <img src="..\img\icon-estoque.png" alt="icon-home">
-                    </a>
-                    <a href="../objetos_em_estoque\objetos_em_estoque.php" id="pagina_home_sem_cadastro" class="menu-btn">Objetos em Estoque</a>
-                </div>
-
-                <?php endif; ?>
-                    
+            </div>
+            <div class="spaceperfil">
+                <a href="../login/login.html" id="login_sem_cadastro" class="login">
+                    <img src="..\img\icon-login.png" alt="">
+                </a>
+                <a id="login_sem_cadastro" class="login"><?php echo $_SESSION['usuario']['nome']?></a>
             </div>
         </nav>
+    </header>
+
+    <nav class="second-bar">    
+        <div class="menu-nav">
+            <div class="divnav">                
+                <a id="pagina_home_sem_cadastro">
+                    <img src="..\img\icon-home.png" alt="icon-home">
+                </a>
+                <a href="../index/index.html" id="pagina_home_sem_cadastro" class="menu-btn" href="../home_logado/home_logado.html">Home</a>
+            </div>
+            
+            <div class="divnav">                
+                <a id="pagina_home_sem_cadastro">
+                    <img src="..\img\icon-protocolos.png" alt="icon-home">
+                </a>
+                <a id="pagina_home_sem_cadastro" class="menu-btn" href="../meus_protocolos/meus_protocolos.php">Meus Protocolos</a>
+            </div>
+            
+            <div class="divnav">                
+                <a href="../objetos_em_estoque/objetos_em_estoque.php" id="pagina_home_sem_cadastro">
+                    <img src="..\img\icon-estoque.png" alt="icon-home">
+                </a>
+                <a href="../objetos_em_estoque/objetos_em_estoque.php" id="pagina_home_sem_cadastro" class="menu-btn" href="../objetos_em_estoque/objetos_em_estoque.php">Objetos em Estoque</a>
+            </div>
+                
+        </div>
+    </nav>
 
     <main class="content-area">
 
@@ -202,7 +154,7 @@ include '../header.php';
 
             <div class="dados-footer">
                 <p>Bytebusters</p>
-                <a href="../index.php">
+                <a href="">
                     <img src="../img/bytebusters_logo1 2.png" alt="Bytebusters" class="logo-bytebusters">
                 </a>
             </div>
@@ -210,7 +162,7 @@ include '../header.php';
         </div>
 
         <div class="copy-bytebusters">
-            <a href="../index.php">
+            <a href="">
                 ©Bytebusters
             </a>
         </div>

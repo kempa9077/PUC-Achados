@@ -17,7 +17,7 @@ if (isset($acesso)) {
     // Compara o nível de acesso requerido com o do usuário logado
     if ($nivel_usuario < $acesso) {
         // Se o nível de acesso do usuário for insuficiente, redireciona para a página 404
-        header("Location: ../nao_autorizado/nao_autorizado.html");
+        header("Location: ../404.html");
         exit();
     }
 }
