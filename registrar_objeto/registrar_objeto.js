@@ -8,6 +8,12 @@ document.addEventListener('DOMContentLoaded', function() {
         const tipo_item = document.getElementById('tipo_item').value;
         const id_local = document.getElementById('bloco_encontro').value; // Agora id_local é o mesmo que bloco_encontro NA TEORIA
 
+
+                    // Validação básica 
+        if (!nome_item) {
+            alert('Por favor Informe o nome do item.');
+            return;
+        }
         // Faz a requisição para registrar o objeto
         fetch('efetua_registro.php', {
             method: 'POST',

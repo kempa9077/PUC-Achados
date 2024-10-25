@@ -54,9 +54,18 @@ document.addEventListener("DOMContentLoaded", function() {
                     botaoEncontrado.textContent = 'Encontrado';
 
                     // Adiciona a função de clique no botão
+                    // Adiciona a função de clique no botão "Encontrado"
                     botaoEncontrado.onclick = function() {
-                        const bloco = prompt('Informe seu Bloco:');
-                        if (bloco) {
+                        let bloco = prompt('Informe seu Bloco:');
+                        
+                        // Validação do bloco
+                        bloco = parseInt(bloco, 10); // Converte para número inteiro
+                        
+                        if (isNaN(bloco)) {
+                            alert('Bloco inválido! Por favor, insira um número.');
+                        } else if (bloco < 1 || bloco > 10) {
+                            alert('Bloco inválido! O número do bloco deve estar entre 1 e 10.');
+                        } else {
                             if (confirm('Tem certeza que deseja marcar este objeto como encontrado?')) {
                                 marcarComoEncontrado(objeto.id_objeto, bloco);
                             }
