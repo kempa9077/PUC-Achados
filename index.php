@@ -151,7 +151,7 @@
             <div class="opt-menu-principal">
                 <div class="titulo-opt">
                     <a href="achei_algo\achei_algo.php">
-                        <img src="img/icon-achei-algo.png" alt="lupa">
+                        <img src="img/icon-achei-algo.png" alt="pessoa-com-mao-levantada">
                         ACHEI ALGO
                     </a>
                 </div>
@@ -169,7 +169,7 @@
             <div class="opt-menu-principal">
                 <div class="titulo-opt">
                     <a href="fun_ver_protocolos/fun_ver_protocolos.php">
-                        <img src="img/icon-protocolos.png" alt="lupa">
+                        <img src="img/icon-protocolos.png" alt="prancheta">
                         PROTOCOLOS
                     </a>
                 </div>
@@ -179,7 +179,7 @@
             <div class="opt-menu-principal">
                 <div class="titulo-opt">
                     <a href="objetos_em_estoque\objetos_em_estoque.php">
-                        <img src="img/icon-estoque.png" alt="lupa">
+                        <img src="img/icon-estoque.png" alt="caixa">
                         VER OBJETOS EM ESTOQUE
                     </a>
                 </div>
@@ -193,6 +193,88 @@
 
         </div>
 
+        <?php
+            if(isset($_SESSION) AND $_SESSION AND $_SESSION['usuario']['acesso_nivel'] == 2):?>
+        
+        <div class="menu-principal">
+            <div class="opt-menu-principal">
+                <div class="titulo-opt">
+                    <a href="log_encontro/log_encontro.php">
+                        <img src="img/icon-log.png" alt="log">
+                        LOG DE ACHADOS
+                    </a>
+                </div>
+                <p>Clique aqui para ver Log de achados.</p>
+            </div>
+
+            <div class="opt-menu-principal">
+                <div class="titulo-opt">
+                    <a href="log_retirada\log_retirada.php">
+                        <img src="img/icon-log.png" alt="log">
+                        LOG RETIRADA DE OBJETOS
+                    </a>
+                </div>
+                <p>Clique aqui para ver Log de retirada de objetos do estoque.</p>
+            </div>
+
+            <?php
+            else:?>
+
+            <?php endif; ?>
+
+        </div>
+
+        <?php
+            if(isset($_SESSION) AND $_SESSION AND $_SESSION['usuario']['acesso_nivel'] == 2):?>
+        
+        <div class="menu-principal">
+            <div class="opt-menu-principal">
+                <div class="titulo-opt">
+                    <a href="log_pessoa/log_pessoa.php">
+                        <img src="img/icon-log.png" alt="log">
+                        LOG DE CADASTROS
+                    </a>
+                </div>
+                <p>Clique aqui para ver Log de cadastro de usuários.</p>
+            </div>
+
+            <div class="opt-menu-principal">
+                <div class="titulo-opt">
+                    <a href="gerenciar_fun\gerenciar_fun.php">
+                        <img src="img/icon-funcionario.png" alt="pessoa">
+                        GERENCIAR FUNCIONÁRIOS
+                    </a>
+                </div>
+                <p>Clique aqui para gerenciar conta de funcionários.</p>
+            </div>
+
+            <?php
+            else:?>
+
+            <?php endif; ?>
+
+        </div>
+
+        <?php
+            if(isset($_SESSION) AND $_SESSION AND $_SESSION['usuario']['acesso_nivel'] == 2):?>
+        
+        <div class="menu-principal">
+            <div class="opt-menu-principal">
+                <div class="titulo-opt">
+                    <a href="cadastro_fun/cadastro_fun.php">
+                        <img src="img/icon-funcionario.png" alt="pessoa">
+                        CADASTRAR FUNCIONÁRIO
+                    </a>
+                </div>
+                <p>Clique aqui para cadastrar novo funcionário.</p>
+            </div>
+
+            <?php
+            else:?>
+
+            <?php endif; ?>
+
+        </div>
 
 
     </main>
