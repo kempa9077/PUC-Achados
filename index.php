@@ -207,17 +207,17 @@
                         <a href="linkedin.com" target="_blank">
                             <img src="img/linkedin-icon.png" alt="linkedin" class="img-footer">
                         </a>
-                        <a href="github.com" target="_blank">
+                        <a href="https://github.com/DaviMartins26" target="_blank">
                             <img src="img/github-icon.png" alt="github" class="img-footer">
                         </a>
                     </li>
 
                     <li>
                         Joshua Mendes &ensp; &ensp;
-                        <a href="linkedin.com" target="_blank">
+                        <a href="https://www.linkedin.com/in/joshua-mendes-7126b42b7/" target="_blank">
                             <img src="img/linkedin-icon.png" alt="linkedin" class="img-footer">
                         </a>
-                        <a href="github.com" target="_blank">
+                        <a href="https://github.com/JoshuaMeds" target="_blank">
                             <img src="img/github-icon.png" alt="github" class="img-footer">
                         </a>
                     </li>
@@ -227,7 +227,7 @@
                         <a href="linkedin.com" target="_blank">
                             <img src="img/linkedin-icon.png" alt="linkedin" class="img-footer">
                         </a>
-                        <a href="github.com" target="_blank">
+                        <a href="https://github.com/Leander-Antonio" target="_blank">
                             <img src="img/github-icon.png" alt="github" class="img-footer">
                         </a>
                     </li>
