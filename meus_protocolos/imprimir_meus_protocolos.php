@@ -10,7 +10,7 @@ function buscar_protocolos() {
     categoria_objeto.categoria AS nome_categoria,
     protocolo.situacao,
     DATE_FORMAT(protocolo.data_abertura, '%d/%m/%Y %H:%i') AS data_abertura, -- Incluindo hora e minutos
-    DATE_FORMAT(protocolo.data_perda, '%d/%m/%Y %H:%i') AS data_perda, -- Incluindo hora e minutos
+    DATE_FORMAT(protocolo.data_perda, '%d/%m/%Y') AS data_perda, -- Incluindo hora e minutos
     IFNULL(DATE_FORMAT(protocolo.data_fechamento, '%d/%m/%Y %H:%i'), '-') AS data_fechamento, -- Incluindo hora e minutos
     protocolo.descricao,
     pessoa_abertura.nome AS nome_pessoa_abertura,
