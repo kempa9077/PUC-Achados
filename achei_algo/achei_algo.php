@@ -1,14 +1,14 @@
 <?php
-$acesso = 0; // todos os funcionarios
-include '../header.php';
+$acesso = 0;  //livre acesso
+include '../header.php'
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PUC Achados - Perdi Algo</title>
-    <link rel="stylesheet" href="perdi_algo.css">
+    <title>PUC Achados - Achei Algo</title>
+    <link rel="stylesheet" href="achei_algo.css">
     <link rel="apple-touch-icon" sizes="180x180" href="../img/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="../img/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="../img/favicon-16x16.png">
@@ -108,47 +108,37 @@ include '../header.php';
             </div>
         </nav>
 
-        <main class="content-area">
-            <div class="div-titulo">
-                <div class="area-logo-titulo">
-                    <img src="..\img\icon-lupa.png" alt="Protocolos Icon">
-                </div>
-                &nbsp; PERDI ALGO
-            </div>
 
-            <div class="div-instrucao">PREENCHA O FORMULÁRIO ABAIXO</div>
 
-            <div class="flex-container">
-                <div class="nome-do-item">
-                    <label for="nome_item">Nome do item:</label>
-                    <textarea id="nome_item" name="nome_item" rows="1" cols="33"></textarea>
-                </div>
-                <div class="tipo-do-item">
-                    <label for="tipo_item">Categoria do Item:</label>
-                    <select name="tipo_item" id="tipo_item"></select>
-                </div>
-                <div class="bloco-de-encontro">
-                    <label for="bloco_encontro">Bloco que Perdeu:</label>
-                    <select name="bloco_encontro" id="bloco_encontro"></select>
-                </div>
-                <div class="sala-de-encontro">
-                    <label for="sala_perda">Sala que Perdeu:</label>
-                    <select name="sala_perda" id="sala_perda"></select>
-                </div>
-                <div class="data-de-entrada">
-                    <label for="date">Data de Perda:</label>
-                    <input id="data_perda" type="date" />
-                </div>
+
+
+
+    <main class="content-area">
+
+        <div class="div-titulo">
+            <div class="area-logo-titulo">
+                <img src="../img/icon-achei-algo.png" alt="">
             </div>
-            
-            <div class="descricao-item">
-                <label for="descricao">Descrição do item:</label>
-                <textarea id="descricao" name="descricao" rows="4" placeholder="Descreva o item perdido aqui..."></textarea>
-            </div>
-            
-            <button id="enviar_objeto" class="enviar-btn">Enviar</button>
+            &nbsp; ACHEI ALGO
+        </div>
+        <div class="texto_achei">
+
+            <h2>Encontrou algo na PUCPR?</h2>
+            Se você encontrou algum objeto perdido, pedimos que leve-o até a secretaria do bloco onde ele foi encontrado. 
+            Caso você não saiba onde fica a secretaria, por favor, 
+            <a href="https://www.pucpr.br/mapa-campus-curitiba/" target="blank">clique neste link</a>
+             para obter mais informações sobre a localização.
+            <h4>Agradecemos sua colaboração!</h4>
         </div>
     </main>
+
+
+
+
+
+
+
+
 
     <footer>
         <div class="dados-div">
@@ -197,6 +187,9 @@ include '../header.php';
                 </ul>
             </div>
 
+
+
+
             <div class="dados-footer">
                 <p>Professores</p>
                 <ul>
@@ -224,7 +217,6 @@ include '../header.php';
         </div>
 
     </footer>
-    <script src="protocolo_perda.js"></script>
 
-</body>
+    </body>
 </html>

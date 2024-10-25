@@ -22,6 +22,7 @@ footer {
     width: 100%;
 }
 
+/*nav bar*/
 
 .top-bar {
     background-color: #A22E2F;
@@ -55,11 +56,42 @@ footer {
     display: flex;
     justify-content: center;
     align-items: center;
+    color: #ffffff;
+    background-color: rgba(0, 0, 0, 0);
+    border: 0;
+    font-family: lato;
+    font-size: 15px;
+    text-decoration: none;
+}
+
+.login:hover{
+    text-decoration: underline;
+    cursor: pointer;
 }
 
 .login img {
     max-height: 42px;
     margin-bottom: 5px;
+}
+
+.spaceperfil a{
+    font-family: lato;
+    font-size: 18px;
+}
+
+.spaceperfil form button {
+    color: #ffffff;
+    background-color: rgba(0, 0, 0, 0);
+    border: 0;
+    font-family: lato;
+    font-size: 15px;
+
+    margin-left: 7px;
+}
+
+.spaceperfil form button:hover{
+    text-decoration: underline;
+    cursor: pointer;
 }
 
 /* Segunda barra com altura de 45px */
@@ -107,9 +139,6 @@ footer {
     color: #ffffff;
     text-decoration: none;
 }
-
-
-
 
 /* Área do conteúdo principal */
 .content-area {
@@ -202,6 +231,7 @@ footer {
     max-width: 50px;
 }
 
+/* footer*/
 
 .dados-div {
     display: flex;

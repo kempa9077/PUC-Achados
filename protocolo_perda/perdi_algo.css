@@ -22,6 +22,7 @@ footer {
     width: 100%;
 }
 
+/*nav bar*/
 
 .top-bar {
     background-color: #A22E2F;
@@ -55,11 +56,42 @@ footer {
     display: flex;
     justify-content: center;
     align-items: center;
+    color: #ffffff;
+    background-color: rgba(0, 0, 0, 0);
+    border: 0;
+    font-family: lato;
+    font-size: 15px;
+    text-decoration: none;
+}
+
+.login:hover{
+    text-decoration: underline;
+    cursor: pointer;
 }
 
 .login img {
     max-height: 42px;
     margin-bottom: 5px;
+}
+
+.spaceperfil a{
+    font-family: lato;
+    font-size: 18px;
+}
+
+.spaceperfil form button {
+    color: #ffffff;
+    background-color: rgba(0, 0, 0, 0);
+    border: 0;
+    font-family: lato;
+    font-size: 15px;
+
+    margin-left: 7px;
+}
+
+.spaceperfil form button:hover{
+    text-decoration: underline;
+    cursor: pointer;
 }
 
 /* Segunda barra com altura de 45px */
@@ -108,33 +140,25 @@ footer {
     text-decoration: none;
 }
 
-
-
-
 /* Área do conteúdo principal */
 .content-area {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
-
     margin: auto;
     margin-top: 186px;
     max-width: 1200px;
     width: 100%;
-
-
     padding-left: 20px;
     padding-right: 20px;
+    
 }
 
-
-.div-titulo{
+.div-titulo {
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    margin: auto;
-
     width: 100%;
     height: 50px;
     background-color: #ECE0E0;
@@ -147,7 +171,6 @@ footer {
     height: 100%;
     background-color: #882627;
     width: 50px;
-
     display: flex;
     justify-content: center;
     align-items: center;
@@ -158,30 +181,96 @@ footer {
     max-width: 50px;
 }
 
-.objeto-table {
-    width: 100%;
-    margin-top: 20px;
+.div-instrucao {
+    margin-top: 15px;
+    align-items: center;
+    text-align: center;
+    max-width: 1000px;
+    height: 30px;
+    background-color: #ECE0E0;
+    font-family: 'Oswald', sans-serif;
+    color: #882627;
+    font-size: 1.5em;
 }
 
-.objeto-table table {
+/* Ajustando a flexbox para alinhamento uniforme e bordas arredondadas */
+.flex-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     width: 100%;
-    border-collapse: collapse;
-    font-size: 18px;
+    padding: 20px;
+    margin: auto; /* Ajuste para que fique abaixo do retângulo vermelho */
+    z-index: 1; /* Garante que os campos não sejam sobrepostos */
+
+
 }
 
-.objeto-table th, .protocolo-table td {
+/* Ajustando a largura dos campos para caberem em linha e bordas arredondadas */
+.flex-container > div {
+    flex: 1;
+    margin-right: 10px; /* Espaçamento entre os elementos */
+}
+
+.flex-container > div:last-child {
+    margin-right: 0;
+}
+
+label {
+    font-weight: bold;
+    margin-bottom: 5px;
+    display: block;
+}
+
+textarea, select, input[type="date"] {
+    width: 100%;
     padding: 10px;
-    text-align: left;
+    border-radius: 10px; /* Bordas arredondadas */
+    border: 1px solid #ccc;
+    resize: none;
+    font-size: 14px;
+    margin-top: 5px;
 }
 
-.objeto-table th {
-    background-color: #A22E2F;
+/* Ajuste para textarea */
+textarea {
+    height: 40px;
+}
+
+/* Botão de enviar no canto inferior esquerdo do quadrado cinza */
+.enviar-btn {
+    margin-top: 10px; /* Espaço entre a descrição e o botão */
+    margin-left: 10px;
+    background-color: #7a1f1f;
     color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 10px;
 }
 
-.objeto-table tr:hover {
-    background-color: #ddd;
+.enviar-btn:hover {
+    background-color: #5c1515;
 }
+
+/* Área de descrição agora posicionada abaixo sem afetar os outros campos */
+.descricao-item {
+    margin-top: -5px; /* Espaço entre os campos e a descrição */
+    width: 100%;
+    padding: 10px;
+}
+
+.descricao-item textarea {
+    width: 100%;
+    height: 100px;
+    padding: 10px;
+    border-radius: 10px; /* Bordas arredondadas */
+    border: 1px solid #ccc;
+    resize: none;
+}
+
+/* footer */
 
 .dados-div {
     display: flex;

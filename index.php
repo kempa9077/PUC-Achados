@@ -139,10 +139,10 @@
                 <div class="titulo-opt">
                     <a href="registrar_objeto\registrar_objeto.php">
                         <img src="img/icon-achei-algo.png" alt="lupa">
-                        INICIAR PROTOCOLO DE ACHADO
+                        REGISTRAR OBJETO ACHADO
                     </a>
                 </div>
-                <p>Achou algo? Clique aqui para saber o quer fazer.</p>
+                <p>Achou algo? Clique aqui para registrar o objeto.</p>
             </div>
 
             <?php
@@ -150,7 +150,7 @@
 
             <div class="opt-menu-principal">
                 <div class="titulo-opt">
-                    <a href="achei_algo\achei_algo.html">
+                    <a href="achei_algo\achei_algo.php">
                         <img src="img/icon-achei-algo.png" alt="lupa">
                         ACHEI ALGO
                     </a>
