@@ -170,10 +170,10 @@
                 <div class="titulo-opt">
                     <a href="fun_ver_protocolos/fun_ver_protocolos.php">
                         <img src="img/icon-protocolos.png" alt="lupa">
-                        PROTOCOLOS EM ABERTO
+                        PROTOCOLOS
                     </a>
                 </div>
-                <p>Clique aqui para ver protocolos de perda em aberto.</p>
+                <p>Clique aqui para ver todos os protocolos.</p>
             </div>
 
             <div class="opt-menu-principal">

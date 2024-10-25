@@ -1,5 +1,5 @@
 document.getElementById("home").addEventListener("click", function() {
-    window.location.href = "index.html";
+    window.location.href = "index.php";
 });
 
 document.getElementById("meus_protocolos").addEventListener("click", function() {
