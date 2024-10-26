@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 16/10/2024 às 14:06
+-- Tempo de geração: 26/10/2024 às 14:55
 -- Versão do servidor: 10.4.32-MariaDB
 -- Versão do PHP: 8.2.12
 
@@ -38,7 +38,14 @@ CREATE TABLE `categoria_objeto` (
 
 INSERT INTO `categoria_objeto` (`id_tipo`, `categoria`) VALUES
 (1, 'Eletrônico'),
-(2, 'Carteira');
+(2, 'Documento'),
+(3, 'Carteirinha PUC'),
+(4, 'Roupa'),
+(6, 'Guarda Chuva'),
+(7, 'Material Escolar'),
+(8, 'Chaves'),
+(9, 'Cartão Bancario'),
+(10, 'Outros');
 
 -- --------------------------------------------------------
 
@@ -63,16 +70,56 @@ INSERT INTO `local` (`id_local`, `bloco`, `sala`) VALUES
 (3, 3, 'Secretaria Bloco 3'),
 (4, 4, 'Secretaria Bloco 4'),
 (5, 5, 'Secretaria Bloco 5'),
-(6, 1, '103'),
-(7, 2, '206'),
-(8, 3, '107'),
-(9, 4, 'Banheiro 1'),
-(10, 5, 'Gordon More'),
-(11, 1, '317'),
-(12, 2, '119'),
-(13, 3, '330'),
-(14, 4, '101'),
-(15, 5, 'Banheiro 3');
+(6, 6, 'Secretaria Bloco 6'),
+(7, 7, 'Secretaria Bloco 7'),
+(8, 8, 'Secretaria Bloco 8'),
+(9, 9, 'Secretaria Bloco 9'),
+(10, 10, 'Secretaria Bloco 10'),
+(11, 1, 'Auditorio Cristão de Ataíde'),
+(12, 1, 'Sala A7'),
+(13, 1, 'Auditório Thomas Morus '),
+(14, 1, 'Sala B8'),
+(15, 1, 'Banheiro 3'),
+(16, 2, 'Alan Turing'),
+(17, 2, 'Teatro Tuca'),
+(18, 2, 'Laboratorio 11'),
+(19, 2, 'Steve Jobs'),
+(22, 2, 'Banheiro 1'),
+(23, 3, 'Auditório Carlos Costa'),
+(24, 3, 'Auditório Gregor Mendeu'),
+(25, 3, 'Sala 20'),
+(26, 3, 'Cozinha 2'),
+(27, 3, 'Banheiro 3'),
+(28, 4, 'Sala NEP'),
+(29, 4, 'Sala 113'),
+(30, 4, 'Centro Acadêmico de Marketing'),
+(31, 4, 'Sala 307'),
+(32, 4, 'Banheiro 8'),
+(33, 5, 'Morgon More'),
+(34, 5, 'Araça 303'),
+(35, 5, 'Sala 117'),
+(36, 5, 'Juizado Especial'),
+(37, 5, 'Banheiro 22'),
+(38, 6, 'Sala ALGAR'),
+(39, 6, 'Sala Gequitiba 007'),
+(40, 6, 'Sala 27A'),
+(41, 6, 'Arena 002'),
+(42, 6, 'Banheiro 1'),
+(43, 8, 'Engenharia de Reabilitação'),
+(44, 8, 'Sala Ada LoveLace'),
+(45, 8, 'Sala 04'),
+(46, 8, 'Laboratório de Redes de Computadores'),
+(47, 8, 'Banheiro 15'),
+(48, 9, 'Laboratório de Metrologia'),
+(49, 9, 'Laboratório Oficina'),
+(50, 9, 'Sala Nikola Tesla'),
+(51, 9, 'Sala MultiMatematica'),
+(52, 9, 'Banheiro 23'),
+(53, 7, 'Laboratório Operações Unitárias '),
+(54, 7, 'Laboratório Química 10'),
+(55, 7, 'Lapiagro'),
+(56, 7, 'Laboratório de Fermentações'),
+(57, 7, 'Banheiro 4');
 
 -- --------------------------------------------------------
 
@@ -94,9 +141,12 @@ CREATE TABLE `log_encontro` (
 --
 
 INSERT INTO `log_encontro` (`id_log`, `id_objeto`, `funcionario`, `data`, `valor_antigo`, `valor_novo`) VALUES
-(1, 3, '12345678910', '2024-10-14 14:30:11', 0, 1),
-(2, 165, '12345678910', '2024-10-14 14:30:38', 0, 1),
-(3, 165, '12345678910', '2024-10-14 14:30:49', 1, 2);
+(12, 204, '12345678910', '2024-10-23 16:29:32', 0, 1),
+(13, 204, '12345678910', '2024-10-23 16:30:29', 1, 2),
+(14, 199, '12345678911', '2024-10-23 16:33:49', 1, 2),
+(15, 201, '12345678911', '2024-10-23 16:34:57', 1, 2),
+(16, 200, '12345678911', '2024-10-23 16:36:20', 1, 2),
+(17, 203, '12345678911', '2024-10-23 16:36:32', 1, 2);
 
 -- --------------------------------------------------------
 
@@ -111,8 +161,6 @@ CREATE TABLE `log_pessoa` (
   `data` datetime NOT NULL,
   `email_velho` varchar(100) DEFAULT NULL,
   `email_novo` varchar(100) DEFAULT NULL,
-  `senha_velho` varchar(255) DEFAULT NULL,
-  `senha_novo` varchar(255) DEFAULT NULL,
   `nome_velho` varchar(100) DEFAULT NULL,
   `nome_novo` varchar(100) DEFAULT NULL,
   `acesso_nivel_velho` int(11) DEFAULT NULL,
@@ -123,15 +171,10 @@ CREATE TABLE `log_pessoa` (
 -- Despejando dados para a tabela `log_pessoa`
 --
 
-INSERT INTO `log_pessoa` (`id_log`, `cpf_modificador`, `cpf_alterado`, `data`, `email_velho`, `email_novo`, `senha_velho`, `senha_novo`, `nome_velho`, `nome_novo`, `acesso_nivel_velho`, `acesso_nivel_novo`) VALUES
-(1, '12345678910', '12345678911', '2024-10-15 12:04:43', 'testeFun@gmail.com', 'testeFun@gmail.com', NULL, NULL, 'FuncionaPFAAAAAAAAAAAAAAAAA', 'FuncionaPFAAAAAAAAAAAAAAAAA', 2, 1),
-(2, '12345678910', '12345678911', '2024-10-15 12:04:52', 'testeFun@gmail.com', 'testeFun@gmail.com', NULL, NULL, 'FuncionaPFAAAAAAAAAAAAAAAAA', 'FuncionaPFAAAAAAAAAAAAAAAAA', 1, 1),
-(3, '12345678910', '12345678911', '2024-10-15 12:04:54', 'testeFun@gmail.com', 'testeFun@gmail.com', NULL, NULL, 'FuncionaPFAAAAAAAAAAAAAAAAA', 'FuncionaPFAAAAAAAAAAAAAAAAA', 1, 1),
-(4, '12345678910', '12345678911', '2024-10-15 12:05:44', 'testeFun@gmail.com', 'testeFun@gmail.com', NULL, NULL, 'FuncionaPFAAAAAAAAAAAAAAAAA', 'FuncionaPFAAAAAAAAAAAAAAAAA', 1, 3),
-(5, '12345678910', '12345678911', '2024-10-15 12:08:50', 'testeFun@gmail.com', 'testeFun@gmail.com', NULL, NULL, 'FuncionaPFAAAAAAAAAAAAAAAAA', 'FuncionaPFAAAAAAAAAAAAAAAAA', 3, 1),
-(6, '12345678910', '321', '2024-10-16 08:51:50', 'fun', 'fun', NULL, NULL, 'fun_nome', 'fun_nome', 1, 0),
-(7, '12345678910', '321', '2024-10-16 09:02:38', 'fun', 'fun', NULL, NULL, 'fun_nome', 'fun_nome', 1, 2),
-(8, '12345678910', '321', '2024-10-16 09:02:44', 'fun', 'fun', NULL, NULL, 'fun_nome', 'fun_nome', 2, 1);
+INSERT INTO `log_pessoa` (`id_log`, `cpf_modificador`, `cpf_alterado`, `data`, `email_velho`, `email_novo`, `nome_velho`, `nome_novo`, `acesso_nivel_velho`, `acesso_nivel_novo`) VALUES
+(11, '12345678910', '12345678913', '2024-10-23 16:24:53', 'renato@pucpr.br', 'renato@pucpr.br', 'Renato Silva', 'Renato Silva', 1, 2),
+(12, '12345678910', '12345678915', '2024-10-23 16:26:41', 'moura@pucpr.br', 'moura@pucpr.br', 'Vinicius Moura', 'Vinicius Moura', 1, 2),
+(13, '12345678910', '12345678915', '2024-10-23 16:28:26', 'moura@pucpr.br', 'moura@pucpr.br', 'Vinicius Moura', 'Vinicius Moura', 1, 1);
 
 -- --------------------------------------------------------
 
@@ -153,20 +196,20 @@ CREATE TABLE `objeto` (
 --
 
 INSERT INTO `objeto` (`id_objeto`, `id_local`, `categoria_objeto`, `encontrado`, `nome`, `data_registro`) VALUES
-(1, 5, 1, 2, 'Notebook', '2024-10-09 14:25:52'),
-(2, 4, 2, 1, 'Carteira', '2024-10-09 14:25:52'),
-(3, 3, 2, 1, 'Mochila', '2024-10-09 14:25:52'),
-(137, 12, 2, 0, 'Teste_97@', '2024-10-09 14:25:52'),
-(158, 9, 2, 0, 'Teste 8001', '2024-10-09 14:25:52'),
-(160, 1, 2, 2, 'Teste com data', '2024-10-09 14:27:33'),
-(161, 1, 1, 2, 'Teste novo', '2024-10-09 14:28:17'),
-(162, 3, 2, 2, 'TesteEstoque', '2024-10-11 17:22:02'),
-(163, 1, 1, 2, 'TesteEstoque2', '2024-10-11 17:58:24'),
-(164, 2, 2, 2, 'Anel Solitario', '2024-10-11 19:53:40'),
-(165, 3, 1, 2, 'TesteDevolutiva', '2024-10-14 12:06:34'),
-(166, 11, 1, 0, 'TesteDevolutiva2', '2024-10-14 12:14:30'),
-(167, 6, 1, 1, 'teste data registro', '2024-10-16 08:16:21'),
-(168, 6, 1, 1, 'Tete 8001²', '2024-10-16 08:17:44');
+(195, 3, 3, 1, 'Carteirinha - Adilson Jurandir', '2024-10-23 09:40:13'),
+(196, 9, 1, 1, 'Carregador Iphone', '2024-10-23 09:40:37'),
+(197, 4, 6, 1, 'Guarda Chuva Preto', '2024-10-23 09:41:43'),
+(198, 4, 9, 1, 'Cartão visa internacional', '2024-10-23 09:42:01'),
+(199, 8, 4, 2, 'Moletão Rosa', '2024-10-23 09:42:16'),
+(200, 9, 8, 2, 'Chave de Carro Renault', '2024-10-23 15:49:03'),
+(201, 9, 1, 2, 'Notebook Positivo', '2024-10-23 15:50:01'),
+(202, 1, 7, 1, 'Estojo ', '2024-10-23 15:50:29'),
+(203, 2, 9, 2, 'Cartão Visa ', '2024-10-23 15:50:47'),
+(204, 6, 1, 2, 'MacBook', '2024-10-23 15:58:16'),
+(205, 22, 8, 0, 'Chave de casa', '2024-10-23 15:58:50'),
+(206, 11, 3, 0, 'Carteirinha', '2024-10-23 16:00:56'),
+(207, 30, 10, 0, 'Copo Stalei', '2024-10-23 16:02:16'),
+(208, 11, 2, 0, 'Carteira de Motorista', '2024-10-23 16:06:21');
 
 -- --------------------------------------------------------
 
@@ -189,13 +232,16 @@ CREATE TABLE `pessoa` (
 --
 
 INSERT INTO `pessoa` (`cpf`, `email`, `senha`, `nome`, `matricula`, `registro_puc`, `acesso_nivel`) VALUES
-('12345678910', 'adm@adm.com', '$2b$12$nQ9IDi2hvsZIPc8XnFfjXeoVnDkAATGw7Yh35xQ52zesIbOZQI4em', 'adm_nome', NULL, 'jan15ah', 2),
-('12345678911', 'testeFun@gmail.com', '$2y$10$bPMH8MLaHir0hyxPzUZYJ./5KowsiFvCnH9WCtIj/Y0l.moqBVeWC', 'FuncionaPFAAAAAAAAAAAAAAAAA', '', '134542bm929', 1),
-('12345678913', '2@gmail.com', '$2y$10$S7J2/pIF4BNITNvLH8q5vO8a9b5YHG5IeH0KD1qBhJ8g.zpwVEyAW', 'tete1234', '', NULL, 0),
-('12345678915', 'tester@gmail.com', '$2y$10$YZ7sENRgwDeiMO//ZZ0KAuJo7TvSBgKyqsYW.kO0jhc4Dp3pPtTei', 'Tester', '', NULL, 0),
-('12345678921', 'a@gmail.com', '$2y$10$Vt1HeSc20DJ1I2WbfGIKU.Cg0UJ2NXj/qsNtTAY.RQSBAJ6gInK7S', 'saaaaaaaa', '', NULL, 0),
-('321', 'fun', '$2b$12$G/RXIjXkgI38FLUU3zL/s.yIY2ArbbI/LNo4rp7ubfh.ANy9X.2OS', 'fun_nome', NULL, 'null', 1),
-('456', 'alu', '$2b$12$s13iS28In4KivWDhvM2EhOAFjUQ5C/c2lmbI2DwWhmbpvpNVKrUM6', 'alu_nome', NULL, NULL, 0);
+('12345678910', 'adm@adm.com', '$2b$12$nQ9IDi2hvsZIPc8XnFfjXeoVnDkAATGw7Yh35xQ52zesIbOZQI4em', 'adm_nome', NULL, ' 15nu51o9', 2),
+('12345678911', 'funcionario@pucpr.br', '$2y$10$OBeMIK.KW0GgRGPLaMUsqelRw6KlQ3vl2d3dKTCXw/vTczKREN0s.', 'Funcionário Generico ', NULL, '4iin59n8n', 1),
+('12345678912', 'aluno@pucpr.edu.br', '$2y$10$fC9i4DAvOvTk/plyEvN4POEMwApWvplNzvvI0gROqtOXt/5QWbPpi', 'Aluno Generico', '1985569091', NULL, 0),
+('12345678913', 'renato@pucpr.br', '$2y$10$9tdG1dTZNObNp6Q0A/aeEeOHr/DL3PPG.dUFJSHiSwA088f7JNzIq', 'Renato Silva', NULL, '185ngfu50n', 2),
+('12345678915', 'moura@pucpr.br', '$2y$10$H9rOKa0DXwewqzP47pThYusBXB08/Td9cWq3/tHqxG41RFwOxhwEa', 'Vinicius Moura', NULL, '55niv21n93', 1),
+('12345678921', 'vetri@gmail.com', '$2y$10$ArY1yecqPWLeyB/vpvtzlOYmC1zeBpK0v7gk.PobYJfftBsPfeOLu', 'Paulo Vetri', '134569483', NULL, 0),
+('12345678923', 'neves@yoahoo.com', '$2y$10$qXhGnMIvd.0D6mAk9CCP0uNfFezFAzS/Du1rb2a4ZGLFojnrfEwXq', 'Felipe Neves', '123456472', NULL, 0),
+('12345678924', 'enzo@pucpr.edu.br', '$2y$10$VzhsfBTr3e0QQe1eTnUDke1y.vzR.eWxuED1JAODa2i/.8jIMiUGm', 'Enzo Miguel', '12426421', NULL, 0),
+('12345678926', 'carla@gmail.com', '$2y$10$JGrboxIuz/WVOTHwuS0e6unT4nLiwAYPwpQV6Fvmohv9qFt4DuEqa', 'Carla Silva', '', NULL, 0),
+('12345678927', 'adilson@gmail.com', '$2y$10$913H2oMlsbAgjJ1ctGozauNPGHvEuz6i7mHPWlukeveMGiLtWFCIW', 'Adilson Jurandir', '81826', NULL, 0);
 
 -- --------------------------------------------------------
 
@@ -206,7 +252,7 @@ INSERT INTO `pessoa` (`cpf`, `email`, `senha`, `nome`, `matricula`, `registro_pu
 CREATE TABLE `protocolo` (
   `idprotocolo` int(11) NOT NULL,
   `situacao` int(11) NOT NULL,
-  `data_abertura` datetime NOT NULL,
+  `data_abertura` date NOT NULL,
   `data_fechamento` datetime DEFAULT NULL,
   `data_perda` datetime DEFAULT NULL,
   `pessoa_abertura` char(11) DEFAULT NULL,
@@ -221,19 +267,11 @@ CREATE TABLE `protocolo` (
 --
 
 INSERT INTO `protocolo` (`idprotocolo`, `situacao`, `data_abertura`, `data_fechamento`, `data_perda`, `pessoa_abertura`, `pessoa_fechado`, `local_perda`, `objeto`, `descricao`) VALUES
-(1, 0, '2024-09-19 11:30:00', NULL, '2024-09-19 11:12:50', '456', NULL, 10, 1, 'Adesivos com meu nome atras'),
-(2, 1, '2024-09-18 12:00:50', '2024-09-19 12:30:50', '2024-09-18 10:00:50', '456', '321', 9, 2, 'azul com veltro'),
-(22, 0, '2024-10-09 14:34:46', NULL, '2024-10-08 09:34:46', '12345678915', NULL, NULL, 137, 'Deus é bom'),
-(23, 0, '2024-10-25 10:10:56', NULL, '2024-10-20 10:10:56', '12345678910', NULL, 10, 1, 'Deus e bom'),
-(24, 0, '2024-10-25 10:10:56', NULL, '2024-10-20 10:10:56', '12345678910', NULL, 10, 1, 'Deus e bom'),
-(25, 0, '2024-10-25 10:10:56', NULL, '2024-10-20 10:10:56', '12345678910', NULL, 10, 1, 'Deus e bom e o davi é burro'),
-(27, 0, '2024-10-09 14:13:54', NULL, '2024-10-07 00:00:00', '12345678910', NULL, 14, 158, 'Se for isso socorro Deus'),
-(28, 0, '2024-10-09 14:28:17', NULL, '2024-10-15 00:00:00', '12345678910', NULL, 6, 161, 'Calopsita'),
-(29, 1, '2024-10-11 17:22:02', '2024-10-14 14:14:54', '2024-10-09 00:00:00', '12345678910', '12345678910', 8, 162, 'não tem graça'),
-(30, 0, '2024-10-11 17:58:24', NULL, '2024-10-09 00:00:00', '12345678910', NULL, 6, 163, 'não tem graça'),
-(31, 0, '2024-10-11 19:53:40', NULL, '2024-10-10 00:00:00', '12345678910', NULL, 13, 164, 'ouro 18kilaters'),
-(32, 1, '2024-10-14 12:06:34', '2024-10-14 12:11:39', '2024-10-13 00:00:00', '12345678910', '12345678910', 6, 165, 'TesteDevolutina de quando eu clicar em devolver isso deve ser fechado'),
-(33, 1, '2024-10-14 12:14:30', '2024-10-14 14:12:37', '2024-10-13 00:00:00', '12345678910', '12345678910', 11, 166, 'TesteDevolutina de quando eu clicar em devolver isso deve ser fechado Segunda vez');
+(44, 1, '2024-10-23', '2024-10-23 16:30:29', '2024-10-22 00:00:00', '12345678921', '12345678910', 41, 204, 'Modelo x '),
+(45, 0, '2024-10-23', NULL, '2024-10-23 00:00:00', '12345678921', NULL, 22, 205, 'Em um chaveiro de elefante'),
+(46, 0, '2024-10-23', NULL, '2024-10-17 00:00:00', '12345678923', NULL, 11, 206, 'A minha'),
+(47, 0, '2024-10-23', NULL, '2024-10-18 00:00:00', '12345678923', NULL, 30, 207, 'Cor azul'),
+(48, 0, '2024-10-23', NULL, '2024-10-23 00:00:00', '12345678924', NULL, 11, 208, '');
 
 -- --------------------------------------------------------
 
@@ -254,15 +292,11 @@ CREATE TABLE `retirada` (
 --
 
 INSERT INTO `retirada` (`id_retirada`, `id_objeto`, `pessoa_retirante`, `funcionario`, `data`) VALUES
-(2, 3, '12345678913', '12345678910', '2024-10-11 10:57:33'),
-(3, 1, '12345678913', '12345678910', '2024-10-11 11:13:02'),
-(4, 160, '12345678913', '12345678910', '2024-10-11 17:32:46'),
-(5, 161, '12345678913', '12345678910', '2024-10-11 17:36:00'),
-(6, 164, '12345678913', '12345678910', '2024-10-11 19:54:34'),
-(7, 165, '12345678913', '12345678910', '2024-10-14 12:11:39'),
-(8, 166, '12345678913', '12345678910', '2024-10-14 14:12:37'),
-(9, 162, '12345678913', '12345678910', '2024-10-14 14:14:54'),
-(10, 165, '12345678913', '12345678910', '2024-10-14 14:30:49');
+(17, 204, '12345678921', '12345678910', '2024-10-23 16:30:29'),
+(18, 199, '12345678926', '12345678911', '2024-10-23 16:33:49'),
+(19, 201, '12345678926', '12345678911', '2024-10-23 16:34:57'),
+(20, 200, '12345678927', '12345678911', '2024-10-23 16:36:20'),
+(21, 203, '12345678927', '12345678911', '2024-10-23 16:36:32');
 
 --
 -- Índices para tabelas despejadas
@@ -339,43 +373,43 @@ ALTER TABLE `retirada`
 -- AUTO_INCREMENT de tabela `categoria_objeto`
 --
 ALTER TABLE `categoria_objeto`
-  MODIFY `id_tipo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_tipo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT de tabela `local`
 --
 ALTER TABLE `local`
-  MODIFY `id_local` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id_local` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=58;
 
 --
 -- AUTO_INCREMENT de tabela `log_encontro`
 --
 ALTER TABLE `log_encontro`
-  MODIFY `id_log` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_log` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT de tabela `log_pessoa`
 --
 ALTER TABLE `log_pessoa`
-  MODIFY `id_log` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id_log` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT de tabela `objeto`
 --
 ALTER TABLE `objeto`
-  MODIFY `id_objeto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=169;
+  MODIFY `id_objeto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=209;
 
 --
 -- AUTO_INCREMENT de tabela `protocolo`
 --
 ALTER TABLE `protocolo`
-  MODIFY `idprotocolo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
+  MODIFY `idprotocolo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=49;
 
 --
 -- AUTO_INCREMENT de tabela `retirada`
 --
 ALTER TABLE `retirada`
-  MODIFY `id_retirada` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id_retirada` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- Restrições para tabelas despejadas
