@@ -24,7 +24,7 @@ document.getElementById('adicionar').addEventListener('click', function(event) {
     requisitar('POST', { nome: nome, email: email, cpf: cpf, matricula: matricula, senha: senha, solicitacao: "adicionar" })
     .then(result => {
         if (result.erro) {
-            alert('Erro ao cadastrar: ' + result.erro);
+            alert('Credenciais já registradas');
         } else {
             alert('Cadastro realizado com sucesso!');
             window.location.href = '../login/login.html';

@@ -16,7 +16,7 @@ document.getElementById('adicionar').addEventListener('click', function(event) {
     requisitar('POST', { nome: nome, email: email, cpf: cpf, registro: registro, senha: senha, solicitacao: "adicionar" })
         .then(result => {
             if (result.erro) {
-                alert('Erro ao cadastrar: ' + result.erro);
+                alert('Credenciais já regisradas');
             } else {
                 alert('Cadastro realizado com sucesso!');
             }
