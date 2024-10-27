@@ -8,6 +8,11 @@ document.getElementById('adicionar').addEventListener('click', function(event) {
     var senha = document.getElementById("senha_id").value;
     var confirmsenha = document.getElementById("confirm").value;
     
+        // Verificação do comprimento do CPF
+    if (cpf.length !== 11 || isNaN(cpf)) {
+        alert('O CPF deve conter exatamente 11 dígitos numéricos.');
+        return;
+    }
     
     if (senha != confirmsenha) {
         alert('As Senhas não são iguais. Tente Novamente.');

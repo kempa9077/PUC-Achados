@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 26/10/2024 às 14:55
+-- Tempo de geração: 27/10/2024 às 17:22
 -- Versão do servidor: 10.4.32-MariaDB
 -- Versão do PHP: 8.2.12
 
@@ -141,12 +141,12 @@ CREATE TABLE `log_encontro` (
 --
 
 INSERT INTO `log_encontro` (`id_log`, `id_objeto`, `funcionario`, `data`, `valor_antigo`, `valor_novo`) VALUES
-(12, 204, '12345678910', '2024-10-23 16:29:32', 0, 1),
-(13, 204, '12345678910', '2024-10-23 16:30:29', 1, 2),
-(14, 199, '12345678911', '2024-10-23 16:33:49', 1, 2),
-(15, 201, '12345678911', '2024-10-23 16:34:57', 1, 2),
-(16, 200, '12345678911', '2024-10-23 16:36:20', 1, 2),
-(17, 203, '12345678911', '2024-10-23 16:36:32', 1, 2);
+(1, 204, '12345678910', '2024-10-09 11:15:32', 0, 1),
+(2, 204, '12345678915', '2024-10-10 08:22:32', 1, 2),
+(3, 199, '12345678911', '2024-10-17 11:16:00', 1, 2),
+(4, 201, '12345678911', '2024-10-18 20:12:57', 1, 2),
+(5, 200, '12345678911', '2024-10-21 14:50:20', 1, 2),
+(6, 203, '12345678911', '2024-10-25 17:23:32', 1, 2);
 
 -- --------------------------------------------------------
 
@@ -172,9 +172,8 @@ CREATE TABLE `log_pessoa` (
 --
 
 INSERT INTO `log_pessoa` (`id_log`, `cpf_modificador`, `cpf_alterado`, `data`, `email_velho`, `email_novo`, `nome_velho`, `nome_novo`, `acesso_nivel_velho`, `acesso_nivel_novo`) VALUES
-(11, '12345678910', '12345678913', '2024-10-23 16:24:53', 'renato@pucpr.br', 'renato@pucpr.br', 'Renato Silva', 'Renato Silva', 1, 2),
-(12, '12345678910', '12345678915', '2024-10-23 16:26:41', 'moura@pucpr.br', 'moura@pucpr.br', 'Vinicius Moura', 'Vinicius Moura', 1, 2),
-(13, '12345678910', '12345678915', '2024-10-23 16:28:26', 'moura@pucpr.br', 'moura@pucpr.br', 'Vinicius Moura', 'Vinicius Moura', 1, 1);
+(11, '12345678910', '12345678913', '2024-10-15 10:24:53', 'renato@pucpr.br', 'renato@pucpr.br', 'Renato Silva', 'Renato Silva', 1, 2),
+(12, '12345678910', '12345678915', '2024-10-21 18:56:41', 'moura@pucpr.br', 'moura@pucpr.br', 'Vinicius Moura', 'Vinicius Moura', 1, 2);
 
 -- --------------------------------------------------------
 
@@ -196,20 +195,20 @@ CREATE TABLE `objeto` (
 --
 
 INSERT INTO `objeto` (`id_objeto`, `id_local`, `categoria_objeto`, `encontrado`, `nome`, `data_registro`) VALUES
-(195, 3, 3, 1, 'Carteirinha - Adilson Jurandir', '2024-10-23 09:40:13'),
-(196, 9, 1, 1, 'Carregador Iphone', '2024-10-23 09:40:37'),
-(197, 4, 6, 1, 'Guarda Chuva Preto', '2024-10-23 09:41:43'),
-(198, 4, 9, 1, 'Cartão visa internacional', '2024-10-23 09:42:01'),
-(199, 8, 4, 2, 'Moletão Rosa', '2024-10-23 09:42:16'),
-(200, 9, 8, 2, 'Chave de Carro Renault', '2024-10-23 15:49:03'),
-(201, 9, 1, 2, 'Notebook Positivo', '2024-10-23 15:50:01'),
-(202, 1, 7, 1, 'Estojo ', '2024-10-23 15:50:29'),
-(203, 2, 9, 2, 'Cartão Visa ', '2024-10-23 15:50:47'),
-(204, 6, 1, 2, 'MacBook', '2024-10-23 15:58:16'),
-(205, 22, 8, 0, 'Chave de casa', '2024-10-23 15:58:50'),
-(206, 11, 3, 0, 'Carteirinha', '2024-10-23 16:00:56'),
-(207, 30, 10, 0, 'Copo Stalei', '2024-10-23 16:02:16'),
-(208, 11, 2, 0, 'Carteira de Motorista', '2024-10-23 16:06:21');
+(195, 3, 3, 1, 'Carteirinha - Adilson Jurandir', '2024-10-04 09:59:13'),
+(196, 9, 1, 1, 'Carregador Iphone', '2024-10-07 13:10:37'),
+(197, 4, 6, 1, 'Guarda Chuva Preto', '2024-10-07 19:41:43'),
+(198, 4, 9, 1, 'Cartão visa internacional', '2024-10-07 09:22:01'),
+(199, 8, 4, 2, 'Moletão Rosa', '2024-10-07 09:42:16'),
+(200, 9, 8, 2, 'Chave de Carro Renault', '2024-10-08 10:49:03'),
+(201, 9, 1, 2, 'Notebook Positivo', '2024-10-08 15:50:01'),
+(202, 1, 7, 1, 'Estojo ', '2024-10-08 17:36:29'),
+(203, 2, 9, 2, 'Cartão Visa ', '2024-10-08 20:50:47'),
+(204, 6, 1, 2, 'MacBook', '2024-10-09 09:56:09'),
+(205, 22, 8, 0, 'Chave de casa', '2024-10-10 12:11:36'),
+(206, 11, 3, 0, 'Carteirinha', '2024-10-17 09:50:48'),
+(207, 30, 10, 0, 'Copo Stalei', '2024-10-22 08:13:31'),
+(208, 11, 2, 0, 'Carteira de Motorista', '2024-10-23 21:17:54');
 
 -- --------------------------------------------------------
 
@@ -252,9 +251,9 @@ INSERT INTO `pessoa` (`cpf`, `email`, `senha`, `nome`, `matricula`, `registro_pu
 CREATE TABLE `protocolo` (
   `idprotocolo` int(11) NOT NULL,
   `situacao` int(11) NOT NULL,
-  `data_abertura` date NOT NULL,
+  `data_abertura` datetime NOT NULL,
   `data_fechamento` datetime DEFAULT NULL,
-  `data_perda` datetime DEFAULT NULL,
+  `data_perda` date DEFAULT NULL,
   `pessoa_abertura` char(11) DEFAULT NULL,
   `pessoa_fechado` char(11) DEFAULT NULL,
   `local_perda` int(11) DEFAULT NULL,
@@ -267,11 +266,11 @@ CREATE TABLE `protocolo` (
 --
 
 INSERT INTO `protocolo` (`idprotocolo`, `situacao`, `data_abertura`, `data_fechamento`, `data_perda`, `pessoa_abertura`, `pessoa_fechado`, `local_perda`, `objeto`, `descricao`) VALUES
-(44, 1, '2024-10-23', '2024-10-23 16:30:29', '2024-10-22 00:00:00', '12345678921', '12345678910', 41, 204, 'Modelo x '),
-(45, 0, '2024-10-23', NULL, '2024-10-23 00:00:00', '12345678921', NULL, 22, 205, 'Em um chaveiro de elefante'),
-(46, 0, '2024-10-23', NULL, '2024-10-17 00:00:00', '12345678923', NULL, 11, 206, 'A minha'),
-(47, 0, '2024-10-23', NULL, '2024-10-18 00:00:00', '12345678923', NULL, 30, 207, 'Cor azul'),
-(48, 0, '2024-10-23', NULL, '2024-10-23 00:00:00', '12345678924', NULL, 11, 208, '');
+(44, 1, '2024-10-09 09:56:09', '2024-10-10 08:22:32', '2024-10-09', '12345678921', '12345678910', 41, 204, 'Modelo x '),
+(45, 0, '2024-10-15 12:11:36', NULL, '2024-10-11', '12345678921', NULL, 22, 205, 'Em um chaveiro de elefante'),
+(46, 0, '2024-10-17 09:50:48', NULL, '2024-10-17', '12345678923', NULL, 11, 206, 'A minha'),
+(47, 0, '2024-10-22 08:13:31', NULL, '2024-10-18', '12345678923', NULL, 30, 207, 'Cor azul'),
+(48, 0, '2024-10-23 21:17:54', NULL, '2024-10-23', '12345678924', NULL, 11, 208, '');
 
 -- --------------------------------------------------------
 
@@ -292,11 +291,11 @@ CREATE TABLE `retirada` (
 --
 
 INSERT INTO `retirada` (`id_retirada`, `id_objeto`, `pessoa_retirante`, `funcionario`, `data`) VALUES
-(17, 204, '12345678921', '12345678910', '2024-10-23 16:30:29'),
-(18, 199, '12345678926', '12345678911', '2024-10-23 16:33:49'),
-(19, 201, '12345678926', '12345678911', '2024-10-23 16:34:57'),
-(20, 200, '12345678927', '12345678911', '2024-10-23 16:36:20'),
-(21, 203, '12345678927', '12345678911', '2024-10-23 16:36:32');
+(17, 204, '12345678921', '12345678910', '2024-10-10 08:22:32'),
+(18, 199, '12345678926', '12345678911', '2024-10-17 11:16:00'),
+(19, 201, '12345678926', '12345678911', '2024-10-18 20:12:57'),
+(20, 200, '12345678927', '12345678911', '2024-10-21 14:50:20'),
+(21, 203, '12345678927', '12345678911', '2024-10-25 17:23:32');
 
 --
 -- Índices para tabelas despejadas
@@ -385,7 +384,7 @@ ALTER TABLE `local`
 -- AUTO_INCREMENT de tabela `log_encontro`
 --
 ALTER TABLE `log_encontro`
-  MODIFY `id_log` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id_log` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT de tabela `log_pessoa`
