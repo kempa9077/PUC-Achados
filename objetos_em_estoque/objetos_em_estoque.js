@@ -49,6 +49,7 @@ document.addEventListener("DOMContentLoaded", function() {
                     second: '2-digit',
                 });
                 dataRegistroCell.textContent = dataFormatada;
+                dataRegistroCell.textContent = objeto.data_registro;
                 tr.appendChild(dataRegistroCell);
 
                 const categoriaCell = document.createElement('td');
@@ -62,6 +63,8 @@ document.addEventListener("DOMContentLoaded", function() {
                 if (objeto.encontrado == 0) {
                     const botaoEncontrado = document.createElement('button');
                     botaoEncontrado.textContent = 'Encontrado';
+                    botaoEncontrado.setAttribute("id", "botaoEncontrado")
+                    botaoEncontrado.classList.add("botoesDeEncontro")
 
                     // Adiciona a função de clique no botão
                     // Adiciona a função de clique no botão "Encontrado"
@@ -89,6 +92,8 @@ document.addEventListener("DOMContentLoaded", function() {
                 if (objeto.encontrado == 1) {
                     const botaoDevolver = document.createElement('button');
                     botaoDevolver.textContent = 'Devolver';
+                    botaoDevolver.setAttribute("id", "botaoDevolver")
+                    botaoDevolver.classList.add("botoesDeDevolucao")
 
                     // Adiciona a função de clique no botão
                     botaoDevolver.onclick = function() {

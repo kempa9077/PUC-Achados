@@ -128,6 +128,7 @@ include '../header.php';
                 <th>SITUAÇÃO</th>
                 <th>DATA DE REGISTRO</th>
                 <th>CATEGORIA DO OBJETO</th>
+                <th>AÇÃO</th>
             </tr>
         </thead>
 
@@ -148,6 +149,8 @@ include '../header.php';
                 <th>SITUAÇÃO</th>
                 <th>DATA DE REGISTRO</th>
                 <th>CATEGORIA DO OBJETO</th>
+                <th>AÇÃO</th>
+
             </tr>
         </thead>
         <tbody id="objeto-tbody-outros">
