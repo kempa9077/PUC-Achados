@@ -13,6 +13,14 @@ document.addEventListener("DOMContentLoaded", function() {
                     // Itera sobre os dados retornados
                     data.forEach(log => {
                         const tr = document.createElement("tr");
+                        const dataOriginal = new Date(log.data);
+                        const dataFormatada = `${String(dataOriginal.getDate()).padStart(2, '0')}/${
+                            String(dataOriginal.getMonth() + 1).padStart(2, '0')}/${
+                            dataOriginal.getFullYear()} ${
+                            String(dataOriginal.getHours()).padStart(2, '0')}:${
+                            String(dataOriginal.getMinutes()).padStart(2, '0'),
+                            String(dataOriginal.getSeconds()).padStart(2, '0')}
+                        }`;
 
                         // Adiciona as células da tabela
                         tr.innerHTML = `
@@ -20,7 +28,7 @@ document.addEventListener("DOMContentLoaded", function() {
                             <td>${log.id_objeto}</td>
                             <td>${log.pessoa_retirante}</td>
                             <td>${log.funcionario}</td>
-                            <td>${log.data}</td>
+                            <td>${dataFormatada}</td>
                         `;
 
                         // Adiciona a linha na tabela

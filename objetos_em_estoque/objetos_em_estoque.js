@@ -38,7 +38,17 @@ document.addEventListener("DOMContentLoaded", function() {
                 tr.appendChild(situacaoCell);
 
                 const dataRegistroCell = document.createElement('td');
-                dataRegistroCell.textContent = objeto.data_registro;
+                // Formata o valor de data_registro
+                const dataOriginal = objeto.data_registro;
+                const dataFormatada = new Date(dataOriginal).toLocaleString('pt-BR', {
+                    day: '2-digit',
+                    month: '2-digit',
+                    year: 'numeric',
+                    hour: '2-digit',
+                    minute: '2-digit',
+                    second: '2-digit',
+                });
+                dataRegistroCell.textContent = dataFormatada;
                 tr.appendChild(dataRegistroCell);
 
                 const categoriaCell = document.createElement('td');

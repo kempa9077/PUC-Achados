@@ -13,13 +13,22 @@ document.addEventListener("DOMContentLoaded", function() {
                     // Itera sobre os dados retornados
                     data.forEach(log => {
                         const tr = document.createElement("tr");
+                        // Converte a data para o formato desejado
+                        const dataOriginal = new Date(log.data);
+                        const dataFormatada = `${String(dataOriginal.getDate()).padStart(2, '0')}/${
+                            String(dataOriginal.getMonth() + 1).padStart(2, '0')}/${
+                            dataOriginal.getFullYear()} ${
+                            String(dataOriginal.getHours()).padStart(2, '0')}:${
+                            String(dataOriginal.getMinutes()).padStart(2, '0'),
+                            String(dataOriginal.getSeconds()).padStart(2, '0')}
+                        }`;
 
                         // Adiciona as células da tabela
                         tr.innerHTML = `
                             <td>${log.id_log}</td>
                             <td>${log.id_objeto}</td>
                             <td>${log.funcionario}</td>
-                            <td>${log.data}</td>
+                            <td>${dataFormatada}</td>
                             <td>${log.valor_antigo}</td>
                             <td>${log.valor_novo}</td>
                         `;
