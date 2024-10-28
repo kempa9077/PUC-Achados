@@ -74,6 +74,11 @@ footer {
     margin-bottom: 5px;
 }
 
+.spaceperfil {
+    align-items: center;
+    text-align: center;
+}
+
 .spaceperfil a{
     font-family: lato;
     font-size: 18px;
@@ -85,15 +90,12 @@ footer {
     border: 0;
     font-family: lato;
     font-size: 15px;
-
-    margin-left: 7px;
 }
 
 .spaceperfil form button:hover{
     text-decoration: underline;
     cursor: pointer;
 }
-
 /* Segunda barra com altura de 45px */
 .second-bar {
     background-color: #882627;
