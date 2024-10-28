@@ -49,7 +49,6 @@ document.addEventListener("DOMContentLoaded", function() {
                     second: '2-digit',
                 });
                 dataRegistroCell.textContent = dataFormatada;
-                dataRegistroCell.textContent = objeto.data_registro;
                 tr.appendChild(dataRegistroCell);
 
                 const categoriaCell = document.createElement('td');

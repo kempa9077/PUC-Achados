@@ -232,10 +232,10 @@
                 <div class="titulo-opt">
                     <a href="log_pessoa/log_pessoa.php">
                         <img src="img/icon-log.png" alt="log">
-                        LOG DE CADASTROS
+                        LOG PESSOAS
                     </a>
                 </div>
-                <p>Clique aqui para ver Log de cadastro de usuários.</p>
+                <p>Clique aqui para ver Log de pessoas no sistema.</p>
             </div>
 
             <div class="opt-menu-principal">
