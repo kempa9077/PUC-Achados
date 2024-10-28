@@ -112,7 +112,7 @@ include '../header.php';
             <div class="area-logo-titulo">
                 <img src="..\img\icon-log.png" alt="Log Icon">
             </div>
-            &nbsp; LOG DE CADASTROS
+            &nbsp; LOG PESSOAS
         </div>
 
         <div class="log-table">

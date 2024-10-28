@@ -101,6 +101,12 @@ document.getElementById('enviar_objeto').addEventListener('click', function() {
     const dataPerda = document.getElementById('data_perda').value;
     const descricao = document.getElementById('descricao').value;
 
+        // validação para não colocar apenas espaço
+    if (nomeItem.trim() ==="" || descricao.trim() ==="") {
+        alert('Por favor, insira informações válidas');
+        return;
+    }
+        
         // Validação básica 
     if (!nomeItem) {
         alert('Por favor Informe o nome do item.');

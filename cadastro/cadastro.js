@@ -13,19 +13,34 @@ document.getElementById('adicionar').addEventListener('click', function(event) {
         alert('O CPF deve conter exatamente 11 dígitos numéricos.');
         return;
     }
+
+    if (!email.includes("@")){
+        alert("O email deve conter '@'");
+        return;
+    }
+
+        // validação para que não sejam só espaços
+    if (nome.trim() ==="" || email.trim() ==="" || cpf.trim() ==="" || senha.trim() ==="" || confirmsenha.trim() ===""){
+        alert("É necessário colocar informações válidas");
+        return;
+    }
+
     
     if (senha != confirmsenha) {
         alert('As Senhas não são iguais. Tente Novamente.');
         return;
     }
 
-    // Validação básica 
+
+        // Validação básica 
     if (!nome || !email || !cpf || !senha || !confirmsenha) {
         alert('Por favor, preencha todos os campos.');
         return;
     }
 
-    // Chama a função requisitar com POST e dados do formulário
+    
+
+     // Chama a função requisitar com POST e dados do formulário
     requisitar('POST', { nome: nome, email: email, cpf: cpf, matricula: matricula, senha: senha, solicitacao: "adicionar" })
     .then(result => {
         if (result.erro) {

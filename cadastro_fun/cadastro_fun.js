@@ -8,9 +8,20 @@ document.getElementById('adicionar').addEventListener('click', function(event) {
     var registro = document.getElementById("registro_id").value;
     var senha = document.getElementById("senha_id").value;
     
-    // Verificação do comprimento do CPF
+        // Verificação do comprimento do CPF
     if (cpf.length !== 11 || isNaN(cpf)) {
         alert('O CPF deve conter exatamente 11 dígitos numéricos.');
+        return;
+    }
+
+    if (!email.includes("@")){
+        alert("O email deve conter '@'");
+        return;
+    }
+
+        // validação para que não sejam só espaços
+    if (nome.trim() ==="" || email.trim() ==="" || cpf.trim() ==="" || registro.trim() ==="" || senha.trim() ===""){
+        alert("Por favor, insira informações válidas");
         return;
     }
 
