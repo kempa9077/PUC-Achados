@@ -286,7 +286,7 @@
                 <ul>
                     <li>
                         Davi Martins &ensp;&ensp; &ensp; &ensp;
-                        <a href="linkedin.com" target="_blank">
+                        <a href="https://www.linkedin.com/in/davi-noel-martins-mundt-8b8256245/" target="_blank">
                             <img src="img/linkedin-icon.png" alt="linkedin" class="img-footer">
                         </a>
                         <a href="https://github.com/DaviMartins26" target="_blank">
@@ -306,7 +306,7 @@
 
                     <li>
                         Leander Antônio &ensp;&ensp;
-                        <a href="linkedin.com" target="_blank">
+                        <a href="https://www.linkedin.com/in/leander-hallu/" target="_blank">
                             <img src="img/linkedin-icon.png" alt="linkedin" class="img-footer">
                         </a>
                         <a href="https://github.com/Leander-Antonio" target="_blank">
