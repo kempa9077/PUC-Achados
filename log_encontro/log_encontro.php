@@ -7,7 +7,7 @@ include '../header.php';
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PUC Achados - Log de Achados</title>
+    <title>PUC Achados - Log Encontro</title>
     <link rel="stylesheet" href="log_encontro.css">
     <link rel="apple-touch-icon" sizes="180x180" href="../img/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="../img/favicon-32x32.png">
@@ -114,7 +114,7 @@ include '../header.php';
             <div class="area-logo-titulo">
                 <img src="..\img\icon-log.png" alt="Log Icon">
             </div>
-            &nbsp; LOG DE ACHADOS
+            &nbsp; LOG ENCONTRO
         </div>
 
         <div class="log-table">
