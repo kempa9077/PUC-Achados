@@ -117,6 +117,11 @@ include '../header.php';
     &nbsp; OBJETOS EM ESTOQUE
 </div>
 
+<div class="filter-area">
+            <label for="filter-input">Filtrar:</label>
+            <input type="text" id="filter-input" placeholder="Digite para filtrar logs...">
+    </div>
+
 <div class="objeto-table">
     <h3>ITENS ENCONTRADOS</h3>
     <table>

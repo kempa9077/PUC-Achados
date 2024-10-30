@@ -116,6 +116,11 @@ include '../header.php';
             &nbsp; MEUS PROTOCOLOS
         </div>
 
+        <div class="filter-area">
+            <label for="filter-input">Filtrar:</label>
+            <input type="text" id="filter-input" placeholder="Digite para filtrar logs...">
+        </div>
+        
         <div class="protocolo-table">
             <table>
                 <thead>

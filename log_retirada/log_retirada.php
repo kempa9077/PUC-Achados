@@ -113,6 +113,10 @@ include '../header.php';
             </div>
             &nbsp; LOG DE RETIRADA DE OBJETOS
         </div>
+        <div class="filter-area">
+            <label for="filter-input">Filtrar:</label>
+            <input type="text" id="filter-input" placeholder="Digite para filtrar logs...">
+        </div>
 
         <div class="log-table">
             <table>

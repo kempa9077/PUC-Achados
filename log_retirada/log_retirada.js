@@ -1,5 +1,6 @@
 document.addEventListener("DOMContentLoaded", function() {
     const tbody = document.getElementById("log-tbody");
+    const filterInput = document.getElementById("filter-input");
 
     function carregarLogs() {
         // Fazendo a requisição AJAX para buscar os logs de encontro
@@ -31,6 +32,10 @@ document.addEventListener("DOMContentLoaded", function() {
                             <td>${dataFormatada}</td>
                         `;
 
+                         // Adiciona um atributo data para facilitar o filtro
+                         tr.dataset.filterContent = `${log.id_retirada} ${log.id_objeto} ${log.pessoa_retirante} ${log.funcionario} ${dataFormatada}`;
+
+
                         // Adiciona a linha na tabela
                         tbody.appendChild(tr);
                     });
@@ -43,6 +48,20 @@ document.addEventListener("DOMContentLoaded", function() {
             });
     }
 
+    // Função para filtrar os logs
+    function filtrarLogs() {
+        const termoFiltro = filterInput.value.toLowerCase();
+        const linhas = tbody.getElementsByTagName("tr");
+
+        Array.from(linhas).forEach(linha => {
+            const conteudoLinha = linha.dataset.filterContent.toLowerCase();
+            linha.style.display = conteudoLinha.includes(termoFiltro) ? "" : "none";
+        });
+    }
+
     // Carrega os logs quando a página é carregada
     carregarLogs();
+
+    // Adiciona evento de input ao campo de filtro
+    filterInput.addEventListener("input", filtrarLogs);
 });

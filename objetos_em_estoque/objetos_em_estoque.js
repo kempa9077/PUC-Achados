@@ -5,6 +5,7 @@ document.addEventListener("DOMContentLoaded", function() {
             const tbodySecretaria = document.getElementById('objeto-tbody-secretaria'); // coisas com nome secretaria vem do id_local que antes era secretaria o nome
             const tbodyOutros = document.getElementById('objeto-tbody-outros');
             const tbodyDevolvidos = document.getElementById('objeto-tbody-devolvidos'); // Tabela de itens devolvidos
+            const filterInput = document.getElementById("filter-input");
 
             // Limpa os corpos das tabelas
             tbodySecretaria.innerHTML = '';
@@ -106,9 +107,10 @@ document.addEventListener("DOMContentLoaded", function() {
 
                     actionCell.appendChild(botaoDevolver);
                 }
-
+                
                 tr.appendChild(actionCell);
 
+                tr.dataset.filterContent = `${objeto.id_objeto} ${objeto.nome} ${objeto.secretaria} ${situacaoCell.textContent} ${dataFormatada} ${objeto.categoria}`;
                 // Adiciona a linha à tabela correta
                 if (objeto.encontrado == 2) {
                     tbodyDevolvidos.appendChild(tr); // Adiciona os itens devolvidos à tabela de devolvidos
@@ -118,9 +120,13 @@ document.addEventListener("DOMContentLoaded", function() {
                     tbodyOutros.appendChild(tr);
                 }
             });
+
+            // Adiciona evento de input ao campo de filtro
+            filterInput.addEventListener("input", filtrarLogs);
         })
         .catch(error => console.error('Erro ao buscar dados:', error));
 });
+
 
 // Função para marcar o objeto como encontrado e enviar o novo local (bloco)
 function marcarComoEncontrado(id_objeto, novo_local) {
@@ -162,6 +168,23 @@ function marcarComoDevolvido(id_objeto, cpfRetirante) {
         } else {
             alert('Erro ao registrar a devolução.');
         }
+
     })
     .catch(error => console.error('Erro ao registrar a devolução:', error));
+
+}
+// Função para filtrar os logs
+function filtrarLogs() {
+    const filterInput = document.getElementById('filter-input');
+
+    const termoFiltro = filterInput.value.toLowerCase();
+    const tabelas = [document.getElementById('objeto-tbody-secretaria'), document.getElementById('objeto-tbody-outros'), document.getElementById('objeto-tbody-devolvidos')];
+    
+    tabelas.forEach(tbody => {
+        const linhas = tbody.getElementsByTagName("tr");
+        Array.from(linhas).forEach(linha => {
+            const conteudoLinha = linha.dataset.filterContent.toLowerCase();
+            linha.style.display = conteudoLinha.includes(termoFiltro) ? "" : "none";
+        });
+    });
 }

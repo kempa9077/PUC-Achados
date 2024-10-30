@@ -1,8 +1,9 @@
 document.addEventListener("DOMContentLoaded", function() {
     const tbody = document.getElementById("log-tbody");
+    const filterInput = document.getElementById("filter-input");
 
+    // Função para carregar os logs via AJAX
     function carregarLogs() {
-        // Fazendo a requisição AJAX para buscar os logs de encontro
         fetch('imprimir_logs.php?acao=buscar')
             .then(response => response.json())
             .then(data => {
@@ -20,9 +21,7 @@ document.addEventListener("DOMContentLoaded", function() {
                             String(dataOriginal.getMonth() + 1).padStart(2, '0')}/${
                             dataOriginal.getFullYear()} ${
                             String(dataOriginal.getHours()).padStart(2, '0')}:${
-                            String(dataOriginal.getMinutes()).padStart(2, '0'),
-                            String(dataOriginal.getSeconds()).padStart(2, '0')
-                            }`;
+                            String(dataOriginal.getMinutes()).padStart(2, '0')}`;
 
                         // Adiciona as células da tabela
                         tr.innerHTML = `
@@ -38,6 +37,9 @@ document.addEventListener("DOMContentLoaded", function() {
                             <td>${log.acesso_nivel_novo}</td>
                         `;
 
+                        // Adiciona um atributo data para facilitar o filtro
+                        tr.dataset.filterContent = `${log.id_log} ${log.cpf_modificador} ${log.cpf_alterado} ${dataFormatada} ${log.email_velho} ${log.nome_velho} ${log.nome_novo} ${log.acesso_nivel_velho} ${log.acesso_nivel_novo}`;
+
                         // Adiciona a linha na tabela
                         tbody.appendChild(tr);
                     });
@@ -50,6 +52,20 @@ document.addEventListener("DOMContentLoaded", function() {
             });
     }
 
+    // Função para filtrar os logs
+    function filtrarLogs() {
+        const termoFiltro = filterInput.value.toLowerCase();
+        const linhas = tbody.getElementsByTagName("tr");
+
+        Array.from(linhas).forEach(linha => {
+            const conteudoLinha = linha.dataset.filterContent.toLowerCase();
+            linha.style.display = conteudoLinha.includes(termoFiltro) ? "" : "none";
+        });
+    }
+
     // Carrega os logs quando a página é carregada
     carregarLogs();
+
+    // Adiciona evento de input ao campo de filtro
+    filterInput.addEventListener("input", filtrarLogs);
 });

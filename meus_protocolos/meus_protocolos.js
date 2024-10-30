@@ -1,5 +1,6 @@
 document.addEventListener("DOMContentLoaded", function() {
     const tbody = document.getElementById("protocolos-tbody");
+    const filterInput = document.getElementById("filter-input");
 
     function carregarProtocolos() {
         // Fazendo a requisição AJAX para buscar os protocolos
@@ -26,6 +27,9 @@ document.addEventListener("DOMContentLoaded", function() {
                             
                         `;
 
+                         // Adiciona um atributo data para facilitar o filtro
+                         tr.dataset.filterContent = `${protocolo.idprotocolo} ${protocolo.nome_objeto} ${protocolo.nome_categoria} ${protocolo.situacao} ${protocolo.data_perda} ${protocolo.data_abertura}${protocolo.data_fechamento }`;
+
                         // Adiciona a linha na tabela
                         tbody.appendChild(tr);
                     });
@@ -37,7 +41,20 @@ document.addEventListener("DOMContentLoaded", function() {
                 console.error("Erro ao carregar os protocolos:", error);
             });
     }
+    // Função para filtrar os logs
+    function filtrarLogs() {
+        const termoFiltro = filterInput.value.toLowerCase();
+        const linhas = tbody.getElementsByTagName("tr");
 
-    // Carrega os protocolos quando a página é carregada
+        Array.from(linhas).forEach(linha => {
+            const conteudoLinha = linha.dataset.filterContent.toLowerCase();
+            linha.style.display = conteudoLinha.includes(termoFiltro) ? "" : "none";
+        });
+    }
+
+    // Carrega os logs quando a página é carregada
     carregarProtocolos();
+
+    // Adiciona evento de input ao campo de filtro
+    filterInput.addEventListener("input", filtrarLogs);
 });
