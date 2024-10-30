@@ -18,8 +18,11 @@ body {
 footer {
     background-color: #ECE0E0;
     min-height: 250px;
-    bottom: 0;
+    position: sticky;
+    top: 0;
     width: 100%;
+
+    box-shadow: 0 50vh 0 50vh #ECE0E0;
 }
 
 /*nav bar*/
