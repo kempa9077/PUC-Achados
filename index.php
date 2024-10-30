@@ -218,7 +218,18 @@
             </div>
 
             <?php
-            else:?>
+            elseif (isset($_SESSION) AND $_SESSION AND $_SESSION['usuario']['acesso_nivel'] == 1):?>
+
+            <div class="menu-principal">
+                <div class="opt-menu-principal">
+                    <div class="titulo-opt">
+                        <a href="meus_protocolos/meus_protocolos.php">
+                            <img src="img/icon-protocolos.png" alt="protocolos">
+                            MEUS PROTOCOLOS
+                        </a>
+                    </div>
+                <p>Clique aqui para ver protocolos abertos por você.</p>
+            </div>
 
             <?php endif; ?>
 
@@ -267,6 +278,16 @@
                     </a>
                 </div>
                 <p>Clique aqui para cadastrar novo funcionário.</p>
+            </div>
+
+            <div class="opt-menu-principal">
+                    <div class="titulo-opt">
+                        <a href="meus_protocolos/meus_protocolos.php">
+                            <img src="img/icon-protocolos.png" alt="protocolos">
+                            MEUS PROTOCOLOS
+                        </a>
+                    </div>
+                <p>Clique aqui para ver protocolos abertos por você.</p>
             </div>
 
             <?php
