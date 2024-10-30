@@ -201,7 +201,7 @@
                 <div class="titulo-opt">
                     <a href="log_encontro/log_encontro.php">
                         <img src="img/icon-log.png" alt="log">
-                        LOG DE ACHADOS
+                        LOG ENCONTRO
                     </a>
                 </div>
                 <p>Clique aqui para ver Log de achados.</p>

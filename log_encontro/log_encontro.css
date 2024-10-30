@@ -160,6 +160,38 @@ footer {
     padding-right: 20px;
 }
 
+/* FILTRO */
+
+.filter-area label{
+    font-family: lato;
+    font-size: 20px;
+
+    position: relative;
+    right: 35px;
+    top: 30px;
+    
+}
+
+.filter-area input{
+    font-family: lato;
+    border-radius: 30px;
+    border: 0px solid;
+    color: #283228;
+    background-color: #ECE0E0;
+    width: 100%;
+    padding: 10px 20px;
+    margin-left: 35px;
+    transition: box-shadow 0.15s, background-color 0.15s; 
+}
+
+.filter-area input:hover{
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.filter-area input:active{
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
+}
+
 
 /* TABELA */
 table {

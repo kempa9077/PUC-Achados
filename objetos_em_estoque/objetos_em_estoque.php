@@ -119,7 +119,7 @@ include '../header.php';
 
 <div class="filter-area">
             <label for="filter-input">Filtrar:</label>
-            <input type="text" id="filter-input" placeholder="Digite para filtrar logs...">
+            <input type="text" id="filter-input" placeholder="Digite para filtrar objetos...">
     </div>
 
 <div class="objeto-table">
