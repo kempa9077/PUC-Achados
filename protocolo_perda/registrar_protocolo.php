@@ -1,7 +1,6 @@
 <?php
 include '../header.php';
 require_once("../funcoes_banco.php");
-
 // ------------------------------------------------------------------------------------------------------------------------------
 
 // pode ta errado como sempre, mas isso deve fazer tudo funcionar

@@ -20,8 +20,7 @@ document.addEventListener("DOMContentLoaded", function() {
                             String(dataOriginal.getMonth() + 1).padStart(2, '0')}/${
                             dataOriginal.getFullYear()} ${
                             String(dataOriginal.getHours()).padStart(2, '0')}:${
-                            String(dataOriginal.getMinutes()).padStart(2, '0'),
-                            String(dataOriginal.getSeconds()).padStart(2, '0')
+                            String(dataOriginal.getMinutes()).padStart(2, '0')
                         }`;
 
                         // Adiciona as células da tabela
