@@ -129,7 +129,7 @@
                         PERDI ALGO
                     </a>
                 </div>
-                <p>Perdeu algo? Clique aqui para abrir um protocolo de perda de um item</p>
+                <a href="protocolo_perda\perdi_algo.php" class="descricao-a">Perdeu algo? Clique aqui para abrir um protocolo de perda de um item</a>
             </div>
 
             <?php
@@ -142,7 +142,7 @@
                         REGISTRAR OBJETO ACHADO
                     </a>
                 </div>
-                <p>Achou algo? Clique aqui para registrar o objeto.</p>
+                <a href="registrar_objeto\registrar_objeto.php" class="descricao-a">Achou algo? Clique aqui para registrar o objeto.</a>
             </div>
 
             <?php
@@ -155,7 +155,7 @@
                         ACHEI ALGO
                     </a>
                 </div>
-                <p>Achou algo? Clique aqui para saber o quer fazer.</p>
+                <a href="achei_algo\achei_algo.php" class="descricao-a">Achou algo? Clique aqui para saber o quer fazer.</a>
             </div>
 
             <?php endif; ?>
@@ -173,7 +173,7 @@
                         PROTOCOLOS
                     </a>
                 </div>
-                <p>Clique aqui para ver todos os protocolos.</p>
+                <a href="fun_ver_protocolos/fun_ver_protocolos.php" class="descricao-a">Clique aqui para ver todos os protocolos.</a>
             </div>
 
             <div class="opt-menu-principal">
@@ -183,7 +183,7 @@
                         VER OBJETOS EM ESTOQUE
                     </a>
                 </div>
-                <p>Clique aqui para ver objetos achados em estoque.</p>
+                <a href="objetos_em_estoque\objetos_em_estoque.php" class="descricao-a">Clique aqui para ver objetos achados em estoque.</a>
             </div>
 
             <?php
@@ -204,7 +204,7 @@
                         LOG ENCONTRO
                     </a>
                 </div>
-                <p>Clique aqui para ver Log de achados.</p>
+                <a href="log_encontro/log_encontro.php" class="descricao-a">Clique aqui para ver Log de achados.</a>
             </div>
 
             <div class="opt-menu-principal">
@@ -214,7 +214,7 @@
                         LOG RETIRADA DE OBJETOS
                     </a>
                 </div>
-                <p>Clique aqui para ver Log de retirada de objetos do estoque.</p>
+                <a href="log_retirada\log_retirada.php" class="descricao-a">Clique aqui para ver Log de retirada de objetos do estoque.</a>
             </div>
 
             <?php
@@ -228,7 +228,7 @@
                             MEUS PROTOCOLOS
                         </a>
                     </div>
-                <p>Clique aqui para ver protocolos abertos por você.</p>
+                <a href="meus_protocolos/meus_protocolos.php" class="descricao-a">Clique aqui para ver protocolos abertos por você.</a>
             </div>
 
             <?php endif; ?>
@@ -246,7 +246,7 @@
                         LOG PESSOAS
                     </a>
                 </div>
-                <p>Clique aqui para ver Log de pessoas no sistema.</p>
+                <a href="log_pessoa/log_pessoa.php" class="descricao-a">Clique aqui para ver Log de pessoas no sistema.</a>
             </div>
 
             <div class="opt-menu-principal">
@@ -256,7 +256,7 @@
                         GERENCIAR FUNCIONÁRIOS
                     </a>
                 </div>
-                <p>Clique aqui para gerenciar conta de funcionários.</p>
+                <a href="gerenciar_fun\gerenciar_fun.php" class="descricao-a">Clique aqui para gerenciar conta de funcionários.</a>
             </div>
 
             <?php
@@ -277,7 +277,7 @@
                         CADASTRAR FUNCIONÁRIO
                     </a>
                 </div>
-                <p>Clique aqui para cadastrar novo funcionário.</p>
+                <a href="cadastro_fun/cadastro_fun.php" class="descricao-a">Clique aqui para cadastrar novo funcionário.</a>
             </div>
 
             <div class="opt-menu-principal">
@@ -287,7 +287,7 @@
                             MEUS PROTOCOLOS
                         </a>
                     </div>
-                <p>Clique aqui para ver protocolos abertos por você.</p>
+                <a href="meus_protocolos/meus_protocolos.php" class="descricao-a">Clique aqui para ver protocolos abertos por você.</a>
             </div>
 
             <?php
