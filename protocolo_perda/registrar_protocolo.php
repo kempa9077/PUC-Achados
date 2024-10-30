@@ -4,6 +4,21 @@ require_once("../funcoes_banco.php");
 
 // ------------------------------------------------------------------------------------------------------------------------------
 
+// pode ta errado como sempre, mas isso deve fazer tudo funcionar
+if (isset($_POST['acao'])) {
+    $acao = $_POST['acao'];
+
+    switch ($acao) {
+        case 'buscar':
+            inserirProcotocolo();
+            break;
+        default:
+            echo json_encode(["erro" => "Ação inválida."]);
+    }
+} else {
+    echo json_encode(["erro" => "Nenhuma ação especificada."]);
+}
+
 function inserirObjeto() {
     // Captura os dados do formulário
     $nome_item      = $_POST['nome_item'];

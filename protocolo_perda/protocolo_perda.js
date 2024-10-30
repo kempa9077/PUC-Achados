@@ -102,8 +102,8 @@ document.getElementById('enviar_objeto').addEventListener('click', function() {
     const descricao = document.getElementById('descricao').value;
 
         // validação para não colocar apenas espaço
-    if (nomeItem.trim() ==="" || descricao.trim() ==="") {
-        alert('Por favor, insira informações válidas');
+    if (nomeItem.trim() ==="" ) {
+        alert('Por favor, insira um Nome válido');
         return;
     }
         
