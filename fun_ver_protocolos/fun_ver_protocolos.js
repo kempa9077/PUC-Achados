@@ -18,7 +18,7 @@ document.addEventListener("DOMContentLoaded", function() {
                         // Adiciona as células da tabela
                         tr.innerHTML = `
                             <td>${protocolo.idprotocolo}</td>
-                            <td>${protocolo.nome_objeto}</td>
+                            <button class="nome-btn" onclick="verMais(${protocolo.idprotocolo})">${protocolo.nome_objeto}</button>
                             <td>${protocolo.nome_categoria || '-'}</td>
                             <td>${protocolo.situacao == 1 ? 'Fechado' : 'Aberto'}</td>
                             <td>${protocolo.data_perda}</td>
@@ -50,6 +50,11 @@ document.addEventListener("DOMContentLoaded", function() {
             linha.style.display = conteudoLinha.includes(termoFiltro) ? "" : "none";
         });
     }
+
+    window.verMais = function(idprotocolo) {
+        // Abre a página protocolo_vermais.php com o idprotocolo como parâmetro na URL
+        window.open(`../protocolo_vermais/protocolo_vermais.php?idprotocolo=${encodeURIComponent(idprotocolo)}`, '_blank');
+    };
 
     // Carrega os logs quando a página é carregada
     carregarProtocolos();
