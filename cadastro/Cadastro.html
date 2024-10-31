@@ -27,17 +27,21 @@
 
                     <form id="form1" name="form1" method="post" onsubmit="return verificar()">
                         <div class="espacodentrobox">
-                            <input type="text" name="txtNome" value="" maxlength="100" id="nome_id" placeholder="Nome" class="campocheio" required>
+                            <p id="label_nome">Nome*: </p><p id="label_cpf">CPF*: </p> <p id="label_matricula">Matrícula: </p> <p id="label_senha">Senha*: </p> <p id="label_email">E-mail*: </p><p id="label_confirm">Confirmar Senha*: </p>
+                            <input type="text" name="txtNome" value="" maxlength="100" id="nome_id" placeholder="Ex: Manuel da Silveira" class="campocheio" required>
 
-                            <input type="email" name="email" id="email_id" value="" placeholder="E-mail" maxlength="100" class="campocheio" required>
+                            
+                            <input type="email" name="email" id="email_id" value="" placeholder="seu@email.com" maxlength="100" class="campocheio" required>
 
-                            <input type="text" placeholder="CPF" id="cpf_id" name="txtCPF" value="" maxlength="14" class="campomedio" required>
+                            <input type="text" placeholder="Ex: 12345678910" id="cpf_id" name="txtCPF" value="" maxlength="11" class="campomedio" required>
 
-                            <input type="text" placeholder="Matrícula" id="matricula_id" name="txtMatricula" value="" class="campomedio" required>
+                            <input type="text" placeholder="Ex: 1234567890" id="matricula_id" maxlength="10" name="txtMatricula" value="" class="campomedio" required>
+
 
                             <input type="password" name="txtSenha" value="" id="senha_id" placeholder="Senha" class="campocheio" maxlength="20" required>
 
-                            <input type="password" name="txtConfirmar" value="" id="confirm" placeholder="Confirmar Senha" class="campocheio" maxlength="20" required>
+                            
+                            <input type="password" name="txtConfirmar" value="" id="confirm" placeholder="Confirme sua Senha" class="campocheio" maxlength="20" required>
 
                         </div>
 

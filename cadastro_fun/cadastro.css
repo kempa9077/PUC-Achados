@@ -97,6 +97,42 @@ main{
     justify-content: center;
 }
 
+#label_nome {
+    position: relative;
+    left: 25px;
+    top: 8px;
+}
+
+#label_email {
+    position: relative;
+    top: 78px;
+    right: 192px;
+}
+
+#label_cpf {
+    position: relative;
+    right: 28px;
+    top: 147px;
+}
+
+#label_matricula {
+    position: relative;
+    left: 125px;
+    top: 147px;
+}
+
+#label_senha {
+    position: relative;
+    right: 137px;
+    top: 216px;
+}
+
+#label_confirm {
+    position: relative;
+    right: 250px;
+    top: 285px;
+}
+
 .campocheio, .campomedio{
     width: 380px;
     height: 40px;
@@ -105,12 +141,12 @@ main{
     text-indent: 20px;
     color: rgba(50, 40, 40, 1);
     font-size: 12px;
-    margin: 0 40px 20px 40px;
+    margin: 10px 40px 20px 40px;
     transition: box-shadow 0.15s, background-color 0.15s;
 }
 .campomedio{
     width: 180px;
-    margin: 0 0 20px 0;
+    margin: 10px 0 20px 0px;
 }
 .campocheio:hover, .campomedio:hover {
     box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
@@ -120,7 +156,7 @@ main{
 }
 
 #cpf_id {
-    margin: 0 20px 20px 0;
+    margin: 10px 20px 20px 0px;
 }
 
 #buttons a {

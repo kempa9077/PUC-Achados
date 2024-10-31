@@ -5,6 +5,12 @@ body {
     justify-content: center;
 }
 
+label {
+    position: relative;
+    right: 155px;
+    top: 5px;
+}
+
 #logo-login {
     height: 66.45px;
 }
@@ -58,7 +64,7 @@ body {
     background-color: rgb(255, 255, 255);
     height: 40px;
     width: 90%;
-    margin: 0 0 20px 0;
+    margin: 10px 0 20px 0;
     padding: 0 20px;
     transition: box-shadow 0.15s, background-color 0.15s;   
 }
@@ -137,7 +143,7 @@ body {
 }
 
 #bytebusters_copy {
-    margin-top: 140px;
+    margin-top: 110px;
 }
 #bytebusters_copy a{
     text-decoration: none;
