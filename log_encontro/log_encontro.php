@@ -130,8 +130,8 @@ include '../header.php';
                         <th>ID OBJETO</th>
                         <th>FUNCIONÁRIO</th>
                         <th>DATA</th>
-                        <th>SITUAÇÃO ANTIGA*</th>
-                        <th>SITUAÇÃO NOVA*</th>
+                        <th>SITUAÇÃO ANTIGA</th>
+                        <th>SITUAÇÃO NOVA</th>
                     </tr>
                 </thead>
                 <tbody id="log-tbody">
