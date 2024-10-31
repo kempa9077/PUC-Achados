@@ -183,7 +183,7 @@
                         VER OBJETOS EM ESTOQUE
                     </a>
                 </div>
-                <a href="objetos_em_estoque\objetos_em_estoque.php" class="descricao-a">Clique aqui para ver objetos achados em estoque.</a>
+                <a href="objetos_em_estoque\objetos_em_estoque.php" class="descricao-a">Clique aqui para ver objetos em estoque, perdidos e devolvidos.</a>
             </div>
 
             <?php
@@ -295,8 +295,23 @@
 
             <?php endif; ?>
 
-        </div>
+            <?php
+            if(isset($_SESSION) AND $_SESSION AND $_SESSION['usuario']['acesso_nivel'] == 0):?>
+        
+            <div class="opt-menu-principal">
+                    <div class="titulo-opt">
+                        <a href="meus_protocolos/meus_protocolos.php">
+                            <img src="img/icon-protocolos.png" alt="protocolos">
+                            MEUS PROTOCOLOS
+                        </a>
+                    </div>
+                <a href="meus_protocolos/meus_protocolos.php" class="descricao-a">Clique aqui para ver protocolos abertos por você.</a>
+            </div>
 
+            <?php
+            else:?>
+
+            <?php endif; ?>
 
     </main>
 

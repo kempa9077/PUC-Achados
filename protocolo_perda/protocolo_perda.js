@@ -127,6 +127,7 @@ document.getElementById('enviar_objeto').addEventListener('click', function() {
     .then(data => {
         if (data.sucesso) {
             alert(data.sucesso);
+            window.location.href = "../index.php";
         } else if (data.erro) {
             alert(data.erro);
         }
