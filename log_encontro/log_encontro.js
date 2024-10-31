@@ -15,6 +15,24 @@ document.addEventListener("DOMContentLoaded", function() {
                     data.forEach(log => {
                         const tr = document.createElement("tr");
                         // Converte a data para o formato desejado
+                        const situacaoantigoCell = document.createElement('td');
+                        if (log.valor_antigo == 2) {
+                            situacaoantigoCell.textContent = 'Devolvido';
+                        } else if (log.valor_antigo == 1) {
+                            situacaoantigoCell.textContent = 'Em Estoque';
+                        } else {
+                            situacaoantigoCell.textContent = 'Perdido';
+                        }
+
+                        const situacaonovaCell = document.createElement('td');
+                        if (log.valor_novo == 2) {
+                            situacaonovaCell.textContent = 'Devolvido';
+                        } else if (log.valor_novo == 1) {
+                            situacaonovaCell.textContent = 'Em Estoque';
+                        } else {
+                            situacaonovaCell.textContent = 'Perdido';
+                        }
+
                         const dataOriginal = new Date(log.data);
                         const dataFormatada = `${String(dataOriginal.getDate()).padStart(2, '0')}/${
                             String(dataOriginal.getMonth() + 1).padStart(2, '0')}/${
@@ -29,11 +47,12 @@ document.addEventListener("DOMContentLoaded", function() {
                             <td>${log.id_objeto}</td>
                             <td>${log.funcionario}</td>
                             <td>${dataFormatada}</td>
-                            <td>${log.valor_antigo}</td>
-                            <td>${log.valor_novo}</td>
                         `;
 
-                        tr.dataset.filterContent = `${log.id_log} ${log.id_objeto} ${log.funcionario} ${dataFormatada} ${log.valor_antigo} ${log.valor_novo}`;
+                        tr.appendChild(situacaoantigoCell);
+                        tr.appendChild(situacaonovaCell);
+
+                        tr.dataset.filterContent = `${log.id_log} ${log.id_objeto} ${log.funcionario} ${dataFormatada} ${situacaoantigoCell} ${situacaonovaCell}`;
 
                         // Adiciona a linha na tabela
                         tbody.appendChild(tr);
