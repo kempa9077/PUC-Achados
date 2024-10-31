@@ -19,9 +19,34 @@ document.addEventListener("DOMContentLoaded", function() {
                         if (protocolo.protocolo_situacao == 2) {
                             situacaoCell.textContent = 'Devolvido';
                         } else if (protocolo.protocolo_situacao == 1) {
-                            situacaoCell.textContent = 'Em Estoque';
+                            situacaoCell.textContent = 'Encontrado';
                         } else {
                             situacaoCell.textContent = 'Perdido';
+                        }
+
+                        const localcell = document.createElement('td');
+                        if (protocolo.protocolo_achado_local == 1 && protocolo.protocolo_situacao == 1) {
+                            localcell.textContent = 'Secretaria Bloco 1';
+                        } else if (protocolo.protocolo_achado_local == 2 && protocolo.protocolo_situacao == 1) {
+                            localcell.textContent = 'Secretaria Bloco 2';
+                        } else if (protocolo.protocolo_achado_local == 3 && protocolo.protocolo_situacao == 1) {
+                            localcell.textContent = 'Secretaria Bloco 3';
+                        } else if (protocolo.protocolo_achado_local == 4 && protocolo.protocolo_situacao == 1) {
+                            localcell.textContent = 'Secretaria Bloco 4';
+                        } else if (protocolo.protocolo_achado_local == 5 && protocolo.protocolo_situacao == 1) {
+                            localcell.textContent = 'Secretaria Bloco 5';
+                        } else if (protocolo.protocolo_achado_local == 6 && protocolo.protocolo_situacao == 1) {
+                            localcell.textContent = 'Secretaria Bloco 6';
+                        } else if (protocolo.protocolo_achado_local == 7 && protocolo.protocolo_situacao == 1) {
+                            localcell.textContent = 'Secretaria Bloco 7';
+                        } else if (protocolo.protocolo_achado_local == 8 && protocolo.protocolo_situacao == 1) {
+                            localcell.textContent = 'Secretaria Bloco 8';
+                        } else if (protocolo.protocolo_achado_local == 9 && protocolo.protocolo_situacao == 1) {
+                            localcell.textContent = 'Secretaria Bloco 9';
+                        } else if (protocolo.protocolo_achado_local == 10 && protocolo.protocolo_situacao == 1) {
+                            localcell.textContent = 'Secretaria Bloco 10';
+                        } else {
+                            localcell.textContent = '-';
                         }
 
                         // Adiciona as células da tabela
@@ -36,10 +61,10 @@ document.addEventListener("DOMContentLoaded", function() {
                         `;
 
                         tr.appendChild(situacaoCell);
-                        
+                        tr.appendChild(localcell);
 
                          // Adiciona um atributo data para facilitar o filtro
-                         tr.dataset.filterContent = `${protocolo.idprotocolo} ${protocolo.nome_objeto} ${protocolo.nome_categoria} ${protocolo.protocolo_situacao} ${protocolo.data_perda} ${protocolo.data_abertura}${protocolo.data_fechamento }`;
+                         tr.dataset.filterContent = `${protocolo.idprotocolo} ${protocolo.nome_objeto} ${protocolo.nome_categoria} ${protocolo.data_perda} ${protocolo.data_abertura}${protocolo.data_fechamento} ${protocolo.protocolo_situacao} ${protocolo.protocolo_achado_local}`;
 
                         // Adiciona a linha na tabela
                         tbody.appendChild(tr);

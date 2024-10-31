@@ -132,6 +132,7 @@ include '../header.php';
                         <th>DATA ABERTURA</th>
                         <th>DATA FECHAMENTO</th>
                         <th>SITUAÇÃO</th>
+                        <th>LOCAL DE RETIRADA</th>
                     </tr>
                 </thead>
                 <tbody id="protocolos-tbody">

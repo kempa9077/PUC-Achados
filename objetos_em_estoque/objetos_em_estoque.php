@@ -129,7 +129,7 @@ include '../header.php';
             <tr>
                 <th>ID OBJETO</th>
                 <th>NOME</th>
-                <th>LOCAL</th>
+                <th>LOCAL ARMAZENADO</th>
                 <th>SITUAÇÃO</th>
                 <th>DATA DE REGISTRO</th>
                 <th>CATEGORIA DO OBJETO</th>
@@ -150,7 +150,7 @@ include '../header.php';
             <tr>
                 <th>ID OBJETO</th>
                 <th>NOME</th>
-                <th>LOCAL</th>
+                <th>LOCAL DE PERDA</th>
                 <th>SITUAÇÃO</th>
                 <th>DATA DE REGISTRO</th>
                 <th>CATEGORIA DO OBJETO</th>
@@ -172,7 +172,7 @@ include '../header.php';
             <tr>
                 <th>ID OBJETO</th>
                 <th>NOME</th>
-                <th>LOCAL</th>
+                <th>LOCAL DEVOLVIDO</th>
                 <th>SITUAÇÃO</th>
                 <th>DATA DE REGISTRO</th>
                 <th>CATEGORIA DO OBJETO</th>
