@@ -128,10 +128,10 @@ include '../header.php';
                         <th>ID PROTOCOLO</th>
                         <th>NOME</th>
                         <th>CATEGORIA</th>
-                        <th>SITUAÇÃO</th>
                         <th>DATA PERDA</th>
                         <th>DATA ABERTURA</th>
                         <th>DATA FECHAMENTO</th>
+                        <th>SITUAÇÃO</th>
                     </tr>
                 </thead>
                 <tbody id="protocolos-tbody">

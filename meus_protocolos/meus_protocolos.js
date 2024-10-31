@@ -15,20 +15,31 @@ document.addEventListener("DOMContentLoaded", function() {
                     data.forEach(protocolo => {
                         const tr = document.createElement("tr");
 
+                        const situacaoCell = document.createElement('td');
+                        if (protocolo.protocolo_situacao == 2) {
+                            situacaoCell.textContent = 'Devolvido';
+                        } else if (protocolo.protocolo_situacao == 1) {
+                            situacaoCell.textContent = 'Em Estoque';
+                        } else {
+                            situacaoCell.textContent = 'Perdido';
+                        }
+
                         // Adiciona as células da tabela
                         tr.innerHTML = `
                             <td>${protocolo.idprotocolo}</td>
                             <td>${protocolo.nome_objeto}</td>
-                            <td>${protocolo.nome_categoria || '-'}</td>
-                            <td>${protocolo.situacao == 1 ? 'Fechado' : 'Aberto'}</td>
+                            <td>${protocolo.nome_categoria || '-'}</td>                    
                             <td>${protocolo.data_perda}</td>
                             <td>${protocolo.data_abertura}</td>
                             <td>${protocolo.data_fechamento || '-'}</td>
                             
                         `;
 
+                        tr.appendChild(situacaoCell);
+                        
+
                          // Adiciona um atributo data para facilitar o filtro
-                         tr.dataset.filterContent = `${protocolo.idprotocolo} ${protocolo.nome_objeto} ${protocolo.nome_categoria} ${protocolo.situacao} ${protocolo.data_perda} ${protocolo.data_abertura}${protocolo.data_fechamento }`;
+                         tr.dataset.filterContent = `${protocolo.idprotocolo} ${protocolo.nome_objeto} ${protocolo.nome_categoria} ${protocolo.protocolo_situacao} ${protocolo.data_perda} ${protocolo.data_abertura}${protocolo.data_fechamento }`;
 
                         // Adiciona a linha na tabela
                         tbody.appendChild(tr);
