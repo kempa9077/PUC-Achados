@@ -127,7 +127,8 @@ include '../header.php'
             Se você encontrou algum objeto perdido, pedimos que leve-o até a secretaria do bloco onde ele foi encontrado. 
             Caso você não saiba onde fica a secretaria, por favor, 
             <a href="https://www.pucpr.br/mapa-campus-curitiba/" target="blank">clique neste link</a>
-             para obter mais informações sobre a localização.
+             para obter mais informações sobre a localização, ou localize no mapa abaixo.
+            <iframe id="iframe" src="https://sites.pucpr.br/mapas/curitiba-geral/" title="Mapa Geral PUCPR Curitiba"></iframe>
             <h4>Agradecemos sua colaboração!</h4>
         </div>
     </main>
@@ -214,6 +215,5 @@ include '../header.php'
         </div>
 
     </footer>
-
     </body>
 </html>
