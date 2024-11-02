@@ -17,16 +17,14 @@ function encerrarSessao() {
             $params["secure"], $params["httponly"]
         );
     }
-
     // Destruir a sessão
     session_destroy();
-
     // Redirecionar para a página de login
-    header("Location: login.html");
+    header('Location:../index.php');
     exit();
 }
 
-// Verifica se o botão "Sair" foi clicado
+// Verifica se o botão sair do teste teste_sessao foi apertado
 if (isset($_POST['acao']) && $_POST['acao'] === 'sair') {
     encerrarSessao();
 }

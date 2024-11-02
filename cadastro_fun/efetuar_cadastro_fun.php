@@ -26,20 +26,21 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $post = json_decode($json, true);
 
     // Adição de novo usuário
-    if ($post['solicitacao'] == "adicionar") {
+    if ($post['solicitacao'] === "adicionar") {
         $tabela = "pessoa";
-        $colunas = "cpf,email,senha,nome,matricula,acesso_nivel";
-        
+        $colunas = "cpf,email,senha,nome,registro_puc,acesso_nivel";
         $cpf = $post['cpf'];
         $email = $post['email'];
         $nome = $post['nome'];
-        $matricula = $post['matricula'];
-        $acesso = 0;
+        $registro = $post['registro'];
+        $acesso = 1;
         $senha = $post['senha'];
+        
+        
         // Hash da senha usando password_hash()
         $senha_hash = password_hash($senha, PASSWORD_DEFAULT);
         
-        $valores = "$cpf,'$email','$senha_hash','$nome','$matricula','$acesso'";
+        $valores = "$cpf,'$email','$senha_hash','$nome','$registro','$acesso'";
         $id = inserir_dado($tabela, $colunas, $valores);
         json_return(["id" => $id]);
     } else {

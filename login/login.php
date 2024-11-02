@@ -1,27 +1,38 @@
 <?php
 require_once('..//funcoes_banco.php');
-include 'session.php'; // Inclui o arquivo de sessões
+include 'session.php'; 
 
-// Obtém os dados do formulário de login usando as chaves 'email_id' e 'senha_id'
 $email = $_POST['email_id'];
 $senha = $_POST['senha_id'];
- 
- 
-// Consulta SQL para verificar se o usuário com o e-mail e senha fornecidos existe
-$sql = "SELECT * FROM pessoa WHERE email = '$email' AND senha = '$senha'";
 
-// Usa a função consultar_dado para executar a consulta
+$sql = "SELECT * FROM pessoa WHERE email = '$email'";
 $result = consultar_dado($sql);
 
-// Verifica se algum resultado foi retornado
+// Verifica se o usuário existe e se a senha corresponde ao hash armazenado
 if (!empty($result)) {
-    // Cria uma sessão para o usuário logado
+    $hash = $result[0]['senha'];
     
-    criarSessao($result[0]); // Armazena o e-mail ou outro dado relevante
+    // Verifica a senha usando hash
+    if (password_verify($senha, $hash)) {
+        // Cria uma sessão para o usuário logado
+        criarSessao($result[0]);
 
-    echo 'success';  // Retorna 'success' para indicar que o login foi bem-sucedido
+        // Verifica o nível de acesso e redireciona para a página correta
+        $acesso_nivel = $result[0]['acesso_nivel'];
+
+        if ($acesso_nivel == 0) {
+            echo 'nivel_0'; // Redirecionar para a página de acesso nível 0
+        } elseif ($acesso_nivel == 1) {
+            echo 'nivel_1'; // Redirecionar para a página de acesso nível 1
+        } elseif ($acesso_nivel == 2) {
+            echo 'nivel_2'; // Redirecionar para a página de acesso nível 2
+        } else {
+            echo 'fail'; // Caso o nível de acesso não seja válido
+        }
+    } else {
+        echo 'fail';  // Senha incorreta
+    }
 } else {
-    echo 'fail';     // Retorna 'fail' para indicar falha no login
+    echo 'fail';  // Credenciais inválidas
 }
-
 ?>
