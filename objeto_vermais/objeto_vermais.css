@@ -328,6 +328,34 @@ footer {
     border-radius: 5px;
 }
 
+.btn-merge {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    user-select: none;
+    width: 170px;
+    font-weight: bold;
+    background-color: #882627;
+    border: none;
+    color: white;
+    font-size: 18px;
+    padding: 6px;
+    border-radius: 5px;
+    cursor: pointer;
+
+    transition: opacity 0.15s, box-shadow 0.15s;
+
+}
+
+.btn-merge:hover {
+    opacity: 0.9;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.btn-merge:active {
+    box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.2);
+    opacity: 0.8;
+}
+
 /*footer*/
 
 .dados-div {

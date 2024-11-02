@@ -90,7 +90,7 @@ document.addEventListener("DOMContentLoaded", function() {
     const btnCell = document.getElementById("btn-sobrescrever");
 
     btnCell.innerHTML += `
-        <button onclick="excluirObjeto(${idobjeto})">Fundir à outro Objeto</button>                            
+            <button class="btn-merge" onclick="excluirObjeto(${idobjeto})">Fundir à outro Objeto</button>                     
     `;
 
     // Move excluirObjeto function outside the event listener
