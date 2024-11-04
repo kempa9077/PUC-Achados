@@ -1,14 +1,15 @@
 <?php
-$acesso = 2;
+$acesso = 1; // todos os funcionarios
 include '../header.php';
+include 'imprimir_objeto.php';
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PUC Achados - Log de Cadastros</title>
-    <link rel="stylesheet" href="log_pessoa.css">
+    <title>PUC Achados - </title>
+    <link rel="stylesheet" href="objeto_vermais.css">
     <link rel="apple-touch-icon" sizes="180x180" href="../img/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="../img/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="../img/favicon-16x16.png">
@@ -18,47 +19,49 @@ include '../header.php';
     <meta name="theme-color" content="#882727">
 </head>
 <body>
-<header class="top-bar">
-        <nav class="barranav">
-            <div class="logo">
-                <a href="../index.php">
-                    <img src="..\img\logo_texto_branco.png" alt="Logo PUC Achados">
-                </a>
-                    
-            </div>
-
-            <div class="spaceperfil">
-
-                <?php
-
-                if(isset($_SESSION) AND $_SESSION):?>
-
-                    <a id="login_sem_cadastro" class="login">
-                        <img src="..\img\icon-login.png" alt="">
+        <header class="top-bar">
+            <nav class="barranav">
+                <div class="logo">
+                    <a href="../index.php">
+                        <img src="..\img\logo_texto_branco.png" alt="Logo PUC Achados">
                     </a>
-                    <a id="login_sem_cadastro" class="login">
-                        <?php echo $_SESSION['usuario']['nome'];
-                        ?>
-                    </a> 
-                    <form action="../login/session.php" method="POST">
-                        <button type="submit" name="acao" value="sair">Sair</button>
-                    </form>
+                    
+                </div>
+                <div class="spaceperfil">
 
+                    <?php
+
+                    if(isset($_SESSION) AND $_SESSION):?>
+
+                        <a id="login_sem_cadastro" class="login">
+                            <img src="..\img\icon-login.png" alt="">
+                        </a>
+                        <a id="login_sem_cadastro" class="login">
+                            <?php echo $_SESSION['usuario']['nome'];
+                            ?>
+                        </a> 
+                        <form action="../login/session.php" method="POST">
+                            <button type="submit" name="acao" value="sair">Sair</button>
+                        </form>
+
+                        <?php
+
+                        ?>
                     <?php
                     else:?>
 
-                    <a id="login_sem_cadastro" class="login" href="../login/login.html">
-                        <img src="..\img\icon-login.png" alt="">
-                    </a>
-                    <a id="login_sem_cadastro" class="login" href="../login/login.html">
-                        Login
-                    </a>
+                        <a id="login_sem_cadastro" class="login" href="../login/login.html">
+                            <img src="..\img\icon-login.png" alt="">
+                        </a>
+                        <a id="login_sem_cadastro" class="login" href="../login/login.html">
+                            Login
+                        </a>
 
                     <?php endif; ?>
                     
-            </div>
-        </nav>
-    </header>
+                </div>
+            </nav>
+        </header>
     
         <nav class="second-bar">
             <div class="menu-nav">
@@ -106,41 +109,25 @@ include '../header.php';
             </div>
         </nav>
 
-
     <main class="content-area">
         <div class="div-titulo">
             <div class="area-logo-titulo">
-                <img src="..\img\icon-log.png" alt="Log Icon">
+                <img src="..\img\icon-estoque.png" alt="Estoque Icon">
             </div>
-            &nbsp; LOG PESSOAS
+            <p id="titulo"></p>
+            <div class="area-x">
+                <a id="voltar-home" href="../objetos_em_estoque/objetos_em_estoque.php">&times;</a>
+            </div>
         </div>
 
-        <div class="filter-area">
-            <label for="filter-input">Filtrar:</label>
-            <input type="text" id="filter-input" placeholder="Digite para filtrar logs...">
+        <div id="protocolo-div" style="width: 100%;">
+                    <!-- Os dados do protocolo serão inseridos aqui via JS -->
+                    
         </div>
 
-        <div class="log-table">
-            <table>
-                <thead>
-                    <tr>
-                        <th>ID LOG</th>
-                        <th>CPF MODIFICADOR</th>
-                        <th>CPF ALTERADO</th>
-                        <th>DATA</th>
-                        <th>EMAIL ANTIGO</th>
-                        <th>EMAIL NOVO</th>
-                        <th>NOME ANTIGO</th>
-                        <th>NOME NOVO</th>
-                        <th>ACESSO ANTIGO</th>
-                        <th>ACESSO NOVO</th>
-                    </tr>
-                </thead>
-                <tbody id="log-tbody">
-                    <!-- Os dados dos logs serão inseridos aqui via JS -->
-                </tbody>
-            </table>
-        </div>
+        <div id="btn-sobrescrever"></div>
+
+    </div>
     </main>
 
     <footer>
@@ -190,9 +177,6 @@ include '../header.php';
                 </ul>
             </div>
 
-
-
-
             <div class="dados-footer">
                 <p>Professores</p>
                 <ul>
@@ -220,7 +204,7 @@ include '../header.php';
         </div>
 
     </footer>
+    <script src="objeto_vermais.js"> </script>
 
-    <script src="log_pessoa.js"></script>
 </body>
 </html>

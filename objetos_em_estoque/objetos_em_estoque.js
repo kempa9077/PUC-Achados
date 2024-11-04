@@ -14,14 +14,30 @@ document.addEventListener("DOMContentLoaded", function() {
 
             data.forEach(objeto => {
                 const tr = document.createElement('tr');
+                const nomeCell = document.createElement('td');
+
+                const idprotoCell = document.createElement('td');
+                if (objeto.id_protocolo == null) {
+                    idprotoCell.textContent = "-"
+                } else{
+                    idprotoCell.textContent = objeto.id_protocolo;
+                }
+                tr.appendChild(idprotoCell);
 
                 // Cria as células da linha
                 const idCell = document.createElement('td');
                 idCell.textContent = objeto.id_objeto;
                 tr.appendChild(idCell);
 
-                const nomeCell = document.createElement('td');
-                nomeCell.textContent = objeto.nome;
+                
+                const botaoNome = document.createElement('button');
+                botaoNome.textContent = objeto.nome;
+                botaoNome.setAttribute("class", "nome-btn")
+
+                botaoNome.onclick = function() { verMais(objeto.id_objeto); };
+
+                nomeCell.appendChild(botaoNome);
+
                 tr.appendChild(nomeCell);
 
                 const secretariaCell = document.createElement('td');
@@ -110,13 +126,13 @@ document.addEventListener("DOMContentLoaded", function() {
                 
                 tr.appendChild(actionCell);
 
-                tr.dataset.filterContent = `${objeto.id_objeto} ${objeto.nome} ${objeto.secretaria} ${situacaoCell.textContent} ${dataFormatada} ${objeto.categoria}`;
+                tr.dataset.filterContent = `${objeto.id_objeto} ${objeto.nome} ${objeto.secretaria} ${situacaoCell.textContent} ${dataFormatada} ${objeto.categoria} ${objeto.descricao}`;
                 // Adiciona a linha à tabela correta
                 if (objeto.encontrado == 2) {
                     tbodyDevolvidos.appendChild(tr); // Adiciona os itens devolvidos à tabela de devolvidos
-                } else if (objeto.is_secretaria == 1) {
+                } else if (objeto.encontrado == 1) {
                     tbodySecretaria.appendChild(tr);
-                } else {
+                } else if (objeto.encontrado == 0) {
                     tbodyOutros.appendChild(tr);
                 }
             });
@@ -187,4 +203,11 @@ function filtrarLogs() {
             linha.style.display = conteudoLinha.includes(termoFiltro) ? "" : "none";
         });
     });
+
+    
 }
+
+window.verMais = function(idobjeto) {
+    // Abre a página objeto_vermais.php com o idobjeto como parâmetro na URL
+    window.open(`../objeto_vermais/objeto_vermais.php?idobjeto=${encodeURIComponent(idobjeto)}`);
+};

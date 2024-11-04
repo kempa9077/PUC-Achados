@@ -146,38 +146,6 @@ footer {
     text-decoration: none;
 }
 
-/* FILTRO */
-
-.filter-area label{
-    font-family: lato;
-    font-size: 20px;
-
-    position: relative;
-    right: 35px;
-    top: 30px;
-    
-}
-
-.filter-area input{
-    font-family: lato;
-    border-radius: 30px;
-    border: 0px solid;
-    color: #283228;
-    background-color: #ECE0E0;
-    width: 100%;
-    padding: 10px 20px;
-    margin-left: 35px;
-    transition: box-shadow 0.15s, background-color 0.15s; 
-}
-
-.filter-area input:hover{
-    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
-}
-
-.filter-area input:active{
-    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
-}
-
 
 /* Área do conteúdo principal */
 .content-area {
@@ -196,13 +164,10 @@ footer {
     padding-right: 20px;
 }
 
-
-.div-titulo{
+.div-titulo {
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    margin: auto;
-
     width: 100%;
     height: 50px;
     background-color: #ECE0E0;
@@ -211,11 +176,17 @@ footer {
     font-size: 1.8em;
 }
 
+
+.div-titulo p{
+    font-family: 'Oswald', sans-serif;
+    color: #882627;
+    font-size: 30px;
+}
+
 .area-logo-titulo {
     height: 100%;
     background-color: #882627;
     width: 50px;
-
     display: flex;
     justify-content: center;
     align-items: center;
@@ -226,69 +197,166 @@ footer {
     max-width: 50px;
 }
 
-.objeto-table {
+.area-x {
+    justify-self: end;
+}
+
+#voltar-home {
+    text-decoration: none;
+    font-size: 40px;
+    color: #882627;
+    cursor: pointer;
+    height: 40px;
+}
+#voltar-home:focus {
+    outline: none;
+}
+
+.menu-principal{
     width: 100%;
     margin-top: 20px;
-    padding: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 
-.objeto-table table {
+.opt-menu-principal {
     width: 100%;
-    border-collapse: separate; /* Manter 'separate' para permitir o espaçamento */
-    border-spacing: 0 2px; /* Espaçamento vertical de 2px entre as linhas */
-    font-size: 18px;
+    height: 120px;
+    text-align: center;
+
+    margin-left: 10px;
+    margin-right: 10px;
 }
 
-.objeto-table th, .objeto-table td {
-    padding: 4px; /* Reduzindo um pouco o padding para dar mais espaço visual */
-    text-align: left;
-    border: 1px solid transparent; /* Borda invisível para manter o espaçamento */
+.opt-desc {
+    width: 100%;
+    height: 120px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+
+    justify-content: center;
+
+    margin-left: 10px;
+    margin-right: 10px;
 }
 
-.objeto-table th {
-    background-color: #A22E2F;
-    color: white;
+.titulo-desc{
+    height: 40px;
+    background-color: #882627;
+    width: 100%;
+    text-align: center;
 }
 
-.objeto-table tr {
-    background-color: white; /* Cor de fundo padrão para as linhas */
+.titulo-desc a{
+    position: relative;
+    top: 9px;
+    color: #ffffff;
+    text-decoration: none;
+    font-family: lato;
+    font-size: 20px;
+    font-weight: bolder;
+
 }
 
-.objeto-table tr:hover {
-    background-color: #ddd; /* Cor ao passar o mouse */
+.descricao{
+    align-self: center;
+    text-align: center;
+    margin-top: 20px;
+    text-decoration: none;
+    color:#000000;
+    font-size: 20px;
 }
 
-/* Adiciona uma borda na parte inferior das linhas */
-.objeto-table tr:not(:last-child) {
-    border-bottom: 2px solid transparent; /* Espaço de 2px entre as linhas */
+.descricao-a{
+    position: relative;
+    top: 20px;
+    text-decoration: none;
+    color:#000000;
+    font-size: 20px;
 }
 
-.nome-btn {
-    color: #000000;
-    background-color: rgba(0, 0, 0, 0);
-    border: none;
-    font-size: 18px;
+.menu-principal a{
+    max-width: 1200px;
+}
+
+
+.titulo-opt{
+    height: 40px;
+    background-color: #882627;
+    
+    display: flex;
+    align-items: center;
+}
+
+.titulo-opt a{
+    padding-right: 10px;
+    padding-left: 10px;
+    color: #ffffff;
+    text-decoration: none;
+    font-family: lato;
+    font-size: 20px;
+    font-weight: bolder;
+
+}
+
+@media screen and (min-width: 320px){
+    .titulo-opt a{
+        font-size: 10px;
+    }
+}
+
+@media screen and (min-width: 700px){
+    .titulo-opt a{
+        font-size: 15px;
+    }
+}
+
+@media screen and (min-width: 860px) {
+    .titulo-opt a {
+      font-size: 20px;
+    }
+}
+
+.description {
+    font-size: 16px;
+    background-color: #f9f9f9;
     padding: 10px;
-    text-align: left;
-    text-decoration: underline;
-
-    transition: color 0.15s, background-color 0.15s; 
+    border: 1px solid #ddd;
+    margin-top: 5px;
+    border-radius: 5px;
 }
 
-.nome-btn:hover {
-    background-color: rgba(0, 0, 0, 0.07);
+.btn-merge {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    user-select: none;
+    width: 170px;
+    font-weight: bold;
+    background-color: #882627;
+    border: none;
+    color: white;
+    font-size: 18px;
+    padding: 6px;
+    border-radius: 5px;
     cursor: pointer;
+
+    transition: opacity 0.15s, box-shadow 0.15s;
+
 }
 
-.nome-btn:active {
-    background-color: rgba(0, 0, 0, 0.2);
-    color: #882627;
+.btn-merge:hover {
+    opacity: 0.9;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
 }
 
+.btn-merge:active {
+    box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.2);
+    opacity: 0.8;
+}
 
-
-
-/* footer */
+/*footer*/
 
 .dados-div {
     display: flex;
@@ -349,26 +417,4 @@ footer {
     color: #000000;
     text-decoration: none;
     font-weight: bolder;
-}
-.botoesDeEncontro{
-    margin-top: 10px; /* Espaço entre a descrição e o botão */
-    margin-left: 10px;
-    background-color: #7a1f1f;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    cursor: pointer;
-    font-size: 16px;
-    border-radius: 10px;
-}
-.botoesDeDevolucao{
-    margin-top: 10px; /* Espaço entre a descrição e o botão */
-    margin-left: 10px;
-    background-color: #7a1f1f;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    cursor: pointer;
-    font-size: 16px;
-    border-radius: 10px;
 }

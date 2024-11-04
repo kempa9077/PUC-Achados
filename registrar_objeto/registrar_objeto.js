@@ -29,6 +29,7 @@ document.addEventListener('DOMContentLoaded', function() {
         .then(data => {
             if (data.resultado) {
                 alert('Objeto registrado com sucesso! ID: ' + data.resultado);
+                window.location.href = "../index.php";
             } else {
                 alert('Erro ao registrar objeto: ' + data.erro);
             }

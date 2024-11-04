@@ -103,7 +103,7 @@
                     <a href="objetos_em_estoque\objetos_em_estoque.php" id="pagina_home_sem_cadastro">
                         <img src="img\icon-estoque.png" alt="icon-home">
                     </a>
-                    <a href="objetos_em_estoque\objetos_em_estoque.php" id="pagina_home_sem_cadastro" class="menu-btn">Objetos em Estoque</a>
+                    <a href="objetos_em_estoque\objetos_em_estoque.php" id="pagina_home_sem_cadastro" class="menu-btn">Ver Objetos</a>
                 </div>
 
                 <?php endif; ?>
@@ -180,7 +180,7 @@
                 <div class="titulo-opt">
                     <a href="objetos_em_estoque\objetos_em_estoque.php">
                         <img src="img/icon-estoque.png" alt="caixa">
-                        VER OBJETOS EM ESTOQUE
+                        VER OBJETOS
                     </a>
                 </div>
                 <a href="objetos_em_estoque\objetos_em_estoque.php" class="descricao-a">Clique aqui para ver objetos em estoque, perdidos e devolvidos.</a>

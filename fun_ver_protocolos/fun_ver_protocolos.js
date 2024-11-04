@@ -27,7 +27,7 @@ document.addEventListener("DOMContentLoaded", function() {
                             
                         `;
                             // ver pq situação não filtra tentar especificar melhor
-                        tr.dataset.filterContent = `${protocolo.idprotocolo} ${protocolo.nome_objeto} ${protocolo.nome_categoria} ${protocolo.situacao} ${protocolo.data_perda} ${protocolo.data_abertura}${protocolo.data_fechamento }`;
+                        tr.dataset.filterContent = `${protocolo.idprotocolo} ${protocolo.nome_objeto} ${protocolo.nome_categoria} ${protocolo.situacao} ${protocolo.data_perda} ${protocolo.data_abertura}${protocolo.data_fechamento }${protocolo.descricao}`;
                         // Adiciona a linha na tabela
                         tbody.appendChild(tr);
                     });

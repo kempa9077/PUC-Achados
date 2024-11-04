@@ -2,7 +2,7 @@
 require_once("../funcoes_banco.php");  
 
 function buscar_protocolo() {
-    // Obtém o idprotocolo enviado via POST e sanitiza para evitar injeção de SQL
+
     $idprotocolo = isset($_POST['idprotocolo']) ? intval($_POST['idprotocolo']) : null;
 
     if ($idprotocolo === null) {
@@ -10,7 +10,7 @@ function buscar_protocolo() {
         exit;
     }
 
-    // Consulta SQL para buscar o protocolo com os detalhes
+
     $sql = "SELECT 
     protocolo.idprotocolo,
     objeto.nome AS nome_objeto,
@@ -23,7 +23,9 @@ function buscar_protocolo() {
     pessoa_abertura.nome AS nome_pessoa_abertura,
     pessoa_fechado.nome AS nome_pessoa_fechado,
     local.bloco,
-    local.sala
+    local.sala,
+    pessoa_abertura.cpf as pessoa_abertura_cpf,
+    pessoa_fechado.cpf as pessoa_fechado_cpf
     FROM protocolo
     JOIN pessoa AS pessoa_abertura ON protocolo.pessoa_abertura = pessoa_abertura.cpf
     LEFT JOIN pessoa AS pessoa_fechado ON protocolo.pessoa_fechado = pessoa_fechado.cpf
@@ -32,7 +34,7 @@ function buscar_protocolo() {
     JOIN categoria_objeto ON objeto.categoria_objeto = categoria_objeto.id_tipo WHERE protocolo.idprotocolo = $idprotocolo";
     
 
-    // Executa a consulta
+
     $result = consultar_dado($sql);
 
     if ($result) {
