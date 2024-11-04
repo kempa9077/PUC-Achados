@@ -7,7 +7,7 @@ include '../header.php';
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PUC Achados - Objetos em estoque</title>
+    <title>PUC Achados - Ver Objetos</title>
     <link rel="stylesheet" href="obejtos_em_estoque.css">
     <link rel="apple-touch-icon" sizes="180x180" href="../img/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="../img/favicon-32x32.png">
@@ -100,7 +100,7 @@ include '../header.php';
                     <a href="../objetos_em_estoque\objetos_em_estoque.php" id="pagina_home_sem_cadastro">
                         <img src="..\img\icon-estoque.png" alt="icon-home">
                     </a>
-                    <a href="../objetos_em_estoque\objetos_em_estoque.php" id="pagina_home_sem_cadastro" class="menu-btn">Objetos em Estoque</a>
+                    <a href="../objetos_em_estoque\objetos_em_estoque.php" id="pagina_home_sem_cadastro" class="menu-btn">Ver Objetos</a>
                 </div>
 
                 <?php endif; ?>
@@ -114,7 +114,7 @@ include '../header.php';
     <div class="area-logo-titulo">
         <img src="..\img\icon-estoque.png" alt="">
     </div>
-    &nbsp; OBJETOS EM ESTOQUE
+    &nbsp; VER OBJETOS
 </div>
 
 <div class="filter-area">

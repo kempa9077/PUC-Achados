@@ -126,7 +126,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 
                 tr.appendChild(actionCell);
 
-                tr.dataset.filterContent = `${objeto.id_objeto} ${objeto.nome} ${objeto.secretaria} ${situacaoCell.textContent} ${dataFormatada} ${objeto.categoria}`;
+                tr.dataset.filterContent = `${objeto.id_objeto} ${objeto.nome} ${objeto.secretaria} ${situacaoCell.textContent} ${dataFormatada} ${objeto.categoria} ${objeto.descricao}`;
                 // Adiciona a linha à tabela correta
                 if (objeto.encontrado == 2) {
                     tbodyDevolvidos.appendChild(tr); // Adiciona os itens devolvidos à tabela de devolvidos

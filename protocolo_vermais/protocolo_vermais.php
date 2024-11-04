@@ -101,7 +101,7 @@ include 'imprimir_protocolo.php';
                     <a href="../objetos_em_estoque\objetos_em_estoque.php" id="pagina_home_sem_cadastro">
                         <img src="..\img\icon-estoque.png" alt="icon-home">
                     </a>
-                    <a href="../objetos_em_estoque\objetos_em_estoque.php" id="pagina_home_sem_cadastro" class="menu-btn">Objetos em Estoque</a>
+                    <a href="../objetos_em_estoque\objetos_em_estoque.php" id="pagina_home_sem_cadastro" class="menu-btn">Ver Objetos</a>
                 </div>
 
                 <?php endif; ?>

@@ -23,7 +23,9 @@ function buscar_protocolo() {
     pessoa_abertura.nome AS nome_pessoa_abertura,
     pessoa_fechado.nome AS nome_pessoa_fechado,
     local.bloco,
-    local.sala
+    local.sala,
+    pessoa_abertura.cpf as pessoa_abertura_cpf,
+    pessoa_fechado.cpf as pessoa_fechado_cpf
     FROM protocolo
     JOIN pessoa AS pessoa_abertura ON protocolo.pessoa_abertura = pessoa_abertura.cpf
     LEFT JOIN pessoa AS pessoa_fechado ON protocolo.pessoa_fechado = pessoa_fechado.cpf

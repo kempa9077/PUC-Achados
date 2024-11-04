@@ -1,7 +1,7 @@
 <?php
 include '../funcoes_banco.php';
 
-$sql = "SELECT p.idprotocolo as id_protocolo, o.id_objeto, o.nome, l.sala as secretaria, o.encontrado, c.categoria, o.data_registro, 
+$sql = "SELECT p.idprotocolo as id_protocolo, o.id_objeto, o.nome, l.sala as secretaria, o.encontrado, c.categoria, o.data_registro, p.descricao as descricao,
         CASE 
             WHEN l.sala LIKE '%Secretaria%' THEN 1 
             ELSE 0 

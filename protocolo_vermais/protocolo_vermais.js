@@ -26,9 +26,15 @@ document.addEventListener("DOMContentLoaded", function() {
 
                 // Itera sobre os dados retornados
                 data.forEach(protocolo => {
-                    //const div = document.createElement("div");
 
-                    // Adiciona as células da tabela
+                    const pessoanomecell = protocolo.nome_pessoa_abertura == null ? '-' : protocolo.nome_pessoa_abertura;
+
+                    const pessoacpfcell = protocolo.pessoa_abertura_cpf == null ? '-' : protocolo.pessoa_abertura_cpf; 
+                    
+                    const funnomecell = protocolo.nome_pessoa_fechado == null ? '-' : protocolo.nome_pessoa_fechado;
+
+                    const funcpfcell = protocolo.pessoa_fechado_cpf == null ? '-' : protocolo.pessoa_fechado_cpf;
+
                     divprotocolo.innerHTML = `
                         
                         <div class="menu-principal"> 
@@ -107,6 +113,26 @@ document.addEventListener("DOMContentLoaded", function() {
                                     </a>
                                 </div>
                                 <a class="descricao">${protocolo.descricao}</a>
+                            </div>
+                        </div>
+
+                        <div class="menu-principal"> 
+                            <div class="opt-menu-principal">
+                                <div class="titulo-opt">
+                                    <a>
+                                        ${protocolo.situacao == 1 ? 'QUEM RETIROU OBJETO:' : 'QUEM ABRIU PROTOCOLO:'}
+                                    </a>
+                                </div>
+                                <a class="descricao-a">${pessoanomecell}\n${pessoacpfcell}</a>
+                            </div>
+
+                            <div class="opt-menu-principal">
+                                <div class="titulo-opt">
+                                    <a>
+                                        FUNCIONARIO QUE ENTREGOU OBJETO :
+                                    </a>
+                                </div>
+                                <a class="descricao-a">${funnomecell}\n${funcpfcell}</a>
                             </div>
                         </div>
 
