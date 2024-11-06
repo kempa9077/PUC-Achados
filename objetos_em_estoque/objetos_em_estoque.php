@@ -187,6 +187,24 @@ include '../header.php';
     </table>
 </div>
 
+<div class="objeto-table">
+    <h3>ITENS EXCLUÍDOS</h3>
+    <table>
+        <thead>
+            <tr>
+                <th>ID PROTOCOLO</th>
+                <th>ID OBJETO</th>
+                <th>NOME</th>
+                <th>CATEGORIA DO OBJETO</th>
+                <th>DATA EXCLUÍDO</th>
+            </tr>
+        </thead>
+        <tbody id="objeto-tbody-excluidos">
+            <!-- Dados dos itens devolvidos serão inseridos aqui via JavaScript -->
+        </tbody>
+    </table>
+</div>
+
 
 </main>
 

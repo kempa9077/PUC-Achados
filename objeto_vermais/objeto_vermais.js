@@ -32,7 +32,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
                     const localCell = objeto.encontrado == 2 ? "LOCAL DEVOLVIDO" : objeto.encontrado == 1 ? 'LOCAL ARMAZENADO' : 'LOCAL PERDIDO';
 
-                    const situacaoCell = objeto.encontrado == 2 ? 'Devolvido' : objeto.encontrado == 1 ? 'Em Estoque' : 'Perdido';
+                    const situacaoCell = objeto.encontrado == 2 ? 'Devolvido' : objeto.encontrado == 1 ? 'Em Estoque' : objeto.encontrado == 0 ? 'Perdido' : 'Excluído';
 
                     const idprotoCell = objeto.id_protocolo == null ? '-' : objeto.id_protocolo;
 
@@ -76,6 +76,17 @@ document.addEventListener("DOMContentLoaded", function() {
                             </div>
                         </div>
                     `;
+
+                    const btnCell = document.getElementById("btn-sobrescrever");
+
+                    if (objeto.encontrado == 4){
+                        btnCell.innerHTML += ``;
+                    }else{
+                        btnCell.innerHTML += `
+                            <button class="btn-merge" onclick="excluirObjeto(${idobjeto})">Fundir à outro Objeto</button>                     
+                    `;
+                    }
+
                     document.title = `PUC Achados - Objeto #${objeto.id_objeto}`;
                 });
             } else {
@@ -87,11 +98,8 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     }
 
-    const btnCell = document.getElementById("btn-sobrescrever");
-
-    btnCell.innerHTML += `
-            <button class="btn-merge" onclick="excluirObjeto(${idobjeto})">Fundir à outro Objeto</button>                     
-    `;
+    
+    
 
     window.excluirObjeto = function(idobjeto) {
 
@@ -100,7 +108,7 @@ document.addEventListener("DOMContentLoaded", function() {
             return;
         }
     
-        if (confirm("Tem certeza de que deseja fundir esse protocolo à outro? \n\nFazendo isso você apagará o objeto atual do Banco de Dados e passará a data de registro mais antiga ao outro objeto")) {
+        if (confirm("Tem certeza de que deseja fundir esse protocolo à outro? \n\nFazendo isso você apagará o objeto atual e passará a data de registro mais antiga ao outro objeto. Essa operação não é reversível.")) {
             let id_sobrescrito = prompt('Informe o ID do objeto a ser sobrescrito:');
             
 

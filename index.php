@@ -183,7 +183,7 @@
                         VER OBJETOS
                     </a>
                 </div>
-                <a href="objetos_em_estoque\objetos_em_estoque.php" class="descricao-a">Clique aqui para ver objetos em estoque, perdidos e devolvidos.</a>
+                <a href="objetos_em_estoque\objetos_em_estoque.php" class="descricao-a">Clique aqui para ver objetos em estoque, perdidos, devolvidos e excluídos.</a>
             </div>
 
             <?php

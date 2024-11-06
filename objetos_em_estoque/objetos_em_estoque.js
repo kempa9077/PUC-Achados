@@ -5,12 +5,14 @@ document.addEventListener("DOMContentLoaded", function() {
             const tbodySecretaria = document.getElementById('objeto-tbody-secretaria'); // coisas com nome secretaria vem do id_local que antes era secretaria o nome
             const tbodyOutros = document.getElementById('objeto-tbody-outros');
             const tbodyDevolvidos = document.getElementById('objeto-tbody-devolvidos'); // Tabela de itens devolvidos
+            const tbodyexcluidos = document.getElementById('objeto-tbody-excluidos');
             const filterInput = document.getElementById("filter-input");
 
             // Limpa os corpos das tabelas
             tbodySecretaria.innerHTML = '';
             tbodyOutros.innerHTML = '';
             tbodyDevolvidos.innerHTML = ''; // Limpa a tabela de itens devolvidos
+            tbodyexcluidos.innerHTML = '';
 
             data.forEach(objeto => {
                 const tr = document.createElement('tr');
@@ -134,6 +136,52 @@ document.addEventListener("DOMContentLoaded", function() {
                     tbodySecretaria.appendChild(tr);
                 } else if (objeto.encontrado == 0) {
                     tbodyOutros.appendChild(tr);
+                } else if (objeto.encontrado == 4){
+                    const trex = document.createElement('tr');
+                    const nomeCell = document.createElement('td');
+
+                    const idprotoCell = document.createElement('td');
+                    if (objeto.id_protocolo == null) {
+                        idprotoCell.textContent = "-"
+                    } else{
+                        idprotoCell.textContent = objeto.id_protocolo;
+                    }
+                    trex.appendChild(idprotoCell);
+
+                    const idCell = document.createElement('td');
+                    idCell.textContent = objeto.id_objeto;
+                    trex.appendChild(idCell);
+
+                    const botaoNome = document.createElement('button');
+                    botaoNome.textContent = objeto.nome;
+                    botaoNome.setAttribute("class", "nome-btn")
+
+                    botaoNome.onclick = function() { verMais(objeto.id_objeto); };
+
+                    nomeCell.appendChild(botaoNome);
+
+                    trex.appendChild(nomeCell);
+
+                    const categoriaCell = document.createElement('td');
+                    categoriaCell.textContent = objeto.categoria;
+                    trex.appendChild(categoriaCell);
+
+                    const dataRegistroCell = document.createElement('td');
+                    // Formata o valor de data_registro
+                    const dataOriginal = objeto.data_registro;
+                    const dataFormatada = new Date(dataOriginal).toLocaleString('pt-BR', {
+                        day: '2-digit',
+                        month: '2-digit',
+                        year: 'numeric',
+                        hour: '2-digit',
+                        minute: '2-digit',
+                        second: '2-digit',
+                    });
+                    dataRegistroCell.textContent = dataFormatada;
+                    trex.appendChild(dataRegistroCell);
+
+
+                    tbodyexcluidos.appendChild(trex);
                 }
             });
 

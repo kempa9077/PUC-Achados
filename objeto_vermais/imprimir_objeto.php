@@ -1,5 +1,6 @@
 <?php 
 require_once("../funcoes_banco.php");  
+date_default_timezone_set('America/Sao_Paulo');
 
 function buscar_objeto() {
 
@@ -106,26 +107,34 @@ function atualizar_objeto() {
     $sqlwhere1 = "id_objeto = '$idobjetosobrescrito'";
 
     atualizar_dado($sqlupdate1, $sqlset1, $sqlwhere1);
+
+    $datanow = date('Y-m-d H:i:s');
+
+    $sqlupdate1 = 'objeto';
+    $sqlset1 = "encontrado = 4, data_registro = '$datanow'";
+    $sqlwhere1 = "id_objeto = '$idobjeto'";
+
+    atualizar_dado($sqlupdate1, $sqlset1, $sqlwhere1);
     
 
-    $sqlVerificaExcluir = "SELECT id_objeto FROM objeto WHERE id_objeto = $idobjeto";
-    $objetoParaExcluir = consultar_dado($sqlVerificaExcluir);
+    // $sqlVerificaExcluir = "SELECT id_objeto FROM objeto WHERE id_objeto = $idobjeto";
+    // $objetoParaExcluir = consultar_dado($sqlVerificaExcluir);
 
-    if (!$objetoParaExcluir) {
-        echo json_encode(["erro" => "Objeto a ser excluído não encontrado."]);
-        return;
-    }
+    // if (!$objetoParaExcluir) {
+    //     echo json_encode(["erro" => "Objeto a ser excluído não encontrado."]);
+    //     return;
+    // }
 
-    $sqltabela = 'objeto';
-    $sqlcondicao = "id_objeto = '$idobjeto'";
+    // $sqltabela = 'objeto';
+    // $sqlcondicao = "id_objeto = '$idobjeto'";
 
-    $resultadoExclusao = deletar_dado($sqltabela, $sqlcondicao);
+    // $resultadoExclusao = deletar_dado($sqltabela, $sqlcondicao);
 
-    if (strpos($resultadoExclusao, "Erro:") !== false) {
-        error_log("Erro ao tentar excluir o objeto: " . $resultadoExclusao); // Log do erro
-        echo json_encode(["erro" => $resultadoExclusao]);
-        return;
-    }
+    // if (strpos($resultadoExclusao, "Erro:") !== false) {
+    //     error_log("Erro ao tentar excluir o objeto: " . $resultadoExclusao); // Log do erro
+    //     echo json_encode(["erro" => $resultadoExclusao]);
+    //     return;
+    // }
 
     echo json_encode(["sucesso" => "Objeto sobrescrito com sucesso e objeto original excluído."]);
 }
