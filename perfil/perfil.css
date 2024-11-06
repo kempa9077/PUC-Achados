@@ -1,0 +1,173 @@
+body {
+    background-color: #7a1f1f;
+    font-family: 'lato', sans-serif;
+    display: flex;
+    justify-content: center;
+}
+
+#logo-perfil {
+    height: 66.45px;
+}
+#logo-perfil:focus {
+    outline: none;
+}
+
+/* voltar home */
+#voltar_home {
+    display: flex;
+    justify-content: end;
+    cursor:default;
+    margin: 20px 0 10px 0;
+    height: 40px;
+}
+#voltar_home:focus {
+    outline: none;
+}
+#voltar_home a{
+    text-decoration: none;
+    font-size: 40px;
+    color: #322828;    
+}
+
+.login-h3 {
+    font-size: 18px;
+    color: #283228;
+    margin: 25px 0 0 0;
+}
+
+.login-h5 {
+    color: rgba(30, 30, 30, 0.5);
+    font-size: 15px;
+    margin: 0 0 40px 0;
+}
+
+/* div */
+#div_perfil {
+    background-color: rgba(255, 255, 255, 0.75);
+    width: 380px;
+    height: 640px;
+    border-radius: 15px;
+    text-align: center;
+    padding: 0 40px;
+    position: absolute;
+    top: 50%;
+    transform: translate(0, -50%);
+}
+
+#user_name{
+    display: flex;
+    margin: 30px 0 40px 0;
+}
+
+#foto_perfil{
+    width: 80px;
+    height: 80px;
+    margin: 0 20px 0 0;
+    border-radius: 40px;
+    border: 1px solid #bbb;
+}
+
+#nome_email{
+    margin-top: 10px;
+    height: 80px;
+    text-align: start;
+}
+
+#nome_completo{
+    margin: 0;
+    font-size: 18px;
+    color: #322828;
+}
+
+#email_user{
+    margin: 0px;
+    font-size: 12px;
+    color: rgb(30, 30, 30, 0.5);
+}
+
+#botoes_editar{
+    display: flex;
+    justify-content: space-between;
+    margin: 10px 0 0 0;
+}
+#botao_editar{
+    background-color: white;
+    width: 70px;
+    text-align: center;
+    text-decoration: none;
+    color: #322828;
+    font-size: 15px;
+    border-radius: 5px;
+    transition: box-shadow 0.15s, border-style 0.15s, border-color 0.15s, border-width 0.15s;
+    user-select: none;
+}
+#botao_editar:hover {
+    user-select: none;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
+}
+#botao_editar:active {
+    user-select: none;
+    background-color: rgba(169, 185, 178, 1);
+    color: #283228;
+    box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.0);
+}
+
+#botao_sair{
+
+    user-select: none;
+    width: 130px;
+    font-weight: bold;
+    background-color: white;
+    border: none;
+    color: rgba(0, 0, 0, 0.7);
+    font-size: 18px;
+    padding: 6px 0;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: box-shadow 0.15s, border-style 0.15s, border-color 0.15s, border-width 0.15s;
+}
+#botao_sair:hover {
+    user-select: none;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
+}
+#botao_sair:active {
+    user-select: none;
+    background-color: rgba(169, 185, 178, 1);
+    color: #322828;
+    box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.0);
+}
+
+
+
+@media (max-width: 500px) {
+    #div_perfil{
+        width: 85%;
+        padding: 20px;
+        position: relative;
+        margin: 20px 0;
+        transform: translate(0, 0);
+    }
+    #bytebusters_copy{
+        margin: 60px 0 0 0;
+    }
+    #voltar_home{
+        margin: 0px 20px 15px 0;
+    }
+}
+@media (max-width: 319px) {
+    #user_name{
+        margin: 30px 0 80px 0;
+    }
+}
+
+#bytebusters_copy {
+    position: relative;
+    top: 175px;
+    margin-bottom: 10px;
+}
+
+#bytebusters_copy a{
+    text-decoration: none;
+    color: #283228;
+    font-size: 12px;
+}
