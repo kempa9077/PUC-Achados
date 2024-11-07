@@ -14,9 +14,12 @@ body {
 
 /* voltar home */
 #voltar_home {
+    text-decoration: none;
+    font-size: 40px;
+    color: #283228;
     display: flex;
     justify-content: end;
-    cursor:default;
+    cursor: pointer;
     margin: 20px 0 10px 0;
     height: 40px;
 }
