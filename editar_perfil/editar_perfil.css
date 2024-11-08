@@ -177,6 +177,26 @@ main{
     opacity: 0.8;
 }
 
+#enviarsubmit-aluno{
+    width: 130px;
+    height: 40px;
+    border-radius: 5px;
+    border: none;
+    background-color: #882627;
+    color: white;
+
+    font-size: 18px;
+    transition: box-shadow 0.15s, border-style 0.15s, border-color 0.15s, border-width 0.15s;
+}
+#enviarsubmit-aluno:hover {
+    opacity: 0.9;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
+}
+#enviarsubmit-aluno:active {
+    box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.2);
+    opacity: 0.8;
+}
+
 #excluirsubmit {
     display: flex;                    
     align-items: center;             

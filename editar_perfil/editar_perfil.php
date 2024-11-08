@@ -48,7 +48,7 @@
 
                         <?php
                         if(isset($_SESSION) AND $_SESSION AND $_SESSION['usuario']['acesso_nivel'] > 0):?>
-                        <input type="text" value="<?php echo $_SESSION['usuario']['registro_puc']?>" id="matricula_id" maxlength="10" name="txtMatricula" class="campocheio" required>
+                        <input type="text" value="<?php echo $_SESSION['usuario']['registro_puc']?>" id="id_registro" maxlength="10" name="txtMatricula" class="campocheio" required>
                         <label id="label-email" for="email">Email: </label><label id="label-nome" for="email">Nome: </label><label id="label-registro" for="email">Registro: </label>
                         <?php
                         else:?>

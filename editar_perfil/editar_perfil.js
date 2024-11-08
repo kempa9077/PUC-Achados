@@ -3,7 +3,8 @@ document.getElementById('enviarsubmit').addEventListener('click', function(event
     
     const nome = document.getElementById("nome_id").value;
     const email = document.getElementById("email_id").value;
-    const matricula = document.getElementById("matricula_id").value;
+    const matricula = document.getElementById("matricula_id") ? document.getElementById("matricula_id").value : "";
+    const registro = document.getElementById("id_registro") ? document.getElementById("id_registro").value : "";
 
     // Validação básica de campos
     if (!email.includes("@")) {
@@ -16,15 +17,21 @@ document.getElementById('enviarsubmit').addEventListener('click', function(event
         return;
     }
 
+    // Valida apenas se o campo 'registro' existir e estiver vazio
+    if (document.getElementById("id_registro") && registro.trim() === "") {
+        alert("O campo 'registro' não pode ser vazio");
+        return;
+    }
+
     // Constrói o corpo da requisição como JSON
     const requestBody = {
         solicitacao: "adicionar",
         nome: nome,
         email: email,
-        matricula: matricula
+        matricula: matricula,
+        registro: registro
     };
 
-    
     fetch('atualizar_perfil.php', {
         method: 'POST',
         headers: {
@@ -51,16 +58,4 @@ document.getElementById('enviarsubmit').addEventListener('click', function(event
         console.error('Erro na requisição:', error);
         alert('Ocorreu um erro ao tentar atualizar o perfil. Tente novamente.');
     });
-});
-
-document.getElementById("excluirsubmit").addEventListener("click", function() {
-    document.getElementById("popup").style.display = "block";
-});
-
-document.getElementById("closePopup").addEventListener("click", function() {
-    document.getElementById("popup").style.display = "none";
-});
-
-document.getElementById("botao_excluir_popup").addEventListener("click", function() {
-    document.getElementById("popup").style.display = "none";
 });

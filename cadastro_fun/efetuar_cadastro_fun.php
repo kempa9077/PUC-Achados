@@ -36,7 +36,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $acesso = 1;
         $senha = $post['senha'];
         
-        
         // Hash da senha usando password_hash()
         $senha_hash = password_hash($senha, PASSWORD_DEFAULT);
         
