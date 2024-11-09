@@ -59,3 +59,15 @@ document.getElementById('enviarsubmit').addEventListener('click', function(event
         alert('Ocorreu um erro ao tentar atualizar o perfil. Tente novamente.');
     });
 });
+
+document.getElementById("excluirsubmit").addEventListener("click", function() {
+    document.getElementById("popup").style.display = "block";
+});
+
+document.getElementById("closePopup").addEventListener("click", function() {
+    document.getElementById("popup").style.display = "none";
+});
+
+document.getElementById("botao_excluir_popup").addEventListener("click", function() {
+    document.getElementById("popup").style.display = "none";
+});

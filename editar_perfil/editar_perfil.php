@@ -22,7 +22,7 @@
     <body>
         <main>
             <section class="box">
-                <a id="voltar-home" onclick="history.back()">&times;</a>
+                <a id="voltar-home" href="../perfil/perfil.php">&times;</a>
 
                 <div class="alinharelementos">
                     <img src="../img/logo-texto-preto.png" alt="" id="logo">

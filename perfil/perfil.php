@@ -23,7 +23,7 @@
         
         <div id="div_perfil">
 
-            <span id="voltar_home" onclick="voltarPagina()"><a>&times;</a></span>
+            <a id="voltar_home" href="../">&times;</a>
 
             <a title="Voltar à Home" href="../"><img src="../img/logo-texto-preto.png" alt="Logo PUC" id="logo-perfil"></a>
 

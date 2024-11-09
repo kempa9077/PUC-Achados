@@ -22,15 +22,14 @@ body {
     cursor: pointer;
     margin: 20px 0 10px 0;
     height: 40px;
+    text-decoration: none;
+    font-size: 40px;
+    color: #322828;   
 }
 #voltar_home:focus {
     outline: none;
 }
-#voltar_home a{
-    text-decoration: none;
-    font-size: 40px;
-    color: #322828;    
-}
+
 
 .login-h3 {
     font-size: 18px;
