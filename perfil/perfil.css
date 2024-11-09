@@ -63,11 +63,11 @@ body {
 }
 
 #foto_perfil{
-    width: 80px;
-    height: 80px;
+    width: 100px;
+    height: 100px;
     margin: 0 20px 0 0;
-    border-radius: 40px;
-    border: 1px solid #bbb;
+    border-radius: 50px;
+    border: 1px solid #4c4c4c8d;
 }
 
 #nome_email{
@@ -77,14 +77,14 @@ body {
 }
 
 #nome_completo{
-    margin: 0;
-    font-size: 18px;
+    margin: 10px 0 0 0;
+    font-size: 25px;
     color: #322828;
 }
 
 #email_user{
     margin: 0px;
-    font-size: 12px;
+    font-size: 20px;
     color: rgb(30, 30, 30, 0.5);
 }
 
@@ -94,15 +94,22 @@ body {
     margin: 10px 0 0 0;
 }
 #botao_editar{
-    background-color: white;
-    width: 70px;
-    text-align: center;
+    position: relative;
+    top: 204px;
+    left: 125px;
     text-decoration: none;
-    color: #322828;
-    font-size: 15px;
-    border-radius: 5px;
-    transition: box-shadow 0.15s, border-style 0.15s, border-color 0.15s, border-width 0.15s;
+    text-align: center;
     user-select: none;
+    width: 130px;
+    font-weight: bold;
+    background-color: white;
+    border: none;
+    color: rgba(0, 0, 0, 0.7);
+    font-size: 18px;
+    padding: 6px 0;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: box-shadow 0.15s, border-style 0.15s, border-color 0.15s, border-width 0.15s;
 }
 #botao_editar:hover {
     user-select: none;
@@ -111,11 +118,15 @@ body {
 #botao_editar:active {
     user-select: none;
     background-color: rgba(169, 185, 178, 1);
-    color: #283228;
+    color: #322828;
     box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.0);
 }
 
 #botao_sair{
+
+    position: relative;
+    top: 150px;
+    right: 120px;
 
     user-select: none;
     width: 130px;
