@@ -33,10 +33,10 @@ include '../header.php';
 
                     if(isset($_SESSION) AND $_SESSION):?>
 
-                        <a id="login_sem_cadastro" class="login">
+                        <a id="login_sem_cadastro" class="login" href="../perfil/perfil.php">
                             <img src="..\img\icon-login.png" alt="">
                         </a>
-                        <a id="login_sem_cadastro" class="login">
+                        <a id="login_sem_cadastro" class="login" href="../perfil/perfil.php">
                             <?php echo $_SESSION['usuario']['nome'];
                             ?>
                         </a> 
