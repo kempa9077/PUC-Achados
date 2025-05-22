@@ -124,9 +124,9 @@
         <div class="menu-principal">
             <div class="opt-menu-principal">
                 <div class="titulo-opt">
-                    <a href="protocolo_perda\perdi_algo.php">
-                        <img src="img/icon-lupa.png" alt="lupa">
-                        PERDI ALGO
+                    <a id="link_perdi_algo" href="protocolo_perda\perdi_algo.php">
+                    <img src="img/icon-lupa.png" alt="lupa">
+                         PERDI ALGO
                     </a>
                 </div>
                 <a href="protocolo_perda\perdi_algo.php" class="descricao-a">Perdeu algo? Clique aqui para abrir um protocolo de perda de um item</a>
