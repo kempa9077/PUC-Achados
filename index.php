@@ -300,12 +300,12 @@
         
             <div class="opt-menu-principal">
                     <div class="titulo-opt">
-                        <a href="meus_protocolos/meus_protocolos.php">
+                        <a id = meus_protocolos href="meus_protocolos/meus_protocolos.php">
                             <img src="img/icon-protocolos.png" alt="protocolos">
                             MEUS PROTOCOLOS
                         </a>
                     </div>
-                <a href="meus_protocolos/meus_protocolos.php" class="descricao-a">Clique aqui para ver protocolos abertos por você.</a>
+                <a id = meus_protocolos href="meus_protocolos/meus_protocolos.php" class="descricao-a">Clique aqui para ver protocolos abertos por você.</a>
             </div>
 
             <?php
