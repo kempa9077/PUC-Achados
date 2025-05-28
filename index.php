@@ -137,7 +137,7 @@
 
             <div class="opt-menu-principal">
                 <div class="titulo-opt">
-                    <a href="registrar_objeto\registrar_objeto.php">
+                    <a id= registrar_objeto href="registrar_objeto\registrar_objeto.php">
                         <img src="img/icon-achei-algo.png" alt="lupa">
                         REGISTRAR OBJETO ACHADO
                     </a>
